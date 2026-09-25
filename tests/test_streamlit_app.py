@@ -1,11 +1,15 @@
 import unittest
+from pathlib import Path
 
 from streamlit.testing.v1 import AppTest
 
 
+APP_PATH = Path(__file__).resolve().parents[1] / "src" / "openmic" / "streamlit_app.py"
+
+
 class StreamlitAppTests(unittest.TestCase):
     def test_mock_generation_renders_tts_controls(self) -> None:
-        app = AppTest.from_file("src/openmic/streamlit_app.py").run(timeout=10)
+        app = AppTest.from_file(str(APP_PATH)).run(timeout=10)
         app.radio[0].set_value("mock")
         app.button[0].click().run(timeout=10)
 
