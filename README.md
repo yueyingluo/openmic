@@ -85,6 +85,7 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 
 - [产品需求文档](docs/PRD.md)
 - [第一次项目会议](docs/MEETING_01.md)
+- [真实模型 Smoke Test](docs/SMOKE_TEST.md)
 - [协作规范](CONTRIBUTING.md)
 
 ## AutoGen 版本说明
