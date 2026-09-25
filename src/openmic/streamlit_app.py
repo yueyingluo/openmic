@@ -4,7 +4,12 @@ import streamlit as st
 
 from openmic.autogen_v02 import AutoGenConfig, AutoGenV02Workflow
 from openmic.models import AgentMessage, ProjectRequest, WorkflowResult
-from openmic.tts import SYSTEM_VOICES, SiliconFlowTTS, TTSConfig
+from openmic.tts import (
+    SYSTEM_VOICES,
+    SiliconFlowTTS,
+    TTSConfig,
+    extract_spoken_script,
+)
 from openmic.workflow import OpenMicWorkflow
 
 
@@ -93,7 +98,7 @@ def main() -> None:
                     result = OpenMicWorkflow().run(request, on_message=show_message)
             progress.progress(1.0, text="多智能体协作完成")
             st.session_state["workflow_result"] = result
-            st.session_state["performance_text"] = (
+            st.session_state["performance_text"] = extract_spoken_script(
                 _message(result, "PerformanceCoach")
                 or _message(result, "JokeWriter")
             )
@@ -113,6 +118,10 @@ def main() -> None:
                 st.markdown(item.content)
 
         st.subheader("语音合成")
+        current_text = st.session_state.get("performance_text", "")
+        cleaned_text = extract_spoken_script(current_text)
+        if cleaned_text != current_text:
+            st.session_state["performance_text"] = cleaned_text
         performance_text = st.text_area(
             "TTS 文本（可以手动修改）",
             key="performance_text",

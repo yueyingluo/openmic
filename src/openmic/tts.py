@@ -22,6 +22,23 @@ SYSTEM_VOICES: Dict[str, str] = {
 }
 
 
+LEADING_BOILERPLATE = (
+    "表演指导已到位",
+    "以下是经过表演标记",
+    "以下是最终脚本",
+    "可直接用于 tts",
+    "所有标记均已内嵌",
+)
+
+TRAILING_BOILERPLATE = (
+    "如需调整",
+    "请直接告诉我",
+    "我来微调",
+    "以上为表演",
+    "以上是表演",
+)
+
+
 @dataclass(frozen=True)
 class TTSConfig:
     api_key: str
@@ -76,9 +93,63 @@ class TTSRequestError(RuntimeError):
     pass
 
 
+def extract_spoken_script(text: str) -> str:
+    """Extract only the speakable script from a PerformanceCoach response."""
+    boundary_match = re.search(
+        r"<SCRIPT>\s*(.*?)\s*</SCRIPT>",
+        text,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    if boundary_match:
+        return boundary_match.group(1).strip()
+
+    working = text.strip()
+    first_marker = re.search(
+        r"(?m)^(?:>\s*)?(?=\[(?:PAUSE|SETUP|EMOTION|PUNCHLINE|CALLBACK|EMPHASIS)[=\]])",
+        working,
+    )
+    if first_marker and any(
+        marker in working[: first_marker.start()].lower()
+        for marker in LEADING_BOILERPLATE
+    ):
+        working = working[first_marker.start() :]
+
+    trailing_positions = []
+    for marker in TRAILING_BOILERPLATE:
+        match = re.search(rf"(?m)^\s*{re.escape(marker)}", working, flags=re.IGNORECASE)
+        if match:
+            trailing_positions.append(match.start())
+    if trailing_positions:
+        working = working[: min(trailing_positions)].rstrip()
+
+    paragraphs = [
+        part.strip() for part in re.split(r"\n\s*\n", working) if part.strip()
+    ]
+    while paragraphs and any(
+        marker in paragraphs[0].lower() for marker in LEADING_BOILERPLATE
+    ):
+        paragraphs.pop(0)
+    while paragraphs and any(
+        marker in paragraphs[-1].lower() for marker in TRAILING_BOILERPLATE
+    ):
+        paragraphs.pop()
+
+    # Older responses sometimes put the preamble and first marker in one paragraph.
+    if paragraphs:
+        marker_match = re.search(
+            r"(?m)^(?:>\s*)?(?=\[(?:PAUSE|SETUP|EMOTION|PUNCHLINE|CALLBACK|EMPHASIS)[=\]])",
+            paragraphs[0],
+        )
+        if marker_match:
+            paragraphs[0] = paragraphs[0][marker_match.start() :].strip()
+
+    return "\n\n".join(paragraphs).strip()
+
+
 def prepare_tts_text(text: str) -> str:
     """Convert internal performance markers into CosyVoice-friendly prose."""
-    cleaned = re.sub(r"\[PAUSE=\d+(?:\.\d+)?\]", "……", text)
+    spoken_script = extract_spoken_script(text)
+    cleaned = re.sub(r"\[PAUSE=\d+(?:\.\d+)?\]", "……", spoken_script)
     cleaned = re.sub(r"\[(?:SETUP|PUNCHLINE|CALLBACK|EMPHASIS)\]", "", cleaned)
     cleaned = re.sub(r"\[EMOTION=[^\]]+\]", "", cleaned)
     cleaned = cleaned.replace("**", "").replace("`", "")

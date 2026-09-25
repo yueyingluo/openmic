@@ -139,7 +139,9 @@ def _system_messages(request: ProjectRequest) -> Dict[str, str]:
         + context
         + (
             "\n保留脚本文字并插入 [PAUSE=0.8]、[PAUSE=2.0]、[EMPHASIS]、"
-            "[EMOTION=...] 等可解析标记。不要另写分析、表格或重复说明。"
+            "[EMOTION=...] 等可解析标记。最终内容必须严格放在 <SCRIPT> 和 "
+            "</SCRIPT> 之间。标签外不得写开场确认、解释、总结、建议或邀请用户调整；"
+            "标签内只允许可被朗读的脚本文字与上述表演标记。"
         ),
         "QualityController": AGENT_SPECS["QualityController"].system_prompt
         + context
