@@ -74,6 +74,15 @@ openmic \
 
 AutoGen 流程实际创建 5 个 `ConversableAgent`，再由 `GroupChatManager` 按固定路由组织发言。`UserRequest` 是不调用 LLM 的输入代理，不算第六个智能角色。
 
+## 启动 Streamlit 页面
+
+```bash
+source .venv/bin/activate
+streamlit run src/openmic/streamlit_app.py
+```
+
+页面支持主题、风格、时长、受众输入，展示完整 Agent 轨迹，并调用同一 SiliconFlow endpoint 上的 `FunAudioLLM/CosyVoice2-0.5B` 生成 16 kHz WAV。默认音色为 `alex`，可在页面切换八种系统预置音色。
+
 运行测试：
 
 ```bash

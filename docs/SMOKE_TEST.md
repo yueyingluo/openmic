@@ -44,3 +44,15 @@ UserRequest
 - 16 kHz、实时率与 MOS 评测；
 - Streamlit/FastAPI 界面；
 - 五个主题样例和完整实验报告。
+
+## 2026-09-25 TTS 与页面增量验证
+
+- 使用同一个 SiliconFlow endpoint 和 API Key 调用 `FunAudioLLM/CosyVoice2-0.5B`；
+- 系统音色：`alex`；
+- 输出：WAV、16-bit、单声道、16 kHz；
+- 短句样例实际音频时长：8.2 秒；
+- 已修正 SiliconFlow 流式 WAV 中的 RIFF/data 长度占位值；
+- Streamlit 本地健康检查返回 `ok`；
+- Streamlit AppTest 已验证 Mock 生成、三个结果指标、TTS 文本框和“生成 16 kHz WAV”按钮。
+
+本轮验证了 TTS 服务连通性和页面骨架；尚未对完整 3–5 分钟稿件进行语音质量、实时率或 MOS 评测。
