@@ -6,6 +6,8 @@ import re
 from dataclasses import dataclass
 from typing import Any, Dict, List, Optional
 
+from dotenv import load_dotenv
+
 from openmic.agents import AGENT_SPECS
 from openmic.models import AgentMessage, ProjectRequest, WorkflowResult
 
@@ -20,7 +22,12 @@ class AutoGenConfig:
 
     @classmethod
     def from_env(cls) -> "AutoGenConfig":
-        api_key = os.getenv("OPENMIC_API_KEY") or os.getenv("OPENAI_API_KEY")
+        load_dotenv()
+        api_key = (
+            os.getenv("OPENMIC_API_KEY")
+            or os.getenv("LLM_API_KEY")
+            or os.getenv("OPENAI_API_KEY")
+        )
         if not api_key:
             raise ValueError(
                 "缺少 OPENMIC_API_KEY。请参考 .env.example 导出环境变量；"
@@ -28,8 +35,16 @@ class AutoGenConfig:
             )
         return cls(
             api_key=api_key,
-            base_url=os.getenv("OPENMIC_BASE_URL") or os.getenv("OPENAI_BASE_URL"),
-            model=os.getenv("OPENMIC_MODEL", "deepseek-chat"),
+            base_url=(
+                os.getenv("OPENMIC_BASE_URL")
+                or os.getenv("LLM_BASE_URL")
+                or os.getenv("OPENAI_BASE_URL")
+            ),
+            model=(
+                os.getenv("OPENMIC_MODEL")
+                or os.getenv("LLM_MODEL")
+                or "deepseek-chat"
+            ),
         )
 
     def llm_config(self) -> Dict[str, Any]:
@@ -92,28 +107,28 @@ def _system_messages(request: ProjectRequest) -> Dict[str, str]:
     return {
         "ComedyDirector": AGENT_SPECS["ComedyDirector"].system_prompt
         + context
-        + "\n输出：主题切入点、叙事主线、三段式结构、风格边界。",
+        + "\n输出：主题切入点、叙事主线、三段式结构、风格边界。控制在300字内。",
         "AudienceAnalyzer": AGENT_SPECS["AudienceAnalyzer"].system_prompt
         + context
-        + "\n输出：共鸣点、知识门槛、措辞偏好、冒犯风险和修改建议。",
+        + "\n输出：共鸣点、知识门槛、措辞偏好、冒犯风险和修改建议。控制在300字内。",
         "JokeWriter": AGENT_SPECS["JokeWriter"].system_prompt
         + context
         + (
             "\n根据导演与受众分析写完整脚本，显式使用 [SETUP]、[PUNCHLINE]、"
-            "[CALLBACK] 标签。收到质检修改意见时必须重写，而不是解释。"
+            "[CALLBACK] 标签。目标约800-1000个汉字。收到质检修改意见时必须重写，而不是解释。"
         ),
         "PerformanceCoach": AGENT_SPECS["PerformanceCoach"].system_prompt
         + context
         + (
             "\n保留脚本文字并插入 [PAUSE=0.8]、[PAUSE=2.0]、[EMPHASIS]、"
-            "[EMOTION=...] 等可解析标记。"
+            "[EMOTION=...] 等可解析标记。不要另写分析、表格或重复说明。"
         ),
         "QualityController": AGENT_SPECS["QualityController"].system_prompt
         + context
         + (
             "\n分别给出 HUMOR_SCORE、CULTURE_SCORE、STRUCTURE_SCORE（0-10）。"
             "总分达到 7.0 且无明显安全问题则通过。最后一行必须且只能是 "
-            "`DECISION: APPROVED` 或 `DECISION: REVISION_REQUIRED`。"
+            "`DECISION: APPROVED` 或 `DECISION: REVISION_REQUIRED`。控制在350字内。"
         ),
     }
 
@@ -207,12 +222,16 @@ class AutoGenV02Workflow:
 
 
 def _extract_score(content: str) -> float:
-    scores = [
-        float(value)
-        for value in re.findall(
-            r"(?:HUMOR|CULTURE|STRUCTURE)_SCORE\s*[:：]\s*(\d+(?:\.\d+)?)",
-            content,
-            flags=re.IGNORECASE,
+    labels = ("HUMOR", "CULTURE", "STRUCTURE")
+    scores: List[float] = []
+    for label in labels:
+        patterns = (
+            rf"{label}_SCORE\s*[:：]\s*\**\s*(\d+(?:\.\d+)?)",
+            rf"{label}_SCORE[^|\n]*\|\s*\**\s*(\d+(?:\.\d+)?)",
         )
-    ]
+        for pattern in patterns:
+            match = re.search(pattern, content, flags=re.IGNORECASE)
+            if match:
+                scores.append(float(match.group(1)))
+                break
     return sum(scores) / len(scores) if scores else 0.0

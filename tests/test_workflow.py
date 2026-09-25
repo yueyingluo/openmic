@@ -56,6 +56,14 @@ class WorkflowTests(unittest.TestCase):
         content = "HUMOR_SCORE: 8\nCULTURE_SCORE: 7\nSTRUCTURE_SCORE: 9"
         self.assertEqual(_extract_score(content), 8.0)
 
+    def test_extracts_markdown_table_quality_score(self) -> None:
+        content = """
+| **HUMOR_SCORE（幽默度）** | **8.5** | ok |
+| **CULTURE_SCORE（文化契合度）** | **9.0** | ok |
+| **STRUCTURE_SCORE（结构完整性）** | **8.5** | ok |
+"""
+        self.assertAlmostEqual(_extract_score(content), 8.67, places=2)
+
 
 if __name__ == "__main__":
     unittest.main()

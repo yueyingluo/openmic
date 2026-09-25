@@ -70,6 +70,8 @@ openmic \
   --audience "大学生"
 ```
 
+程序会自动读取仓库根目录的 `.env`，并兼容 `LLM_API_KEY`、`LLM_BASE_URL`、`LLM_MODEL` 这组三个变量名。
+
 AutoGen 流程实际创建 5 个 `ConversableAgent`，再由 `GroupChatManager` 按固定路由组织发言。`UserRequest` 是不调用 LLM 的输入代理，不算第六个智能角色。
 
 运行测试：
