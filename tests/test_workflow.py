@@ -31,6 +31,23 @@ class WorkflowTests(unittest.TestCase):
             ],
         )
 
+    def test_mock_workflow_streams_messages_in_order(self) -> None:
+        observed = []
+        OpenMicWorkflow().run(
+            ProjectRequest(topic="我的网购经历"),
+            on_message=lambda message: observed.append(message.agent),
+        )
+        self.assertEqual(
+            observed,
+            [
+                "ComedyDirector",
+                "AudienceAnalyzer",
+                "JokeWriter",
+                "PerformanceCoach",
+                "QualityController",
+            ],
+        )
+
     def test_request_rejects_out_of_range_duration(self) -> None:
         with self.assertRaises(ValueError):
             ProjectRequest(topic="校园糗事", duration_minutes=2)

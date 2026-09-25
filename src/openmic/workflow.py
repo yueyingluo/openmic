@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Callable, Optional
 
 from openmic.agents import AGENT_SPECS
 from openmic.engines.base import AgentEngine
@@ -13,23 +13,31 @@ class OpenMicWorkflow:
         self.engine = engine or MockAgentEngine()
         self.max_revisions = max_revisions
 
-    def run(self, request: ProjectRequest) -> WorkflowResult:
+    def run(
+        self,
+        request: ProjectRequest,
+        on_message: Optional[Callable[[AgentMessage], None]] = None,
+    ) -> WorkflowResult:
         state = WorkflowState(request=request)
 
         for name in ("ComedyDirector", "AudienceAnalyzer", "JokeWriter", "PerformanceCoach"):
-            state.messages.append(self.engine.generate(AGENT_SPECS[name], state))
+            message = self.engine.generate(AGENT_SPECS[name], state)
+            state.messages.append(message)
+            if on_message:
+                on_message(message)
 
         while True:
             decision = self.engine.evaluate(AGENT_SPECS["QualityController"], state)
-            state.messages.append(
-                AgentMessage(
-                    agent="QualityController",
-                    content=(
-                        f"status={'APPROVED' if decision.approved else 'REVISION_REQUIRED'}; "
-                        f"score={decision.score:.1f}; feedback={decision.feedback}"
-                    ),
-                )
+            quality_message = AgentMessage(
+                agent="QualityController",
+                content=(
+                    f"status={'APPROVED' if decision.approved else 'REVISION_REQUIRED'}; "
+                    f"score={decision.score:.1f}; feedback={decision.feedback}"
+                ),
             )
+            state.messages.append(quality_message)
+            if on_message:
+                on_message(quality_message)
             if decision.approved or state.revision_count >= self.max_revisions:
                 return WorkflowResult(
                     approved=decision.approved,
@@ -39,6 +47,8 @@ class OpenMicWorkflow:
                 )
 
             state.revision_count += 1
-            state.messages.append(self.engine.generate(AGENT_SPECS["JokeWriter"], state))
-            state.messages.append(self.engine.generate(AGENT_SPECS["PerformanceCoach"], state))
-
+            for name in ("JokeWriter", "PerformanceCoach"):
+                message = self.engine.generate(AGENT_SPECS[name], state)
+                state.messages.append(message)
+                if on_message:
+                    on_message(message)

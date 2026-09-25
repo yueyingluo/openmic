@@ -3,7 +3,7 @@
 import streamlit as st
 
 from openmic.autogen_v02 import AutoGenConfig, AutoGenV02Workflow
-from openmic.models import ProjectRequest, WorkflowResult
+from openmic.models import AgentMessage, ProjectRequest, WorkflowResult
 from openmic.tts import SYSTEM_VOICES, SiliconFlowTTS, TTSConfig
 from openmic.workflow import OpenMicWorkflow
 
@@ -59,11 +59,39 @@ def main() -> None:
             audience=audience,
         )
         try:
+            st.subheader("实时协作过程")
+            live_feed = st.container(border=True)
+            progress = st.progress(0, text="准备启动多智能体流程")
+            stage_count = {"value": 0}
+            role_descriptions = {
+                "ComedyDirector": "制定创作策略",
+                "AudienceAnalyzer": "分析目标受众",
+                "JokeWriter": "创作脱口秀脚本",
+                "PerformanceCoach": "添加表演与节奏标记",
+                "QualityController": "评估质量并决定是否返工",
+            }
+
+            def show_message(message: AgentMessage) -> None:
+                stage_count["value"] += 1
+                description = role_descriptions.get(message.agent, "处理中")
+                progress.progress(
+                    min(stage_count["value"] / 5, 1.0),
+                    text=f"{message.agent} 已完成：{description}",
+                )
+                with live_feed:
+                    with st.chat_message("assistant"):
+                        st.markdown(f"**{message.agent}｜{description}**")
+                        st.markdown(message.content)
+
             with st.spinner("五个 Agent 正在协作，真实模型可能需要 1–3 分钟……"):
                 if backend == "autogen":
-                    result = AutoGenV02Workflow(AutoGenConfig.from_env()).run(request)
+                    result = AutoGenV02Workflow(AutoGenConfig.from_env()).run(
+                        request,
+                        on_message=show_message,
+                    )
                 else:
-                    result = OpenMicWorkflow().run(request)
+                    result = OpenMicWorkflow().run(request, on_message=show_message)
+            progress.progress(1.0, text="多智能体协作完成")
             st.session_state["workflow_result"] = result
             st.session_state["performance_text"] = (
                 _message(result, "PerformanceCoach")

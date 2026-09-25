@@ -4,7 +4,7 @@ import json
 import os
 import re
 from dataclasses import dataclass
-from typing import Any, Dict, List, Optional
+from typing import Any, Callable, Dict, List, Optional
 
 from dotenv import load_dotenv
 
@@ -65,12 +65,30 @@ class AutoGenConfig:
 class SpeakerRouter:
     """Deterministic speaker transitions with a bounded revision loop."""
 
-    def __init__(self, agents_by_name: Dict[str, Any], max_revisions: int = 2):
+    def __init__(
+        self,
+        agents_by_name: Dict[str, Any],
+        max_revisions: int = 2,
+        on_message: Optional[Callable[[AgentMessage], None]] = None,
+    ):
         self.agents_by_name = agents_by_name
         self.max_revisions = max_revisions
         self.revision_count = 0
+        self.on_message = on_message
 
     def __call__(self, last_speaker: Any, groupchat: Any) -> Optional[Any]:
+        if (
+            self.on_message
+            and last_speaker.name != "UserRequest"
+            and groupchat.messages
+        ):
+            self.on_message(
+                AgentMessage(
+                    agent=last_speaker.name,
+                    content=str(groupchat.messages[-1].get("content", "")),
+                )
+            )
+
         transitions = {
             "UserRequest": "ComedyDirector",
             "ComedyDirector": "AudienceAnalyzer",
@@ -140,7 +158,11 @@ class AutoGenV02Workflow:
         self.config = config
         self.max_revisions = max_revisions
 
-    def run(self, request: ProjectRequest) -> WorkflowResult:
+    def run(
+        self,
+        request: ProjectRequest,
+        on_message: Optional[Callable[[AgentMessage], None]] = None,
+    ) -> WorkflowResult:
         try:
             from autogen import ConversableAgent, GroupChat, GroupChatManager, UserProxyAgent
         except ImportError as exc:
@@ -170,7 +192,11 @@ class AutoGenV02Workflow:
         )
         agents_by_name["UserRequest"] = user_proxy
 
-        router = SpeakerRouter(agents_by_name, max_revisions=self.max_revisions)
+        router = SpeakerRouter(
+            agents_by_name,
+            max_revisions=self.max_revisions,
+            on_message=on_message,
+        )
         groupchat = GroupChat(
             agents=[user_proxy] + [agents_by_name[name] for name in AGENT_SPECS],
             messages=[],

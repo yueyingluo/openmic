@@ -17,6 +17,8 @@ class StreamlitAppTests(unittest.TestCase):
         )
         self.assertIn("生成 16 kHz WAV", [button.label for button in app.button])
         self.assertEqual(len(app.text_area), 1)
+        self.assertIn("实时协作过程", [item.value for item in app.subheader])
+        self.assertEqual(len(app.chat_message), 5)
 
 
 if __name__ == "__main__":
