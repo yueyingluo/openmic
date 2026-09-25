@@ -13,7 +13,9 @@ STYLE_ALIASES = {
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Run the OpenMic M0 workflow")
+    parser = argparse.ArgumentParser(
+        description="Generate Chinese stand-up comedy with the OpenMic workflow"
+    )
     parser.add_argument("--topic", required=True, help="生活主题")
     parser.add_argument(
         "--style",

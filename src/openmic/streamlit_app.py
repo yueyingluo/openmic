@@ -1,4 +1,4 @@
-"""Minimal Streamlit UI for the OpenMic text-to-audio pipeline."""
+"""Streamlit UI for the OpenMic multi-agent text-to-audio pipeline."""
 
 import streamlit as st
 
