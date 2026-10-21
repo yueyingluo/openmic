@@ -154,4 +154,5 @@ docs/                  # PRD、会议议程与 Smoke Test 记录
 - [产品需求文档](docs/PRD.md)
 - [第一次项目分工会](docs/MEETING_01.md)
 - [真实模型 Smoke Test](docs/SMOKE_TEST.md)
+- [基础 TTS 管线](docs/TTS_PIPELINE.md)
 - [协作规范](CONTRIBUTING.md)

@@ -1,10 +1,13 @@
 """SiliconFlow CosyVoice TTS adapter."""
 
+import io
 import os
 import re
 import struct
+import time
+import wave
 from dataclasses import dataclass
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Tuple
 
 import requests
 from dotenv import load_dotenv
@@ -87,10 +90,40 @@ class TTSResult:
     model: str
     voice: str
     sample_rate: int
+    channels: Optional[int] = None
+    duration_seconds: Optional[float] = None
+    generation_seconds: Optional[float] = None
 
 
 class TTSRequestError(RuntimeError):
     pass
+
+
+def inspect_wav(audio: bytes) -> Tuple[int, int, int, float]:
+    """Return ``(sample_rate, channels, sample_width, duration_seconds)``.
+
+    The provider response is treated as untrusted bytes.  Parsing the header
+    here gives the UI and later evaluation code one reliable source of audio
+    metadata, and lets us fail early when a provider returns a non-WAV payload
+    or an unexpected sampling rate.
+    """
+    try:
+        with wave.open(io.BytesIO(audio), "rb") as wav_file:
+            sample_rate = wav_file.getframerate()
+            channels = wav_file.getnchannels()
+            sample_width = wav_file.getsampwidth()
+            frame_count = wav_file.getnframes()
+    except (EOFError, wave.Error, ValueError) as exc:
+        raise TTSRequestError("TTS 返回的内容不是有效的 WAV 音频") from exc
+
+    if sample_rate <= 0 or channels <= 0 or sample_width <= 0:
+        raise TTSRequestError("TTS 返回的 WAV 音频头信息无效")
+    return (
+        sample_rate,
+        channels,
+        sample_width,
+        frame_count / sample_rate,
+    )
 
 
 def extract_spoken_script(text: str) -> str:
@@ -199,15 +232,20 @@ class SiliconFlowTTS:
             raise ValueError("speed 必须在 0.25 到 4.0 之间")
 
         selected_voice = voice or self.config.voice
+        prepared_text = prepare_tts_text(text)
+        spoken_text = prepared_text.split("<|endofprompt|>", 1)[-1].strip()
+        if not spoken_text:
+            raise ValueError("TTS 文本清理后为空")
         payload = {
             "model": self.config.model,
             "voice": selected_voice,
-            "input": prepare_tts_text(text),
+            "input": prepared_text,
             "response_format": self.config.response_format,
             "sample_rate": self.config.sample_rate,
             "speed": speed,
             "gain": 0,
         }
+        started = time.perf_counter()
         response = self.session.post(
             f"{self.config.base_url}/audio/speech",
             headers={
@@ -217,6 +255,7 @@ class SiliconFlowTTS:
             json=payload,
             timeout=self.config.timeout_seconds,
         )
+        generation_seconds = time.perf_counter() - started
         if response.status_code != 200:
             body = response.text[:500].replace(self.config.api_key, "[REDACTED]")
             raise TTSRequestError(
@@ -230,12 +269,23 @@ class SiliconFlowTTS:
             "pcm": "audio/pcm",
         }.get(self.config.response_format, "application/octet-stream")
         audio = response.content
+        channels: Optional[int] = None
+        duration_seconds: Optional[float] = None
         if self.config.response_format == "wav":
             audio = normalize_wav_header(audio)
+            actual_rate, channels, _sample_width, duration_seconds = inspect_wav(audio)
+            if actual_rate != self.config.sample_rate:
+                raise TTSRequestError(
+                    "TTS 返回采样率不符合配置："
+                    f"期望 {self.config.sample_rate} Hz，实际 {actual_rate} Hz"
+                )
         return TTSResult(
             audio=audio,
             media_type=media_type,
             model=self.config.model,
             voice=selected_voice,
             sample_rate=self.config.sample_rate,
+            channels=channels,
+            duration_seconds=duration_seconds,
+            generation_seconds=generation_seconds,
         )

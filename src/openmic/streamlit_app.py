@@ -156,7 +156,18 @@ def main() -> None:
                 mime=meta.media_type,
             )
             st.caption(
-                f"模型：{meta.model} · 音色：{meta.voice} · 采样率：{meta.sample_rate} Hz"
+                f"模型：{meta.model} · 音色：{meta.voice} · "
+                f"采样率：{meta.sample_rate} Hz"
+                + (
+                    f" · 音频时长：{meta.duration_seconds:.2f} 秒"
+                    if meta.duration_seconds is not None
+                    else ""
+                )
+                + (
+                    f" · 生成耗时：{meta.generation_seconds:.2f} 秒"
+                    if meta.generation_seconds is not None
+                    else ""
+                )
             )
 
 
