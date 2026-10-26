@@ -1,0 +1,164 @@
+[
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/LICENSE",
+    "destination": "Qwen2.5-Omni-7B/LICENSE",
+    "size": 11343,
+    "sha256": "8d5eb5f806d01e8f5ea2c5a52f7d68ebc54b196b1cfbe1cd5dfa4b94e482a9c6"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/added_tokens.json",
+    "destination": "Qwen2.5-Omni-7B/added_tokens.json",
+    "size": 579,
+    "sha256": "e81a2cc3bd867a1217019eed202d1d8a07e1063ece716f22060dda14f6cc07d8"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/chat_template.json",
+    "destination": "Qwen2.5-Omni-7B/chat_template.json",
+    "size": 1313,
+    "sha256": "1933f7ca08e6503460e981d9037ddc0b851196abfa3aceea52d6ee0c0fdfd9f0"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/config.json",
+    "destination": "Qwen2.5-Omni-7B/config.json",
+    "size": 13186,
+    "sha256": "f85f5a078951471e32d6ce5dd169acf619e3480c83daf195e5016ef3eb89b1a9"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/generation_config.json",
+    "destination": "Qwen2.5-Omni-7B/generation_config.json",
+    "size": 74,
+    "sha256": "b9acf52072249e0e1850541d51ca4c85a30b9d7e23c2f2093ec0fb4139059ac7"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/merges.txt",
+    "destination": "Qwen2.5-Omni-7B/merges.txt",
+    "size": 1671853,
+    "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/model-00001-of-00005.safetensors",
+    "destination": "Qwen2.5-Omni-7B/model-00001-of-00005.safetensors",
+    "size": 4985055504,
+    "sha256": "5edb02fd7c98803239468375cc9dc1bff492865c2aa086b78f348597021d6cbc"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/model-00002-of-00005.safetensors",
+    "destination": "Qwen2.5-Omni-7B/model-00002-of-00005.safetensors",
+    "size": 4991496800,
+    "sha256": "7c99b55c6e5bc63fd4b19d4dc23cdc3ddac4b0101bb3c0958cc2b5d05c2bbafe"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/model-00003-of-00005.safetensors",
+    "destination": "Qwen2.5-Omni-7B/model-00003-of-00005.safetensors",
+    "size": 4991496904,
+    "sha256": "ad00c3ac296300db905934ed213c4077ff49b85d30c0099270c814e2c77ec812"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/model-00004-of-00005.safetensors",
+    "destination": "Qwen2.5-Omni-7B/model-00004-of-00005.safetensors",
+    "size": 4969489824,
+    "sha256": "152bc7d81441eaba22547d8d96c03d32dd592ce0e0e1d0e449347a4b23a532d3"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/model-00005-of-00005.safetensors",
+    "destination": "Qwen2.5-Omni-7B/model-00005-of-00005.safetensors",
+    "size": 2425322160,
+    "sha256": "b8b18276481ba8cdf4fe2c98ac4c7a2da6e0d1c8a51850d162a391760cb2b81e"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/model.safetensors.index.json",
+    "destination": "Qwen2.5-Omni-7B/model.safetensors.index.json",
+    "size": 233160,
+    "sha256": "5428b3927da9f3bd525967db81936642e4e068afc3f8f2dfaf2a9066c9bef8e2"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/preprocessor_config.json",
+    "destination": "Qwen2.5-Omni-7B/preprocessor_config.json",
+    "size": 667,
+    "sha256": "b47055ce61463ce143e9aab741d55c0aa520801a0a5d63be73c5b17cecb6bc69"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/special_tokens_map.json",
+    "destination": "Qwen2.5-Omni-7B/special_tokens_map.json",
+    "size": 832,
+    "sha256": "dc241604d085780a33f760f69c47e6622451104c20eee3cd3a12b6e884b43f44"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/tokenizer.json",
+    "destination": "Qwen2.5-Omni-7B/tokenizer.json",
+    "size": 11421870,
+    "sha256": "8441917e39ae0244e06d704b95b3124795cec478e297f9afac39ba670d7e9d99"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/tokenizer_config.json",
+    "destination": "Qwen2.5-Omni-7B/tokenizer_config.json",
+    "size": 6469,
+    "sha256": "569aa7a9171e36dfff80f0a7550ab0c9c09e46ac840fea5030641417394fb0d2"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/vocab.json",
+    "destination": "Qwen2.5-Omni-7B/vocab.json",
+    "size": 2776833,
+    "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+  },
+  {
+    "url": "https://huggingface.co/datasets/TianRW/CEAEval-Data/resolve/f737f27f21f073e7a41bf52b0d4ffa40db9f8b08/README.md",
+    "destination": "CEAEval-Data/README.md",
+    "size": 10345,
+    "sha256": "7f39496337d54d5352be1690ec88917c2d4d5a66d195a14f64e5a2d0afd5583b"
+  },
+  {
+    "url": "https://huggingface.co/datasets/TianRW/CEAEval-Data/resolve/f737f27f21f073e7a41bf52b0d4ffa40db9f8b08/manual_annotation.tar.gz",
+    "destination": "CEAEval-Data/manual_annotation.tar.gz",
+    "size": 8002679318,
+    "sha256": "66dc6001b86cf7fb8f381b9fa7a79fca68596e505de9418d1d3d63f36e4cf8c1"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B/resolve/ae9e1690543ffd5c0221dc27f79834d0294cba00/spk_dict.pt",
+    "destination": "Qwen2.5-Omni-7B/spk_dict.pt",
+    "size": 259544,
+    "sha256": "6a05609b28f5d42b7b748f0f07592545c8f1f6885b9ae8fff64baf56e86b2a18"
+  },
+  {
+    "url": "https://huggingface.co/hfl/chinese-roberta-wwm-ext/resolve/5c58d0b8ec1d9014354d691c538661bf00bfdb44/added_tokens.json",
+    "destination": "bert/added_tokens.json",
+    "size": 2,
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+  },
+  {
+    "url": "https://huggingface.co/hfl/chinese-roberta-wwm-ext/resolve/5c58d0b8ec1d9014354d691c538661bf00bfdb44/config.json",
+    "destination": "bert/config.json",
+    "size": 689,
+    "sha256": "61609babfbada201546297d62f7f3a642d8fd2f1cefec5571c6cbd1e2e2132d9"
+  },
+  {
+    "url": "https://huggingface.co/hfl/chinese-roberta-wwm-ext/resolve/5c58d0b8ec1d9014354d691c538661bf00bfdb44/pytorch_model.bin",
+    "destination": "bert/pytorch_model.bin",
+    "size": 411578458,
+    "sha256": "1ded5a5a1c7841dee6e47942f7b5bf2bcf6f73ff19197580f852f7f638f86b35"
+  },
+  {
+    "url": "https://huggingface.co/hfl/chinese-roberta-wwm-ext/resolve/5c58d0b8ec1d9014354d691c538661bf00bfdb44/special_tokens_map.json",
+    "destination": "bert/special_tokens_map.json",
+    "size": 112,
+    "sha256": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3"
+  },
+  {
+    "url": "https://huggingface.co/hfl/chinese-roberta-wwm-ext/resolve/5c58d0b8ec1d9014354d691c538661bf00bfdb44/tokenizer.json",
+    "destination": "bert/tokenizer.json",
+    "size": 268961,
+    "sha256": "53ff61207898738bbdc000f38abebef01041c8d23b6270c11855fc692d0a3ad6"
+  },
+  {
+    "url": "https://huggingface.co/hfl/chinese-roberta-wwm-ext/resolve/5c58d0b8ec1d9014354d691c538661bf00bfdb44/tokenizer_config.json",
+    "destination": "bert/tokenizer_config.json",
+    "size": 19,
+    "sha256": "61785aeaba176fba6d6489f27dccfd2ddee6aee2af0e590451cab7d8b57e0874"
+  },
+  {
+    "url": "https://huggingface.co/hfl/chinese-roberta-wwm-ext/resolve/5c58d0b8ec1d9014354d691c538661bf00bfdb44/vocab.txt",
+    "destination": "bert/vocab.txt",
+    "size": 109540,
+    "sha256": "45bbac6b341c319adc98a532532882e91a9cefc0329aa57bac9ae761c27b291c"
+  }
+]

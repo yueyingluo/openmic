@@ -1,0 +1,76 @@
+protocol: openmic_graded_audio_v2
+created: '2026-10-26'
+status: automatic_experiments_completed_human_alignment_pending
+model:
+  repo: Qwen/Qwen2.5-Omni-7B
+  revision: ae9e1690543ffd5c0221dc27f79834d0294cba00
+  dtype: bfloat16
+  attention: sdpa
+  remote_code: false
+  score: restricted_single_digit_next_token_expectation
+  calibrated_probability: false
+text:
+  scale: [1, 2, 3, 4, 5]
+  corpus: CMHL
+  preserve_teammate_groups: true
+  exclude_known_cfun_exact_overlap_groups: true
+  validation_limit: 96
+  test_limit: 192
+  sample_selection: identity_hash_without_labels
+  primary_candidates: [direct, anchored, dimensions_learned]
+  dimensions: [punchline, setup_payoff, novelty, coherence]
+  weights: nonnegative_sum_one_minimize_development_mse
+  weight_selection_estimate: five_fold_group_out_of_fold
+  equal_weight_baseline: true
+  bert_five_class:
+    revision: 5c58d0b8ec1d9014354d691c538661bf00bfdb44
+    seeds: [17, 29, 43]
+    epochs: 3
+    learning_rate: 0.00002
+    train_batch_size: 24
+    selection: validation_spearman_each_seed_earliest_tie
+    score: mean_seed_expected_grade
+    overlength: exclude_over_512_tokens_no_truncation
+    added_comparator: after_initial_omni_report_no_changes_to_omni_selection
+audio:
+  corpus: CEAEval-D_manual_annotation
+  scale: [0, 1, 2, 3, 4, 5]
+  grouping: story_sha256_order_first_20pct_test_next_15pct_validation
+  split_amendment: original_bucket_rule_produced_only_one_validation_story_changed_before_comparative_inference_without_using_model_results
+  validation_limit: 64
+  test_limit: 128
+  max_clips_per_story: 6
+  duration_seconds: [3, 20]
+  context: preceding_utterances_last_2000_characters
+  primary_candidates: [audio_direct, audio_rubric]
+  control: text_only
+selection:
+  criterion: development_spearman
+  frozen_before_test_report: true
+  no_post_test_prompt_tuning: true
+analysis:
+  primary: spearman
+  secondary: [kendall_tau_b, mae, rmse, coverage]
+  bootstrap_resamples: 5000
+  bootstrap_unit: story_or_text_duplicate_group
+  bootstrap_seed: 20261026
+  compare_on_identical_items: true
+project_pilot:
+  topics: 2
+  conditions: [single_agent_local, five_agent_local]
+  actual_autogen_workflow: true
+  max_revisions: 0
+  text_max_new_tokens_per_call: 2048
+  tts: Qwen2.5-Omni-7B_forced_transcript
+  speaker: Chelsie
+  speech_chunk_max_characters: 140
+  interchunk_silence_ms: 250
+  production_cosyvoice: false
+  formal_test_eligible: false
+  same_generator_judge_family_confound: true
+  human_validation: pending
+resources:
+  max_gpus: 1
+  stage_seconds_cap: 7200
+  external_paid_api_calls: false
+  local_gpu_uuid_configuration_required: true

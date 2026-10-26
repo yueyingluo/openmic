@@ -1,0 +1,115 @@
+{
+  "validation_candidates": [
+    {
+      "method": "ridge",
+      "parameter": 0.1,
+      "metrics": {
+        "n": 327,
+        "coverage": 1.0,
+        "spearman": 0.22405098688027678,
+        "kendall_tau_b": 0.17214062265572636,
+        "mae": 0.743879595773968,
+        "rmse": 0.9321843123783461
+      }
+    },
+    {
+      "method": "ridge",
+      "parameter": 1,
+      "metrics": {
+        "n": 327,
+        "coverage": 1.0,
+        "spearman": 0.258735607743081,
+        "kendall_tau_b": 0.1986723056975222,
+        "mae": 0.7165719490019702,
+        "rmse": 0.8985836007372795
+      }
+    },
+    {
+      "method": "ridge",
+      "parameter": 10,
+      "metrics": {
+        "n": 327,
+        "coverage": 1.0,
+        "spearman": 0.25931443664079773,
+        "kendall_tau_b": 0.19632994997906145,
+        "mae": 0.7163207025469603,
+        "rmse": 0.9009493544024277
+      }
+    },
+    {
+      "method": "ordinal_expected_multiclass",
+      "parameter": 0.1,
+      "metrics": {
+        "n": 327,
+        "coverage": 1.0,
+        "spearman": 0.25760032454048826,
+        "kendall_tau_b": 0.1960596781653929,
+        "mae": 0.7280853841415832,
+        "rmse": 0.9106084402038519
+      }
+    },
+    {
+      "method": "ordinal_expected_multiclass",
+      "parameter": 1,
+      "metrics": {
+        "n": 327,
+        "coverage": 1.0,
+        "spearman": 0.2750839769120305,
+        "kendall_tau_b": 0.2102489483829917,
+        "mae": 0.708993203042038,
+        "rmse": 0.8941700056085532
+      }
+    },
+    {
+      "method": "ordinal_expected_multiclass",
+      "parameter": 10,
+      "metrics": {
+        "n": 327,
+        "coverage": 1.0,
+        "spearman": 0.26783551836793296,
+        "kendall_tau_b": 0.20777145675769668,
+        "mae": 0.7050227993843067,
+        "rmse": 0.8954772651717833
+      }
+    }
+  ],
+  "chosen_parameters": {
+    "ridge": 10,
+    "ordinal_expected_multiclass": 1
+  },
+  "full_test": {
+    "train_mean": {
+      "n": 718,
+      "coverage": 1.0,
+      "spearman": null,
+      "kendall_tau_b": null,
+      "mae": 0.8287109749792522,
+      "rmse": 1.0048887637160036
+    },
+    "length": {
+      "n": 718,
+      "coverage": 1.0,
+      "spearman": -0.08553709494775778,
+      "kendall_tau_b": -0.06895729185982881,
+      "mae": null,
+      "rmse": null
+    },
+    "ridge": {
+      "n": 718,
+      "coverage": 1.0,
+      "spearman": 0.2801551777843648,
+      "kendall_tau_b": 0.21065394018761396,
+      "mae": 0.805684577477828,
+      "rmse": 0.982179468684298
+    },
+    "ordinal_expected_multiclass": {
+      "n": 718,
+      "coverage": 1.0,
+      "spearman": 0.2789058939049755,
+      "kendall_tau_b": 0.20977227673411902,
+      "mae": 0.7970970483819622,
+      "rmse": 0.9742894242714393
+    }
+  },
+  "meaning": "agreement_with_single_annotator_public_labels_not_project_human_alignment"
+}

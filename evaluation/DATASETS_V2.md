@@ -1,6 +1,6 @@
 # 分级文本与声音数据：选择及实际核验
 
-核验日期：2026-10-26。文本文件已经下载并逐行统计；音频部分核查了官方说明、仓库文件列表、版本和访问条件，尚未下载或逐条审计音频。来源版本和文件hash见 [e2e_sources.json](e2e_sources.json)，本地实际统计见 [graded_sources_audit.json](results/graded_sources_audit.json)。本仓库不再分发原始语料。
+核验日期：2026-10-26。文本文件已经下载并逐行统计；音频部分随后已下载CEAEval人工包并逐条核查元数据和音频文件，执行结果见 [V2_REPORT.md](V2_REPORT.md)。来源版本和文件hash见 [e2e_sources.json](e2e_sources.json)，本地实际统计见 [graded_sources_audit.json](results/graded_sources_audit.json)。本仓库不再分发原始语料。
 
 ## 选用的数据
 
@@ -8,9 +8,9 @@
 | --- | --- | --- | --- |
 | [CMHL](https://github.com/SamTseng/Chinese_Humor_MultiLabeled) | 3,365条中文笑话，完整1—5级；另有8类手法、6类意图 | 文本等级评分的主要开发语料 | 已下载、核对三张标注表及重复 |
 | [CCL2019 Task 2](https://github.com/DUTIR-Emotion-Group/CCL2019-Chinese-Humor-Computation) | 训练16,670、测试4,171；只有1/3/5三档 | 文本序数评分补充诊断 | 已下载、核对标签和跨划分重复 |
-| [CEAEval-D人工子集](https://huggingface.co/datasets/TianRW/CEAEval-Data) | 官方记录7,136片段、91个故事；整体表达适切性0—5，另有韵律/情绪等描述 | 中文声音表达是否契合上下文 | 无访问门槛；人工压缩包约8.00 GB，未下载 |
+| [CEAEval-D人工子集](https://huggingface.co/datasets/TianRW/CEAEval-Data) | 实际7,136个音频文件、91个文件条目、82个唯一故事ID；整体表达适切性0—5，另有韵律/情绪等描述 | 中文声音表达是否契合上下文 | 无访问门槛；人工压缩包约8.00 GB，已下载并核对SHA256 |
 | [SpeechJudge](https://speechjudge.github.io/) | 官方记录约99K语音对，人工自然度偏好与可懂度标签，含中文 | 自然度/可懂度的备选校准 | 数据仓库需申请访问，未接受条款或下载 |
-| 项目实际生成的完整音频 | 拟收集整体好笑程度1—5及同主题偏好 | 最终端到端结论 | 尚待生成与盲听，不由公开数据替代 |
+| 项目实际生成的完整音频 | 拟收集整体好笑程度1—5及同主题偏好 | 最终端到端结论 | 已生成4段离线开发音频，人工盲听待完成；不由公开数据替代 |
 
 ## 文本：完整五档确实存在，但不能直接当作最终金标准
 
@@ -47,7 +47,7 @@ CMHL与CCL train/test分别重合36/8个文本，不能把两个语料简单视�
 
 CEAEval-D来自中文有声书，人工标签针对上下文表达适切性，适合检验音频评审能否识别韵律、情绪与语境的配合。其15个标注字段包括元数据和类别，不能误写成15项MOS分。原始整体分为0—5，可含小数，须保留原量表；与项目1—5幽默评分分开统计。许可为CC-BY-NC-4.0。
 
-固定revision的文件元数据表明：`manual_annotation.tar.gz`为8,002,679,318字节；`weak_annotation.tar.gz`为165,968,823,540字节。优先只准备人工包。弱标注是模型生成的描述，不能混入人工测试。下载后还需核验实际条目、标签缺失、音频存在性、时长与故事映射；按故事分组，若说话人身份可识别，再避免同一说话人跨组。不能直接照README的全量snapshot命令把约166 GB弱标注一起拉下。
+固定revision的文件元数据表明：`manual_annotation.tar.gz`为8,002,679,318字节；`weak_annotation.tar.gz`为165,968,823,540字节。本次只下载人工包并核验7,136个实际音频文件，审计见 [audio_integrity_audit.json](results/v2/audio_integrity_audit.json)。弱标注是模型生成的描述，不能混入人工测试。已经核验实际条目、标签缺失、音频存在性、时长与故事映射；按故事分组，若说话人身份可识别，再避免同一说话人跨组。不能直接照README的全量snapshot命令把约166 GB弱标注一起拉下。
 
 SpeechJudge的[官方仓库](https://github.com/AmphionTeam/SpeechJudge)将SpeechJudge-Eval作为 `RMSnow/SpeechJudge-Data` 的 `test` 划分加载。它不是另一份可以假定公开下载的独立仓库；当前需要账户接受数据访问条件，未执行这一操作。许可为CC-BY-NC-4.0。若后续取得访问权限，筛选中文并遵循官方划分；SpeechJudge-GRM自身已在该数据上训练，不能在训练部分验证后宣称泛化。其自然度偏好仍不能证明脱口秀好笑。
 

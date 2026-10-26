@@ -1,0 +1,26 @@
+{
+  "mode": "audio",
+  "validation_n": 64,
+  "selection": "development Spearman; learned weights use group OOF predictions",
+  "validation_metrics": {
+    "audio_direct": {
+      "n": 64,
+      "coverage": 1.0,
+      "spearman": -0.364629638365406,
+      "kendall_tau_b": -0.24641312987681405,
+      "mae": 1.2192065125273075,
+      "rmse": 1.4704364644846566
+    },
+    "audio_rubric": {
+      "n": 64,
+      "coverage": 1.0,
+      "spearman": -0.32735401973766437,
+      "kendall_tau_b": -0.23583745906665032,
+      "mae": 1.0429514409624971,
+      "rmse": 1.3083339127045264
+    }
+  },
+  "project_human_alignment": false,
+  "chosen_method": "audio_rubric",
+  "validation_ids_sha256": "669dece5c4e0f0732645d2940dec8c104ebd94156b128954b2148a546c037360"
+}

@@ -1,0 +1,63 @@
+{
+  "status": "automatic_pipeline_completed_human_validation_pending",
+  "project_revision": "854e4f366ed80965aa527513164305082d68bb9c",
+  "model_revision": "ae9e1690543ffd5c0221dc27f79834d0294cba00",
+  "topics": 2,
+  "scripts": 4,
+  "real_autogen_workflow": true,
+  "generation_calls": 12,
+  "all_generations_end_at_eos": true,
+  "max_revisions": 0,
+  "requested_duration_seconds": 180,
+  "actual_duration_seconds_range": [
+    86.43,
+    180.55
+  ],
+  "actual_total_duration_seconds": 548.1800000000001,
+  "all_requested_durations_met": false,
+  "waveforms": {
+    "count": 4,
+    "sample_rate": 24000,
+    "channels": 1,
+    "subtype": "PCM_16",
+    "sha256_verified": true,
+    "finite_nonzero": true,
+    "peak_range": [
+      0.623138427734375,
+      0.741668701171875
+    ],
+    "rms_range": [
+      0.08039447557659529,
+      0.08240957222924106
+    ]
+  },
+  "synthesis_segments": 24,
+  "forced_text_tokens_match": true,
+  "asr_or_human_transcript_verified": false,
+  "judge_requests": 16,
+  "real_audio_requests": 12,
+  "text_control_requests": 4,
+  "complete_audio_feature_coverage_checked": true,
+  "blind_pack": {
+    "clips": 4,
+    "dataset_id": "0641d561a731855819eb66eb1a1056aeb9e639cfb3d987c9d3530dbf2e9abba9",
+    "contains_model_scores": false,
+    "mapping_outside_pack": true
+  },
+  "individual_scores_published": false,
+  "production_cosyvoice": false,
+  "same_generator_judge_family_confound": true,
+  "formal_test_eligible": false,
+  "actual_human_ratings": 0,
+  "external_paid_api_calls": 0,
+  "excluded_integration_attempts": [
+    "loopback proxy dependency failure",
+    "missing EOS caused capped output; no capped works included"
+  ],
+  "remaining_limitations": [
+    "shorter than requested duration",
+    "template and meta-language present in unedited scripts",
+    "fixed voice/chunk concatenation, no verified performance controls",
+    "automatic audio validity failed on public calibration data"
+  ]
+}

@@ -27,6 +27,8 @@ evaluation = [
   "jsonschema>=4.18,<5",
   "PyYAML>=6,<7",
   "pytest>=8,<9",
+  "opencc-python-reimplemented==0.1.7",
+  "soundfile>=0.12,<0.14",
 ]
 evaluation-gpu = [
   "torch==2.7.1",

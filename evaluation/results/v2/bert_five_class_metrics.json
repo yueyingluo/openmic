@@ -1,0 +1,163 @@
+{
+  "model": "hfl/chinese-roberta-wwm-ext",
+  "revision": "5c58d0b8ec1d9014354d691c538661bf00bfdb44",
+  "labels": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "score": "sum_k k*P(k), average three fixed seeds",
+  "epochs": 3,
+  "learning_rate": 2e-05,
+  "training_batch_size": 24,
+  "overlength_policy": "exclude >512 tokens, never truncate",
+  "excluded_by_split": {
+    "train": 13,
+    "validation": 3,
+    "test": 11
+  },
+  "retained_by_split": {
+    "train": 2266,
+    "validation": 324,
+    "test": 707
+  },
+  "seeds": [
+    {
+      "seed": 17,
+      "best_epoch": 3,
+      "history": [
+        {
+          "epoch": 1,
+          "validation": {
+            "n": 324,
+            "coverage": 1.0,
+            "spearman": 0.2119974377794413,
+            "kendall_tau_b": 0.16094197792484796,
+            "mae": 0.6757093815155971,
+            "rmse": 0.8766666454005642
+          }
+        },
+        {
+          "epoch": 2,
+          "validation": {
+            "n": 324,
+            "coverage": 1.0,
+            "spearman": 0.3163492951602421,
+            "kendall_tau_b": 0.2442314647136899,
+            "mae": 0.6630123997176135,
+            "rmse": 0.8614488427034281
+          }
+        },
+        {
+          "epoch": 3,
+          "validation": {
+            "n": 324,
+            "coverage": 1.0,
+            "spearman": 0.3337404598364014,
+            "kendall_tau_b": 0.261441557563981,
+            "mae": 0.6667271046726791,
+            "rmse": 0.8729838640989402
+          }
+        }
+      ]
+    },
+    {
+      "seed": 29,
+      "best_epoch": 3,
+      "history": [
+        {
+          "epoch": 1,
+          "validation": {
+            "n": 324,
+            "coverage": 1.0,
+            "spearman": 0.12747065787060607,
+            "kendall_tau_b": 0.09872795243395605,
+            "mae": 0.7211254761542802,
+            "rmse": 0.9037271032990927
+          }
+        },
+        {
+          "epoch": 2,
+          "validation": {
+            "n": 324,
+            "coverage": 1.0,
+            "spearman": 0.3070024407578799,
+            "kendall_tau_b": 0.2348901576318474,
+            "mae": 0.6564120010093406,
+            "rmse": 0.8502006491334847
+          }
+        },
+        {
+          "epoch": 3,
+          "validation": {
+            "n": 324,
+            "coverage": 1.0,
+            "spearman": 0.3262905816350797,
+            "kendall_tau_b": 0.25039764771352685,
+            "mae": 0.6648837828341826,
+            "rmse": 0.8588812080081727
+          }
+        }
+      ]
+    },
+    {
+      "seed": 43,
+      "best_epoch": 3,
+      "history": [
+        {
+          "epoch": 1,
+          "validation": {
+            "n": 324,
+            "coverage": 1.0,
+            "spearman": 0.1241147573328981,
+            "kendall_tau_b": 0.095184698023602,
+            "mae": 0.7330599699491336,
+            "rmse": 0.9234997208042452
+          }
+        },
+        {
+          "epoch": 2,
+          "validation": {
+            "n": 324,
+            "coverage": 1.0,
+            "spearman": 0.27524283782325243,
+            "kendall_tau_b": 0.20783257849823464,
+            "mae": 0.709177984499637,
+            "rmse": 0.9178299354114797
+          }
+        },
+        {
+          "epoch": 3,
+          "validation": {
+            "n": 324,
+            "coverage": 1.0,
+            "spearman": 0.31794025308578644,
+            "kendall_tau_b": 0.24252886194507822,
+            "mae": 0.6745646684258072,
+            "rmse": 0.8805383445394198
+          }
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "n": 324,
+    "coverage": 1.0,
+    "spearman": 0.3386517347792472,
+    "kendall_tau_b": 0.26093537836250186,
+    "mae": 0.6636318494508295,
+    "rmse": 0.8631575778946152
+  },
+  "test": {
+    "n": 707,
+    "coverage": 1.0,
+    "spearman": 0.33800065413473507,
+    "kendall_tau_b": 0.2585866767559229,
+    "mae": 0.7550278784586877,
+    "rmse": 0.9397425469363182
+  },
+  "elapsed_seconds": 41.78237045509741,
+  "project_human_alignment": false
+}

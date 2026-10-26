@@ -1,0 +1,27 @@
+{
+  "mode": "project",
+  "model_revision": "ae9e1690543ffd5c0221dc27f79834d0294cba00",
+  "grade_tokens": {
+    "1": 16,
+    "2": 17,
+    "3": 18,
+    "4": 19,
+    "5": 20
+  },
+  "scoring": "softmax restricted next-token grade logits, expectation; no calibration claim",
+  "prompts": {
+    "whole_audio_humor": "听完整中文单口作品，评价实际听感有多好笑。综合笑点内容及声音表演，不能把音质好直接当作好笑。1完全不好笑，2略有趣，3一般好笑，4很好笑，5非常好笑。只输出一个1到5的数字。",
+    "expression": "听完整作品，评价声音情绪、重音和节奏是否配合铺垫与笑点。1很不合适，2较差，3一般，4合适，5非常合适。只输出一个1到5的数字。",
+    "intelligibility": "听实际声音，评价能否清楚听懂，不评价段子是否有趣。1难以辨认，2多处不清，3基本清楚，4清楚，5非常清楚自然。只输出一个1到5的数字。",
+    "text_only": "你是独立幽默评审。评价普通中文成年读者的整体笑感，不因篇幅、双关标签、积极情绪或流畅文字而加分。1没有有效笑点；2有意制造笑点但效果弱；3有清楚且有效的笑点；4铺垫自然、揭底意外且贴切，明显好笑；5多个笑点或一个极强笑点，意外与合理性兼具。只输出一个1到5的数字。"
+  },
+  "input_sha256": "ec5ca2c8d670c2b9181c90d005f562ff9ef1ed09b45e29899e647250cfc6c41c",
+  "chat_template_sha256": "d027e14db2e64eb2c23597240d42ea747b4fd5efd6e6a7604a990949c610f79c",
+  "torch": "2.9.1+cu128",
+  "batch_size": 1,
+  "seconds_cap": 7200,
+  "audio_input": true,
+  "no_reference_labels_in_model_input": true,
+  "missing_checkpoint_keys": [],
+  "unused_checkpoint_key_count": 1102
+}
