@@ -6,3 +6,12 @@ __pycache__/
 .pytest_cache/
 .DS_Store
 artifacts/
+
+# Evaluation runtime data and machine-specific configuration stay local.
+evaluation/runtime/data/
+evaluation/runtime/models/
+evaluation/runtime/downloaded_models/
+evaluation/runtime/gpu_results/
+evaluation/runtime/reports/
+evaluation/*.local.yaml
+evaluation/runtime/*.local.yaml

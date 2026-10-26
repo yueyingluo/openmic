@@ -1,0 +1,50 @@
+{
+  "source": "CMHL",
+  "source_revision": "d6ce23497ac9bc50071600c65b465b7e14a861df",
+  "grouping_reference": "text PR1 f8e61fcaea0567ce5ab143d9d1b0c0e38631abb6",
+  "original_split_counts": {
+    "test": 728,
+    "train": 2308,
+    "validation": 329
+  },
+  "original_groups": 3365,
+  "excluded_cfun_groups": 41,
+  "retained_rows": 3324,
+  "split_counts": {
+    "test": 718,
+    "train": 2279,
+    "validation": 327
+  },
+  "labels_by_split": {
+    "train": {
+      "1": 263,
+      "2": 582,
+      "3": 898,
+      "4": 475,
+      "5": 61
+    },
+    "validation": {
+      "1": 17,
+      "2": 84,
+      "3": 142,
+      "4": 73,
+      "5": 11
+    },
+    "test": {
+      "1": 83,
+      "2": 189,
+      "3": 263,
+      "4": 165,
+      "5": 18
+    }
+  },
+  "judge_subset": {
+    "validation": 96,
+    "test": 192
+  },
+  "selection_rule": "first by sha256(omni-v2- + sample_id), without labels",
+  "input_sha256": "a2ba391d3d3a0c609a8ad8ff3cc70debdbc68f24c4cfed84fb38e4e6bd4de6a5",
+  "cfunset_sha256": "b8535022560118a830acb8e550556aadcd37df27ba303795c8db1b2b88c006ab",
+  "remaining_pretraining_or_semantic_overlap_not_excluded": true,
+  "project_human_alignment": false
+}

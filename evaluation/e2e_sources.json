@@ -1,0 +1,124 @@
+{
+  "checked_on": "2026-10-26",
+  "scope": "dataset_provenance_and_audit_not_model_results",
+  "text_files": [
+    {
+      "dataset": "ccl2019",
+      "revision": "265f46caf4280d7111266f6342716de342ffec39",
+      "url": "https://raw.githubusercontent.com/DUTIR-Emotion-Group/CCL2019-Chinese-Humor-Computation/265f46caf4280d7111266f6342716de342ffec39/task2/task2_train.csv",
+      "file": "ccl2019/task2_train.csv",
+      "bytes": 4968621,
+      "sha256": "1a6057f95219f10892e70f82913d752fe29ccaab946509b2a1916a3b6b505b61"
+    },
+    {
+      "dataset": "ccl2019",
+      "revision": "265f46caf4280d7111266f6342716de342ffec39",
+      "url": "https://raw.githubusercontent.com/DUTIR-Emotion-Group/CCL2019-Chinese-Humor-Computation/265f46caf4280d7111266f6342716de342ffec39/task2/task2_development.csv",
+      "file": "ccl2019/task2_development.csv",
+      "bytes": 309184,
+      "sha256": "dfa387279f2dc459d3f0622f948a6cc255bab371616c018da06524b44c8cc99f"
+    },
+    {
+      "dataset": "ccl2019",
+      "revision": "265f46caf4280d7111266f6342716de342ffec39",
+      "url": "https://raw.githubusercontent.com/DUTIR-Emotion-Group/CCL2019-Chinese-Humor-Computation/265f46caf4280d7111266f6342716de342ffec39/task2/task2_test_with_label.csv",
+      "file": "ccl2019/task2_test_with_label.csv",
+      "bytes": 1235797,
+      "sha256": "33f3822ca17523051f165c1cefed3f0c1f2db1fff1e291e7cc44b1f954be1b59"
+    },
+    {
+      "dataset": "ccl2019",
+      "revision": "265f46caf4280d7111266f6342716de342ffec39",
+      "url": "https://raw.githubusercontent.com/DUTIR-Emotion-Group/CCL2019-Chinese-Humor-Computation/265f46caf4280d7111266f6342716de342ffec39/README.md",
+      "file": "ccl2019/README.md",
+      "bytes": 4697,
+      "sha256": "3f2e32deaa59905e9520de5ae4dd299e80a91da45b66160e3ce6b32dbf997331"
+    },
+    {
+      "dataset": "cmhl",
+      "revision": "d6ce23497ac9bc50071600c65b465b7e14a861df",
+      "url": "https://raw.githubusercontent.com/SamTseng/Chinese_Humor_MultiLabeled/d6ce23497ac9bc50071600c65b465b7e14a861df/mlabel_corpora/JokeHumorLevel.txt",
+      "file": "cmhl/JokeHumorLevel.txt",
+      "bytes": 1259748,
+      "sha256": "b7ce4aa8323f6a61853016d684b45e6aa9b60d3d05db513fc648f3fbbfd2cdd4"
+    },
+    {
+      "dataset": "cmhl",
+      "revision": "d6ce23497ac9bc50071600c65b465b7e14a861df",
+      "url": "https://raw.githubusercontent.com/SamTseng/Chinese_Humor_MultiLabeled/d6ce23497ac9bc50071600c65b465b7e14a861df/mlabel_corpora/JokeSkill.txt",
+      "file": "cmhl/JokeSkill.txt",
+      "bytes": 1306931,
+      "sha256": "29c191e6d85c57ad13655fd5fb5c1bd21ea09d4a42c6de9d9939fe2a4d06601c"
+    },
+    {
+      "dataset": "cmhl",
+      "revision": "d6ce23497ac9bc50071600c65b465b7e14a861df",
+      "url": "https://raw.githubusercontent.com/SamTseng/Chinese_Humor_MultiLabeled/d6ce23497ac9bc50071600c65b465b7e14a861df/mlabel_corpora/JokeMotivation.txt",
+      "file": "cmhl/JokeMotivation.txt",
+      "bytes": 1293449,
+      "sha256": "a3d195114efa40de8ca4b5c7a86003ef1e4a87d8bdbc1f9dc0e643cad779d57e"
+    },
+    {
+      "dataset": "cmhl",
+      "revision": "d6ce23497ac9bc50071600c65b465b7e14a861df",
+      "url": "https://raw.githubusercontent.com/SamTseng/Chinese_Humor_MultiLabeled/d6ce23497ac9bc50071600c65b465b7e14a861df/LICENSE",
+      "file": "cmhl/LICENSE",
+      "bytes": 1073,
+      "sha256": "bc53adb1ffb02f48e1bf8bfdaa67a64c2c264eb3f23cb83f848c81af50fc3c21"
+    },
+    {
+      "dataset": "cmhl",
+      "revision": "d6ce23497ac9bc50071600c65b465b7e14a861df",
+      "url": "https://raw.githubusercontent.com/SamTseng/Chinese_Humor_MultiLabeled/d6ce23497ac9bc50071600c65b465b7e14a861df/README.md",
+      "file": "cmhl/README.md",
+      "bytes": 803,
+      "sha256": "bdccbed6faacb8230b0548cb1e30728ef0f7dc3da210d9c0dd836fa908a01a97"
+    }
+  ],
+  "audio_sources": [
+    {
+      "repo": "RMSnow/SpeechJudge-Data",
+      "revision": "9adfa017dd88b450e437eba7c7a51538e3123a3f",
+      "gated": "auto",
+      "license": "cc-by-nc-4.0"
+    },
+    {
+      "repo": "TianRW/CEAEval-Data",
+      "revision": "f737f27f21f073e7a41bf52b0d4ffa40db9f8b08",
+      "gated": false,
+      "license": "cc-by-nc-4.0"
+    }
+  ],
+  "audio_files_downloaded": false,
+  "audio_archives": [
+    {
+      "repo": "TianRW/CEAEval-Data",
+      "file": "manual_annotation.tar.gz",
+      "bytes": 8002679318,
+      "role": "human_annotations"
+    },
+    {
+      "repo": "TianRW/CEAEval-Data",
+      "file": "weak_annotation.tar.gz",
+      "bytes": 165968823540,
+      "role": "model_generated_descriptions_not_human_ground_truth"
+    }
+  ],
+  "teammate_snapshots": {
+    "text_pr": {
+      "url": "https://github.com/yueyingluo/openmic/pull/1",
+      "head": "f8e61fcaea0567ce5ab143d9d1b0c0e38631abb6",
+      "training_results_independently_reproduced": false
+    },
+    "tts_pr": {
+      "url": "https://github.com/yueyingluo/openmic/pull/2",
+      "state": "MERGED",
+      "main_snapshot": "854e4f3"
+    }
+  },
+  "normalization_dependency": {
+    "opencc-python-reimplemented": "0.1.7"
+  },
+  "original_texts_in_git": false,
+  "human_project_ratings_imported": false
+}

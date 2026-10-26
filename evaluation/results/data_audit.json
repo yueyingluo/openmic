@@ -1,0 +1,54 @@
+{
+  "source": "ZhenghanYU/CFunSet",
+  "revision": "39ded465de072b19d4b843e319d7dc85d704be5f",
+  "sha256": "b8535022560118a830acb8e550556aadcd37df27ba303795c8db1b2b88c006ab",
+  "raw_records": 164200,
+  "recognition_records": 4200,
+  "label_counts_raw": {
+    "不幽默": 2629,
+    "幽默": 1571
+  },
+  "recognition_instruction": "以下是一段文本，请分析它是否具有幽默性。幽默性指该文本是否可能引起读者发笑，或通过语言技巧（如双关语、讽刺、夸张、荒诞或逻辑上的意外）营造幽默效果。只需要输出“幽默”或“不幽默”。",
+  "label_mapping": {
+    "不幽默": 0,
+    "幽默": 1
+  },
+  "label_audit": "Exact output strings and task definition verified; semantic label correctness not independently human-audited.",
+  "distinct_normalized_inputs": 4186,
+  "extra_exact_copies": 14,
+  "quarantine_by_reason": {},
+  "near_duplicate_edges": 1,
+  "retained_components": 4185,
+  "retained_records": 4186,
+  "split_counts": {
+    "train": {
+      "0": 1832,
+      "1": 1097
+    },
+    "validation": {
+      "0": 394,
+      "1": 235
+    },
+    "source_holdout": {
+      "0": 393,
+      "1": 235
+    }
+  },
+  "split_policy": "No official held-out split in source JSON. Fixed-seed component-stratified local split; exact copies collapsed to first representative. Mixed-label near components quarantined.",
+  "cross_split_duplicate_groups": 0,
+  "manifest_sha256": "4edfd130e301cc8c386d78c283c1b64b290ebe2704722c352af95b3f12a78511",
+  "tokenizer": {
+    "implementation": "tokenizers.BertWordPieceTokenizer",
+    "vocab_sha256": "45bbac6b341c319adc98a532532882e91a9cefc0329aa57bac9ae761c27b291c",
+    "config": {
+      "init_inputs": []
+    },
+    "special_tokens_included": true,
+    "truncation": false
+  },
+  "limitations": [
+    "Source labels assess recognition, not 1–5 funniness.",
+    "Not an unseen benchmark for CFunModel.",
+    "Trigram deduplication does not exclude paraphrases or shared original sources."
+  ]
+}

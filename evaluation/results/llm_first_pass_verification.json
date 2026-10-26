@@ -1,0 +1,44 @@
+[
+  {
+    "model": "qwen",
+    "samples": 12,
+    "valid_responses": 8,
+    "scored_responses": 7,
+    "valid_abstentions": 1,
+    "missing_scores": 5,
+    "invalid_by_exception_type": {
+      "ValueError": 1,
+      "ValidationError": 3
+    },
+    "failure_categories": {
+      "non_verbatim_evidence": 1,
+      "schema:humor_score:type": 3
+    },
+    "non_eos_terminations": 0,
+    "total_generation_seconds": 15.837368664972018,
+    "total_output_tokens": 1101,
+    "independent_validation_passed": true,
+    "human_alignment_validated": false,
+    "responses_sha256": "27b89009a9a6f02418518e348b2c94e9b92ebb0ba653391a11fda14bfc7b7e4f"
+  },
+  {
+    "model": "cfun",
+    "samples": 12,
+    "valid_responses": 7,
+    "scored_responses": 7,
+    "valid_abstentions": 0,
+    "missing_scores": 5,
+    "invalid_by_exception_type": {
+      "ValidationError": 5
+    },
+    "failure_categories": {
+      "schema::required": 5
+    },
+    "non_eos_terminations": 0,
+    "total_generation_seconds": 17.606126594997477,
+    "total_output_tokens": 1189,
+    "independent_validation_passed": true,
+    "human_alignment_validated": false,
+    "responses_sha256": "3ea8efff4b7ad29f910ce7cae168ad3eb367d01eee872e89684f91399d91c68d"
+  }
+]

@@ -1,0 +1,13 @@
+# Separate Python 3.12 environment; do not combine with the historical evaluation-gpu extra.
+numpy==1.26.4
+scipy==1.15.3
+scikit-learn==1.7.2
+torch==2.9.1
+transformers==4.57.1
+accelerate==1.12.0
+librosa==0.11.0
+soundfile==0.13.1
+opencc-python-reimplemented==0.1.7
+autogen-agentchat==0.2.40
+python-dotenv>=1,<2
+requests>=2.31,<3

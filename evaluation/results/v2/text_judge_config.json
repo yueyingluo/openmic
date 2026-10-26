@@ -1,0 +1,29 @@
+{
+  "mode": "text",
+  "model_revision": "ae9e1690543ffd5c0221dc27f79834d0294cba00",
+  "grade_tokens": {
+    "1": 16,
+    "2": 17,
+    "3": 18,
+    "4": 19,
+    "5": 20
+  },
+  "scoring": "softmax restricted next-token grade logits, expectation; no calibration claim",
+  "prompts": {
+    "direct": "评价下面中文段子整体有多好笑。1完全不好笑，2略有趣，3一般好笑，4很好笑，5非常好笑。只输出一个1到5的数字。",
+    "anchored": "你是独立幽默评审。评价普通中文成年读者的整体笑感，不因篇幅、双关标签、积极情绪或流畅文字而加分。1没有有效笑点；2有意制造笑点但效果弱；3有清楚且有效的笑点；4铺垫自然、揭底意外且贴切，明显好笑；5多个笑点或一个极强笑点，意外与合理性兼具。只输出一个1到5的数字。",
+    "punchline": "只评价笑点实际效果：意外的信息是否带来好笑的重新理解，而非仅仅怪异或情绪共鸣。1完全无效，2较弱，3中等，4强，5极强。只输出1到5的一个数字。",
+    "setup_payoff": "只评价铺垫与揭底配合：信息是否足以理解，揭底是否回扣铺垫且不被提前泄露。1完全失效，2较弱，3中等，4很好，5极好。只输出1到5的一个数字。",
+    "novelty": "只评价幽默构思的新鲜感，不能把莫名其妙当新颖：1非常陈旧，2较陈旧，3一般，4新颖，5很新颖且贴切。只输出1到5的一个数字。",
+    "coherence": "只评价段子的可理解性与内部逻辑：1难以理解，2明显缺信息，3基本可理解，4清楚自然，5非常清楚且简洁。只输出1到5的一个数字。"
+  },
+  "input_sha256": "a2ba391d3d3a0c609a8ad8ff3cc70debdbc68f24c4cfed84fb38e4e6bd4de6a5",
+  "chat_template_sha256": "d027e14db2e64eb2c23597240d42ea747b4fd5efd6e6a7604a990949c610f79c",
+  "torch": "2.9.1+cu128",
+  "batch_size": 8,
+  "seconds_cap": 7100,
+  "audio_input": false,
+  "no_reference_labels_in_model_input": true,
+  "missing_checkpoint_keys": [],
+  "unused_checkpoint_key_count": 1102
+}

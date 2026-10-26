@@ -148,6 +148,8 @@ docs/                  # PRD、会议议程与 Smoke Test 记录
 
 后续开发集中在 CFunSet 数据管线、中文幽默生成对照实验、可执行的语音表演控制、人工盲评和课程交付。具体范围、验收指标和五人分工见 [PRD](docs/PRD.md)。
 
+评估的独立研究工具见 [evaluation](evaluation/README.md)，包括评分Schema、提示、人工排序统计、分类实验及[首轮探索结果](evaluation/REPORT.md)。新增[端到端声音评估设计](evaluation/E2E_DESIGN.md)与[分级数据核验](evaluation/DATASETS_V2.md)：文本以多档评分为主，最终验证完整音频的人类排序。五档文本与真实声音实验已执行，见[执行报告](evaluation/V2_REPORT.md)和[复现步骤](evaluation/V2_REPRODUCE.md)。公开文本标签上监督模型有有限排序信号，当前音频自动评分未通过有效性验证；完整作品的真人盲听仍待完成。
+
 ## 文档
 
 - [中期汇报（英文 HTML）](presentation/midterm.html) · [编辑与分工说明](presentation/README.md)
