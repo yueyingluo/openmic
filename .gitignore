@@ -6,3 +6,17 @@ __pycache__/
 .pytest_cache/
 .DS_Store
 artifacts/
+
+# Local JYB environments, credentials and generated media.
+.venv*/
+.env.*
+!.env.example
+outputs/
+*.wav
+*.mp3
+*.flac
+*.ogg
+*.pcm
+*.pt
+*.pth
+*.onnx

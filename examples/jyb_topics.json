@@ -1,0 +1,7 @@
+[
+  {"id": "shopping", "topic": "我的网购经历", "style": "roast", "duration_minutes": 3, "audience": "大学生"},
+  {"id": "canteen", "topic": "大学食堂选择困难", "style": "observational", "duration_minutes": 3, "audience": "大学生"},
+  {"id": "deadline", "topic": "期末作业与拖延症", "style": "self_deprecating", "duration_minutes": 3, "audience": "大学生"},
+  {"id": "fitness", "topic": "办了健身卡之后", "style": "self_deprecating", "duration_minutes": 3, "audience": "大学生"},
+  {"id": "groupwork", "topic": "小组合作的日常", "style": "observational", "duration_minutes": 3, "audience": "大学生"}
+]
