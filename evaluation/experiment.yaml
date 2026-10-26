@@ -1,0 +1,286 @@
+# Portable template; fill a local ignored config for GPU execution.
+protocol_id: openmic_humor_metaeval_v0.1
+status: portable_reproduction_template_gpu_not_authorized
+created_date: '2026-10-23'
+timezone: Asia/Shanghai
+authorization:
+  server_approved: false
+  paid_api_approved: false
+scope:
+  primary: chinese_standalone_humor_segment_human_rank_alignment
+  audience: 中文流利且熟悉大学生活的成年人
+  primary_models:
+  - bert_binary_ensemble
+  - qwen_pointwise
+  - cfun_pointwise
+  diagnostic_models:
+  - char_length
+  - seeded_random
+  - cfun_label_likelihood
+  optional_existing_baseline: project_naive_bayes
+  whole_script_enabled: false
+  audio_enabled: false
+  external_api_enabled: false
+  generator_registry: null
+data:
+  public_binary:
+    repo_id: ZhenghanYU/CFunSet
+    revision: 39ded465de072b19d4b843e319d7dc85d704be5f
+    filename: CFunSet.json
+    checksum_status: verified_locally_20261023
+    instruction_prefix: 以下是一段文本，请分析它是否具有幽默性
+    allowed_labels:
+      不幽默: 0
+      幽默: 1
+    label_mapping_requires_manual_audit: true
+    normalization_for_dedup_only:
+    - unicode_nfkc
+    - collapse_whitespace
+    exact_duplicates: collapse_to_first_and_preserve_source_indices
+    conflicting_exact_labels: quarantine
+    near_duplicate_candidate_metric: character_trigram_jaccard
+    near_duplicate_threshold: 0.85
+    conflicting_near_component_labels: quarantine_component
+    split_unit: duplicate_component
+    split_preference: preserve_traceable_official_split_else_group_stratify
+    fallback_split_ratios:
+    - 0.7
+    - 0.15
+    - 0.15
+    split_seed: 20261023
+    source_test_is_unseen_for_cfun: false
+    overlength_policy: quarantine_and_report
+    expected_sha256: b8535022560118a830acb8e550556aadcd37df27ba303795c8db1b2b88c006ab
+  target:
+    unit: self_contained_setup_punchline_segment
+    suggested_han_characters:
+    - 150
+    - 300
+    max_bert_tokens_including_special_tokens: 512
+    split_unit: topic_and_story_family
+    pilot:
+      topics: 4
+      candidates_per_topic: 3
+      raters: 1
+      split: development_only
+      source: assistant_authored_rubric_pilot
+    development:
+      topics: 6
+      candidates_per_topic: 4
+      raters: 5
+    test:
+      topics: 18
+      candidates_per_topic: 4
+      raters: 5
+    candidates:
+      generation_conditions: 2
+      independent_repeats_per_condition: 2
+    sample_selection: chronological_first_eligible_not_score_selected
+    technical_failure_policy: log_not_rate
+    readable_low_quality_policy: retain
+    overlength_replacement_limit: 1
+    dedup_rule_must_be_frozen_before_test: true
+    test_manifest_sha256: null
+    old_feedback_samples: development_only
+    transformed_challenge_examples: separate_from_primary
+    human_source_and_condition_blinded: true
+    scorer_metadata_sidecar_separate: true
+bert:
+  repo_id: hfl/chinese-roberta-wwm-ext
+  revision: 5c58d0b8ec1d9014354d691c538661bf00bfdb44
+  architecture: BertForSequenceClassification
+  num_labels: 2
+  positive_label_id: 1
+  max_length: 512
+  truncation: false
+  padding: dynamic
+  dtype: bfloat16
+  optimizer: AdamW
+  learning_rate: 2.0e-05
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  epochs: 3
+  per_device_train_batch_size: 16
+  gradient_accumulation_steps: 2
+  per_device_eval_batch_size: 32
+  max_grad_norm: 1.0
+  class_weights: null
+  resampling: none
+  train_seeds:
+  - 17
+  - 29
+  - 43
+  select_checkpoint: highest_source_validation_macro_f1
+  checkpoint_tie_break: earliest_epoch
+  target_test_selection_forbidden: true
+  primary_score: mean_positive_probability_across_three_seeds
+  calibrated_laugh_probability: false
+  report_source_metrics:
+  - macro_f1
+  - balanced_accuracy
+  - roc_auc
+  - majority_baseline
+llm:
+  engine: transformers_local
+  models:
+    qwen:
+      repo_id: Qwen/Qwen2.5-7B-Instruct
+      revision: a09a35458c702b33eeacc393d103063234e8bc28
+      subfolder: null
+    cfun:
+      repo_id: ZhenghanYU/CFunModel
+      revision: f51483398f54f2d8d97996a9c55c4bc175be143f
+      subfolder: CFunModel
+  trust_remote_code: false
+  load_format: safetensors
+  dtype: bfloat16
+  batch_size: 1
+  max_input_tokens: 4096
+  max_new_tokens: 256
+  do_sample: false
+  num_beams: 1
+  use_cache: true
+  temperature: null
+  top_p: null
+  seed: 20261023
+  overlength_policy: error_no_truncation
+  chat_template: pinned_tokenizer_apply_chat_template
+  inherited_generation_settings: save_resolved_config_and_override_sampling
+  pointwise_system_file: prompts/pointwise_system.txt
+  pointwise_user_file: prompts/pointwise_user.txt
+  pointwise_schema: schemas/pointwise_response.schema.json
+  pairwise_system_file: prompts/pairwise_system.txt
+  pairwise_user_file: prompts/pairwise_user.txt
+  pairwise_schema: schemas/pairwise_response.schema.json
+  pairwise_orientations:
+  - AB
+  - BA
+  orientation_disagreement: order_inconsistent_not_tie
+  max_prompt_versions_on_development: 2
+  alternative_prompt_calls_max: 48
+  repair:
+    max_attempts: 1
+    system_file: prompts/repair_system.txt
+    preserve_existing_score_and_winner: true
+    invent_missing_score: false
+    failed_policy: invalid_not_zero
+    original_response_always_saved: true
+  repeatability:
+    development_samples: 8
+    calls_per_model_per_sample: 3
+    cache_enabled: false
+  native_cfun_recognition:
+    system_file: prompts/recognition_system.txt
+    candidates:
+    - 幽默
+    - 不幽默
+    method: teacher_forced_complete_sequence_log_probability
+    include_end_of_turn_token: true
+    length_normalization: none
+    score: logp_humorous_minus_logp_not_humorous
+    record_candidate_token_counts: true
+    calibrated_probability: false
+human:
+  current_available_raters: 1
+  current_claim_scope: individual_preference_only
+  scale:
+    min: 1
+    max: 5
+    integer_only: true
+  dimensions:
+  - humor_score
+  diagnostic_fields:
+  - humor_intent
+  - understood
+  - comment
+  instructions: ANNOTATION.md
+  participant_ids: pseudonymous
+  missing_score: null
+  impute_missing: false
+  expected_valid_ratings_per_formal_sample: 5
+  minimum_valid_ratings_for_primary: 3
+  coverage_sensitivity:
+  - exactly_5
+  - at_least_3
+  primary_aggregation: arithmetic_mean
+  unique_key:
+  - sample_id
+  - rater_id
+  - annotation_round
+  display_shuffle_seed: 20261024
+  raw_ratings_immutable: true
+  direct_pairwise:
+    selected_pairs_per_test_topic: 1
+    total_pairs: 18
+    selection_seed: 20261025
+    select_before_observing_scores: true
+    raters: 5
+    outcomes:
+    - A
+    - B
+    - tie
+    - abstain
+    consensus: strictly_more_than_half_of_valid_votes_with_at_least_three_valid_votes
+analysis:
+  primary_split: test
+  primary_correlation: spearman
+  secondary_correlation: kendall_tau_b
+  human_derived_pair_tie_threshold: 0.5
+  human_tie_threshold_sensitivity:
+  - 0.0
+  - 1.0
+  model_pair_tie: exact_score_equality
+  primary_pairwise: within_topic_decisive_human_pairs
+  model_tie_on_human_decisive_pair: incorrect
+  pairwise_strict_coverage_denominator: all_planned_pairs
+  missing_prediction: report_coverage_not_impute
+  compare_models_on_common_valid_set: true
+  additionally_report_each_model_full_valid_set: true
+  undefined_correlation: null_with_reason
+  bootstrap:
+    n_resamples: 5000
+    seed: 20261026
+    primary_unit: topic_cluster_fixed_rater_panel
+    preserve_all_candidates_and_pairs_within_topic: true
+    secondary: crossed_topic_and_rater_resampling
+    interval: percentile_95
+    metric_difference: same_resamples_paired_delta
+    min_valid_resamples_fraction: 0.95
+  human_agreement:
+  - leave_one_rater_out_spearman
+  - ordinal_krippendorff_alpha
+  confound_checks:
+  - length
+  - generation_condition
+  - evaluator_generator_family
+  - developer_raters
+  predeclared_universal_rho_pass_threshold: null
+  random_baseline_seed: 20261027
+resources:
+  gpu_uuid: null
+  gpu_count: 1
+  cpu_cores_cap: 8
+  current_stage_wall_caps_seconds:
+    bert: 1800
+    qwen: 900
+    cfun: 900
+reproducibility:
+  local_cpu_environment_lock: results/environment_versions.json
+  python_version: null
+  torch_version: null
+  transformers_version: null
+  cuda_runtime_version: null
+  driver_version: null
+  exact_environment_lock_required_before_formal_run: true
+  resolved_chat_template_hash_required: true
+  config_lock_filename: config.lock.json
+  preserve_every_attempt: true
+  append_only_raw_results: true
+  cache_key_fields:
+  - text_sha256
+  - prompt_sha256
+  - schema_sha256
+  - model_revision
+  - tokenizer_revision
+  - decoding_config
+  - pair_order

@@ -148,6 +148,8 @@ docs/                  # PRD、会议议程与 Smoke Test 记录
 
 后续开发集中在 CFunSet 数据管线、中文幽默生成对照实验、可执行的语音表演控制、人工盲评和课程交付。具体范围、验收指标和五人分工见 [PRD](docs/PRD.md)。
 
+文本评估的独立研究工具见 [evaluation](evaluation/README.md)，包括评分Schema、提示、人工排序统计、分类实验及[首轮探索结果](evaluation/REPORT.md)。当前尚未完成真实人工排序验证，自动识别分数不替代流程内的质检判断，也不评价语音表演。
+
 ## 文档
 
 - [中期汇报（英文 HTML）](presentation/midterm.html) · [编辑与分工说明](presentation/README.md)

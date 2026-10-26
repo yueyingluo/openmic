@@ -1,0 +1,57 @@
+{
+  "bert": {
+    "packages": {
+      "torch": "2.7.1+cu128",
+      "transformers": "4.49.0",
+      "numpy": "1.26.4",
+      "scipy": "1.17.1",
+      "jsonschema": "4.26.0",
+      "PyYAML": "6.0.3"
+    },
+    "cuda_runtime": "12.8",
+    "device_name": "NVIDIA H200",
+    "historical_source_hashes": {}
+  },
+  "qwen": {
+    "packages": {
+      "torch": "2.7.1+cu128",
+      "transformers": "4.49.0",
+      "numpy": "1.26.4",
+      "scipy": "1.17.1",
+      "jsonschema": "4.26.0",
+      "PyYAML": "6.0.3"
+    },
+    "cuda_runtime": "12.8",
+    "device_name": "NVIDIA H200",
+    "historical_source_hashes": {
+      "runtime/gpu_experiment.py": "0f2b4012e5a4c9b0888e7703e815e4b4272c5a87224240ae2d71965c45868dfb",
+      "runtime/common.py": "0102b793413f7b01d2494a4a443dca526703c23ed17b55dfc7d88df12e79c8b1",
+      "runtime/judge_io.py": "d6cc1d1ca5a96fff46f26ad7cd58d9d8eaf643ae1fc96120fe13f7060d13bf12",
+      "runtime/data/pilot_samples.jsonl": "c4f2688aab6015ef727a8877a6ca199f1b16857798500cdd93c01890d8eda862",
+      "prompts/pointwise_system.txt": "c73421403a56286c10598cdc12a93f2bcfb35a171f594724ef0c76ae186e997c",
+      "prompts/pointwise_user.txt": "4e707250263eaacaf6aad0f77131a630446e644ac1e530d3b1615d393775673d",
+      "schemas/pointwise_response.schema.json": "9b3352049666beb66dbd5e43ad6044d549f26927f53b48beca29150a51c94f63"
+    }
+  },
+  "cfun": {
+    "packages": {
+      "torch": "2.7.1+cu128",
+      "transformers": "4.49.0",
+      "numpy": "1.26.4",
+      "scipy": "1.17.1",
+      "jsonschema": "4.26.0",
+      "PyYAML": "6.0.3"
+    },
+    "cuda_runtime": "12.8",
+    "device_name": "NVIDIA H200",
+    "historical_source_hashes": {
+      "runtime/gpu_experiment.py": "0f2b4012e5a4c9b0888e7703e815e4b4272c5a87224240ae2d71965c45868dfb",
+      "runtime/common.py": "0102b793413f7b01d2494a4a443dca526703c23ed17b55dfc7d88df12e79c8b1",
+      "runtime/judge_io.py": "d6cc1d1ca5a96fff46f26ad7cd58d9d8eaf643ae1fc96120fe13f7060d13bf12",
+      "runtime/data/pilot_samples.jsonl": "c4f2688aab6015ef727a8877a6ca199f1b16857798500cdd93c01890d8eda862",
+      "prompts/pointwise_system.txt": "c73421403a56286c10598cdc12a93f2bcfb35a171f594724ef0c76ae186e997c",
+      "prompts/pointwise_user.txt": "4e707250263eaacaf6aad0f77131a630446e644ac1e530d3b1615d393775673d",
+      "schemas/pointwise_response.schema.json": "9b3352049666beb66dbd5e43ad6044d549f26927f53b48beca29150a51c94f63"
+    }
+  }
+}
