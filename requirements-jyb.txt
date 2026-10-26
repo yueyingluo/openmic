@@ -1,0 +1,3 @@
+# Install the existing project separately with: python -m pip install -e .
+-c constraints-jyb.txt
+numpy>=1.24,<3

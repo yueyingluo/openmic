@@ -1,0 +1,31 @@
+{
+  "run": "20261026_02",
+  "scripts": {
+    "shopping": {
+      "path": "examples/jyb_run_02/shopping.txt",
+      "sha256": "82a5fb13be4aa1ec4d4243522805f4f718f6bdd52a704128d8cad9403a7b36b1",
+      "source": "jyb_run_20261026_02/outputs/scripts/shopping.txt"
+    },
+    "canteen": {
+      "path": "examples/jyb_run_02/canteen.txt",
+      "sha256": "c8a192d76188a76cad6e91e940292d039ccc12d9a7d452e6d54645efc913c9d3",
+      "source": "jyb_run_20261026_02/outputs/scripts/canteen.txt"
+    },
+    "deadline": {
+      "path": "examples/jyb_run_02/deadline.txt",
+      "sha256": "c1847d3a3989c4d7dac32763e35eff7dcf8c7b4eb5535fe7f34ac45261715451",
+      "source": "jyb_run_20261026_02/outputs/scripts/deadline.txt"
+    },
+    "fitness": {
+      "path": "examples/jyb_run_02/fitness.txt",
+      "sha256": "7b7d03cdf7fdf5374430f91ead25c4bcc387afc1d12f472833b089ce7247b346",
+      "source": "jyb_run_20261026_02/outputs/scripts/fitness.txt"
+    },
+    "groupwork": {
+      "path": "examples/jyb_run_02/groupwork.txt",
+      "sha256": "9074687d7dfb2a041044348e2ab3e82a2208342fd7c81e36f3b9dd2ebaff12f1",
+      "source": "jyb_run_20261026_02/outputs/scripts/groupwork.txt"
+    }
+  },
+  "note": "Exact final marked scripts, not audio/cache/credentials. Historical provenance is described in docs/JYB_RUN_02_RESULTS.md."
+}

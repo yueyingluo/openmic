@@ -1,0 +1,9 @@
+# Key packages verified together on Python 3.11, 2026-10-26.
+# Constraints narrow the original pyproject ranges without editing that file.
+autogen-agentchat==0.2.40
+streamlit==1.66.1
+numpy==1.26.4
+openai==3.37.0
+pydantic==2.14.1
+requests==2.34.2
+python-dotenv==1.2.4

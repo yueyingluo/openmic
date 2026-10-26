@@ -3,7 +3,7 @@ name: test
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, csw, jyb]
 
 jobs:
   unit-test:
@@ -15,4 +15,22 @@ jobs:
           python-version: "3.9"
       - run: python -m pip install -e .
       - run: python -c "import autogen; assert autogen.__version__ == '0.2.40', autogen.__version__"
+      - run: PYTHONPATH=src python -m unittest discover -s tests -p test_workflow.py -v
+      - run: PYTHONPATH=src python -m unittest discover -s tests -p test_tts.py -v
+      - run: PYTHONPATH=src python -m unittest discover -s tests -p test_streamlit_app.py -v
+
+  jyb-performance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e . -r requirements-jyb.txt
+      - run: python -m pip check
+      - run: python -c "import autogen; assert autogen.__version__ == '0.2.40', autogen.__version__"
       - run: PYTHONPATH=src python -m unittest discover -s tests -v
+      - run: python -m compileall -q src tests
+      - run: python -m openmic --backend mock --topic "我的网购经历"
+      - run: python -m openmic tts plan --script examples/jyb_demo.txt --out artifacts/jyb/plan.json
+      - run: python -m openmic tts synth --script examples/jyb_demo.txt --backend tone --conditions baseline timing emotion performance --out artifacts/jyb/offline/shopping
