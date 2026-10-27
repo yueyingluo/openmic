@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-10-27T10:38:34.917616+08:00",
+  "source_commit": "eb6dba0631fe9d1142568397f594b854e1f58382",
+  "source_archive_sha256": "ea3bccbe5f162f381853bb86d3e7d8e06374e90ea8e9aba3728009900b8dba29",
+  "merge_pr": 6,
+  "merged_main_ci": "3/3 success",
+  "actual_release_api": {
+    "n": 4,
+    "input_sha256": "e18857e2cd3048688e5580734cf13bf2a98bf94fe60fd2b021c9e035663f2f3e",
+    "plan_sha256": "952f87a13dcb5f070caf3ec49b60aac60ce2cdd167bcee9b9230830b7c6cd878",
+    "bundle": {
+      "verified_files": 21,
+      "bundle_id": "987022d68bdbffb7e482d5835b93d8efacc2c83d4a99b402f8e250836351154f"
+    },
+    "decoded_full_waveforms": 4,
+    "duration_seconds_total": 548.18,
+    "text_outputs": {
+      "experimental_score": 3,
+      "scored": 1
+    },
+    "full_audio_humor_numeric_outputs": 4,
+    "full_audio_expression_numeric_outputs": 4,
+    "full_audio_intelligibility_numeric_outputs": 4,
+    "full_omni_feature_coverage_checks": 12,
+    "intelligibility_segment_coverage_checks": 4,
+    "failures": 0,
+    "elapsed_seconds": 39.04952906817198,
+    "actual_model_calls": true,
+    "scientific_full_work_human_validation": false,
+    "meaning": "Engineering integration and complete-input checks only; no human ratings, no generation-condition comparison, no validity claim"
+  },
+  "release_response_schema_validated": 4,
+  "job_exit_code": "0:0",
+  "own_gpu_jobs_remaining": 0,
+  "scope": "Technical verification of merged code and metadata export; no additional scientific test or model selection"
+}

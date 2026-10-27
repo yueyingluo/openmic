@@ -200,4 +200,4 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 
 Slurm 可使用 `v3_slurm.py` 包装一次有界阶段。它要求已有单 GPU allocation，先用退出的子进程读取已分配 UUID，再设置同一 UUID给阶段；记录任务、设备及命令。不要在登录节点直接占 GPU，不终止他人进程，不把集群作业与 Codex 周期自动化混为一谈。
 
-项目完整作品的真人盲评继续使用既有 `blind_audio_pack.py`、`import_audio_ratings.py` 与 `analysis.py`。只在取得真实评分后导入；原私人工作簿保持原样。
+项目完整作品的三维真人听评使用 [V3_LISTENING.md](V3_LISTENING.md)：新空白表分别记录幽默、表达和字词可懂度，检查播放覆盖，并有显式导入与分维分析。原 V2 表继续由既有工具处理；两轮不混为独立评分者。只在取得真实评分后导入，原私人工作簿保持原样。
