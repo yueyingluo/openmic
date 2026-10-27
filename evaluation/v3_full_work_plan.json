@@ -1,0 +1,13 @@
+{
+  "protocol": "openmic-unified-full-work-integration-v1",
+  "frozen_at": "2026-10-26T14:55:53.924957+00:00",
+  "inputs": "all four existing project_pilot_v3 audio-manifest works, same unchanged scripts; no new generated works selected by scores",
+  "text_path": "selected supervised model on native context; explicit reject or optional experimental full-input Omni for overlength",
+  "audio_humor": "fixed experimental full-input Qwen2.5-Omni prompt, 1..5 restricted grade expectation and argmax; no full-work human validity claim",
+  "expression": "frozen CEAEval selected regression for native clips; experimental full-waveform Omni performance-expression score for long works; native tasks and scales explicitly differ",
+  "intelligibility": "frozen TMHINT-QI selected model; complete native clip up to 30 sec; long waveform 4 sec nonoverlapping windows with tail <2 sec joined, time-weighted aggregate, no full-work human validation claim",
+  "asr": "fixed Whisper complete 25 sec chunks; transcript fidelity only",
+  "every_request": "report version, method/task, scale, coverage, failures, validation scope, no generated explanations",
+  "full_omni_max_multimodal_tokens": 30000,
+  "paid_apis": false
+}

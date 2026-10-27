@@ -1,0 +1,170 @@
+{
+  "candidates": [
+    {
+      "run": "v3/text_run",
+      "chosen": "corn-lr2e-05",
+      "validation": {
+        "n": 513,
+        "coverage": 1.0,
+        "spearman": 0.42606181396156706,
+        "kendall_tau_b": 0.3266375018190795,
+        "mae": 0.7331787650711693,
+        "rmse": 0.9362846459312086,
+        "correct": 225,
+        "exact_accuracy": 0.43859649122807015,
+        "macro_f1": 0.33719272478866025,
+        "confusion_matrix": [
+          [
+            16,
+            27,
+            13,
+            8,
+            0
+          ],
+          [
+            10,
+            62,
+            39,
+            10,
+            0
+          ],
+          [
+            8,
+            47,
+            94,
+            45,
+            0
+          ],
+          [
+            2,
+            18,
+            46,
+            53,
+            0
+          ],
+          [
+            0,
+            5,
+            6,
+            4,
+            0
+          ]
+        ]
+      },
+      "preparation_sha256": "14f100c39d57c9650c081a875d87273f5c20886ad192b7638741fdfd05e54d07",
+      "selection_lock_sha256": "5e3d1ae946784bc40837c7f5fb9fe1085fdcb65a2fdcc92c1d9ea93a03a3a830"
+    },
+    {
+      "run": "v3/macbert_run",
+      "chosen": "ce-lr2e-05",
+      "validation": {
+        "n": 513,
+        "coverage": 1.0,
+        "spearman": 0.3829472039859348,
+        "kendall_tau_b": 0.2922255759839658,
+        "mae": 0.7536607745846055,
+        "rmse": 0.9525996154804023,
+        "correct": 212,
+        "exact_accuracy": 0.41325536062378165,
+        "macro_f1": 0.30700393857260877,
+        "confusion_matrix": [
+          [
+            17,
+            26,
+            18,
+            3,
+            0
+          ],
+          [
+            8,
+            60,
+            47,
+            6,
+            0
+          ],
+          [
+            11,
+            55,
+            109,
+            18,
+            1
+          ],
+          [
+            2,
+            19,
+            72,
+            26,
+            0
+          ],
+          [
+            1,
+            5,
+            5,
+            4,
+            0
+          ]
+        ]
+      },
+      "preparation_sha256": "14f100c39d57c9650c081a875d87273f5c20886ad192b7638741fdfd05e54d07",
+      "selection_lock_sha256": "a952c7567f2872384146a1eacb484a3b857888e872730efdf4a37827349fa2d2"
+    },
+    {
+      "run": "v3/qwen_run",
+      "chosen": "qwen-lora-ce-lr0.0001",
+      "validation": {
+        "n": 513,
+        "coverage": 1.0,
+        "spearman": 0.3181624089828587,
+        "kendall_tau_b": 0.24176424109855607,
+        "mae": 0.7885892790420885,
+        "rmse": 0.9784193716936082,
+        "correct": 211,
+        "exact_accuracy": 0.41130604288499023,
+        "macro_f1": 0.22707197949346813,
+        "confusion_matrix": [
+          [
+            3,
+            15,
+            41,
+            5,
+            0
+          ],
+          [
+            1,
+            28,
+            89,
+            3,
+            0
+          ],
+          [
+            1,
+            18,
+            164,
+            11,
+            0
+          ],
+          [
+            0,
+            10,
+            93,
+            16,
+            0
+          ],
+          [
+            0,
+            1,
+            12,
+            2,
+            0
+          ]
+        ]
+      },
+      "preparation_sha256": "14f100c39d57c9650c081a875d87273f5c20886ad192b7638741fdfd05e54d07",
+      "selection_lock_sha256": "ceb782c62e5487ecdf69e663aa41f186f4e8cf485cff131a833fd80e5668daf9"
+    }
+  ],
+  "selected_run": "v3/text_run",
+  "rule": "validation exact accuracy, then Spearman, then input run order",
+  "confirmation_results_exist": false,
+  "no_confirmation_targets_read": true
+}

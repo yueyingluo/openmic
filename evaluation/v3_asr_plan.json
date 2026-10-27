@@ -1,0 +1,17 @@
+{
+  "protocol": "openmic-transcript-fidelity-audit-v1",
+  "model": "openai/whisper-large-v3-turbo@41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+  "human_transcript_benchmark": "v2 CEAEval heldout 102 complete clips; fixed model, no fitting or prompt selection",
+  "project_audio": "all four existing local technical-pilot complete waveforms",
+  "long_audio_policy": "independent complete 25 second chunks, concatenate transcripts; report every source frame, no source tail truncation",
+  "scoring": "Chinese simplified NFKC alphanumeric character error rate; edit distance / reference characters, may exceed 1",
+  "generation": {
+    "language": "zh",
+    "task": "transcribe",
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 440
+  },
+  "claim_limit": "ASR transcript fidelity, not a human intelligibility score or a humor label",
+  "paid_api": false
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenMic offline evaluation response 1.0",
+  "type": "object",
+  "required": ["schema_version", "evaluator_version", "status", "scores", "failures"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "evaluator_version": {"type": "string", "minLength": 1},
+    "bundle_id": {"type": ["string", "null"]},
+    "status": {"enum": ["scored", "partial", "failed"]},
+    "runtime_device": {"enum": ["cpu", "cuda"]},
+    "scores": {
+      "type": "object",
+      "required": ["text_humor", "whole_audio_humor", "expression", "intelligibility"],
+      "properties": {
+        "text_humor": {"$ref": "#/$defs/score"},
+        "whole_audio_humor": {"$ref": "#/$defs/score"},
+        "expression": {"$ref": "#/$defs/score"},
+        "intelligibility": {"$ref": "#/$defs/score"}
+      },
+      "additionalProperties": false
+    },
+    "failures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["modality", "type", "message"],
+        "properties": {
+          "modality": {"enum": ["text", "audio"]},
+          "type": {"type": "string"},
+          "message": {"type": "string"},
+          "component": {"type": "string"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "score": {
+      "type": "object",
+      "required": ["status", "grade", "continuous"],
+      "properties": {
+        "status": {
+          "enum": ["scored", "experimental_score", "experimental_aggregate", "not_requested", "human_validation_pending", "unconfigured", "invalid_input", "unsupported_length", "unsupported_duration", "missing_transcript", "no_validated_audio_model", "failed"]
+        },
+        "grade": {"type": ["integer", "null"], "minimum": 1, "maximum": 5},
+        "continuous": {"type": ["number", "null"]},
+        "scale": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
+        "coverage": {"type": "object"}
+      },
+      "if": {"properties": {"status": {"enum": ["scored", "experimental_score", "experimental_aggregate"]}}},
+      "then": {"required": ["scale"], "properties": {"continuous": {"type": "number"}}},
+      "else": {"properties": {"grade": {"type": "null"}, "continuous": {"type": "null"}}}
+    }
+  }
+}
