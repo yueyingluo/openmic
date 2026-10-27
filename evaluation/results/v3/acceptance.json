@@ -26,7 +26,8 @@
     "intelligibility_human_label_validation": "short Chinese noisy/enhanced sentence recognition only",
     "intelligibility_spearman": 0.4621507486356805,
     "full_work_humor_human_alignment": "pending_new_real_listener_ratings",
-    "full_work_intelligibility_aggregate": "experimental; no full-work listener validation"
+    "full_work_intelligibility_aggregate": "experimental; no full-work listener validation",
+    "three_dimension_listening_form": "blank pack prepared; browser export/import verified; no new real listener scores"
   },
   "validation": {
     "selection_frozen_before_final_text_confirmation": true,
@@ -42,7 +43,7 @@
     "source_and_pinned_assets": "included",
     "raw_data_weights_private_predictions_in_public_git": false,
     "actual_full_work_run": "results/v3/full_api_integration.json",
-    "tests": "44 optional-neural evaluation tests and14application tests passed locally; CI gates required before merge",
+    "tests": "51 optional-neural evaluation tests and14application tests passed locally; CI gates required before merge",
     "gpu_jobs_released": true
   }
 }

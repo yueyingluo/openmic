@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>完整作品分维听评</title>
+<style>
+:root{color-scheme:light;font:17px/1.7 system-ui,sans-serif;color:#243243;background:#f5f6f8}
+body{max-width:850px;margin:36px auto;padding:0 20px 60px}
+h1{font-size:28px;margin-bottom:8px}h2{font-size:22px;margin:0 0 14px}
+article,.intro{background:white;border:1px solid #d5dce5;border-radius:12px;padding:24px;margin:20px 0}
+.muted,small{color:#526273}audio{width:100%}select,input,textarea,button{font:inherit;padding:9px;border:1px solid #aebbc9;border-radius:6px}
+textarea{width:100%;box-sizing:border-box;min-height:75px}select{display:block;margin:8px 0 18px;min-width:185px}
+.rater{display:block;margin-top:14px}.checks label{display:block;margin-top:10px}input[type=checkbox]{width:19px;height:19px;vertical-align:middle}
+button{background:#245a81;color:white;border:0;padding:12px 24px;cursor:pointer}button:focus,select:focus,input:focus,textarea:focus{outline:3px solid #b5d8ef}
+#status{min-height:30px;color:#9d361d}.progress{font-size:14px;margin:8px 0 20px}
+@media(max-width:550px){body{padding:0 14px 40px}article,.intro{padding:18px}h1{font-size:25px}}
+</style>
+<h1>完整作品分维听评</h1>
+<p class="muted">请独立听完整段，再分别判断三个维度。看懂、听清和觉得好笑，可以得到不同分数。</p>
+<section class="intro">
+<p>建议戴耳机，在安静环境独立完成。不要查看自动评分或和其他评分者讨论。没法判断可以留空；听懂但不好笑可以给 1 分。</p>
+<p>“可懂度”指声音里的字词是否听得清，内容背景是否熟悉另行记录。表达好不一定好笑，好笑也不一定每个字都清楚。</p>
+<p class="muted">页面只在本机保存草稿。请使用自己的设备或独立浏览器，完成后导出 JSON，自行交回。</p>
+<label class="rater">匿名编号 <input id="rater" autocomplete="off" placeholder="例如 listener-01"></label>
+</section>
+<div id="items"></div>
+<button id="save" type="button">导出我的评分 JSON</button>
+<p id="status" role="status" aria-live="polite"></p>
+<script type="application/json" id="pack">__PACK_JSON__</script>
+<script>
+"use strict";
+const pack=JSON.parse(document.getElementById("pack").textContent);
+const key="openmic-listening-v3-"+pack.dataset_id;
+let draft={};
+try{draft=JSON.parse(localStorage.getItem(key)||"{}")}catch(error){}
+const planned=pack.clips.map(c=>c.sample_id);
+let order=draft.order;
+if(!Array.isArray(order)||order.length!==planned.length||new Set(order).size!==planned.length||order.some(id=>!planned.includes(id))){
+ order=planned.slice();
+ const random=new Uint32Array(order.length);
+ crypto.getRandomValues(random);
+ for(let i=order.length-1;i>0;i--){const j=random[i]%(i+1);[order[i],order[j]]=[order[j],order[i]]}
+}
+const byId=new Map(pack.clips.map(c=>[c.sample_id,c]));
+const root=document.getElementById("items");
+const rater=document.getElementById("rater");
+rater.value=draft.rater||"";
+const entries=[];
+function mergedIntervals(intervals,duration){
+ const sorted=intervals.filter(p=>Array.isArray(p)&&p.length===2&&Number.isFinite(p[0])&&Number.isFinite(p[1])&&p[1]>p[0])
+  .map(p=>[Math.max(0,p[0]),Math.min(duration,p[1])]).filter(p=>p[1]>p[0]).sort((a,b)=>a[0]-b[0]);
+ const merged=[];
+ for(const pair of sorted){const last=merged[merged.length-1];if(last&&pair[0]<=last[1]+0.02)last[1]=Math.max(last[1],pair[1]);else merged.push(pair.slice())}
+ return merged;
+}
+function fraction(entry){
+ const duration=entry.audio.duration;
+ if(!Number.isFinite(duration)||duration<=0)return 0;
+ entry.intervals=mergedIntervals(entry.intervals,duration);
+ return Math.min(1,entry.intervals.reduce((s,p)=>s+p[1]-p[0],0)/duration);
+}
+const dimensions=[
+ ["humor","整体好笑程度","1 完全不好笑；2 略有趣；3 有一定幽默感；4 明显好笑；5 非常好笑。"],
+ ["expression","表达效果","1 表达明显妨碍理解铺垫与转折；2 比较生硬；3 基本自然、作用一般；4 语气和节奏有帮助；5 表达自然贴切、明显帮助内容呈现。"],
+ ["intelligibility","字词可懂度","1 大部分字词听不清；2 经常听不清；3 能听清大意、仍漏掉一些词；4 大多清楚、偶有遗漏；5 几乎所有字词都听得清。"]
+];
+for(const [index,id] of order.entries()){
+ const clip=byId.get(id),old=(draft.items||{})[id]||{};
+ const card=document.createElement("article");
+ const heading=document.createElement("h2");heading.textContent=id;card.appendChild(heading);
+ const audio=document.createElement("audio");audio.controls=true;audio.preload="metadata";audio.src=clip.audio;card.appendChild(audio);
+ const progress=document.createElement("p");progress.className="progress muted";progress.textContent="播放覆盖：等待音频";card.appendChild(progress);
+ const entry={id,card,audio,progress,intervals:Array.isArray(old.intervals)?old.intervals:[],lastTime:null,selects:{},order:index+1};
+ for(const [field,label,anchors] of dimensions){
+  const caption=document.createElement("label");caption.textContent=label;caption.htmlFor=id+"-"+field;
+  const note=document.createElement("div");note.className="muted";note.textContent=anchors;
+  const select=document.createElement("select");select.id=caption.htmlFor;
+  select.innerHTML='<option value="">暂不评分</option>'+[1,2,3,4,5].map(n=>'<option value="'+n+'">'+n+' 分</option>').join("");
+  select.value=old[field+"_score"]==null?"":String(old[field+"_score"]);
+  card.append(caption,note,select);entry.selects[field]=select;
+ }
+ const understanding=document.createElement("label");understanding.textContent="内容理解情况";understanding.htmlFor=id+"-understood";
+ const understood=document.createElement("select");understood.id=understanding.htmlFor;understood.innerHTML='<option value="">未填写</option><option value="yes">理解了</option><option value="partial">部分理解</option><option value="no">无法理解</option>';understood.value=old.understood||"";
+ card.append(understanding,understood);entry.understood=understood;
+ const checks=document.createElement("div");checks.className="checks";
+ function checkbox(text,checked){const label=document.createElement("label"),input=document.createElement("input");input.type="checkbox";input.checked=checked===true;label.append(input,document.createTextNode(" "+text));checks.appendChild(label);return input}
+ entry.full=checkbox("我已听完整段，并按自己的感受评分",old.full_listened);
+ entry.exposed=checkbox("我以前听过或看过这段内容",old.previously_heard);
+ card.appendChild(checks);
+ const commentLabel=document.createElement("label");commentLabel.htmlFor=id+"-comment";commentLabel.textContent="备注（可选，可说明留空原因）";
+ const comment=document.createElement("textarea");comment.id=commentLabel.htmlFor;comment.value=typeof old.comment==="string"?old.comment:"";
+ card.append(commentLabel,comment);entry.comment=comment;
+ root.appendChild(card);entries.push(entry);
+ function update(){
+  const now=audio.currentTime;
+  if(entry.lastTime!==null&&!audio.seeking){const delta=now-entry.lastTime;if(delta>0&&delta<=2.0)entry.intervals.push([entry.lastTime,now])}
+  entry.lastTime=audio.paused||audio.seeking?null:now;
+  progress.textContent="播放覆盖："+Math.floor(fraction(entry)*100)+"%（跳转和重复播放不重复累计）";
+  store();
+ }
+ audio.addEventListener("timeupdate",update);
+ audio.addEventListener("loadedmetadata",update);
+ audio.addEventListener("play",()=>{entry.lastTime=audio.currentTime});
+ audio.addEventListener("seeking",()=>{entry.lastTime=null});
+ audio.addEventListener("seeked",()=>{entry.lastTime=audio.paused?null:audio.currentTime});
+ audio.addEventListener("pause",update);
+ audio.addEventListener("ended",update);
+ audio.addEventListener("error",()=>{progress.textContent="音频无法载入，请保留 audio 子目录并检查文件。"});
+}
+function collect(){
+ return entries.map(entry=>({
+  sample_id:entry.id,rater_id:rater.value.trim(),presentation_order:entry.order,
+  humor_score:entry.selects.humor.value===""?null:Number(entry.selects.humor.value),
+  expression_score:entry.selects.expression.value===""?null:Number(entry.selects.expression.value),
+  intelligibility_score:entry.selects.intelligibility.value===""?null:Number(entry.selects.intelligibility.value),
+  understood:entry.understood.value||null,played_fraction:fraction(entry),
+  full_listened:entry.full.checked,previously_heard:entry.exposed.checked,comment:entry.comment.value
+ }));
+}
+function store(){
+ const rows=collect(),items={};
+ for(const [index,row] of rows.entries())items[row.sample_id]={...row,intervals:entries[index].intervals};
+ try{localStorage.setItem(key,JSON.stringify({rater:rater.value,order,items}))}catch(error){}
+}
+document.addEventListener("change",store);
+document.getElementById("save").addEventListener("click",()=>{
+ const rows=collect(),status=document.getElementById("status");
+ if(!rater.value.trim()){status.textContent="请先填写匿名编号。";return}
+ for(const row of rows){
+  const scored=dimensions.some(d=>row[d[0]+"_score"]!==null);
+  if(scored&&(!row.full_listened||row.played_fraction<0.95)){status.textContent=row.sample_id+"：打分前请听完整段并勾选确认；无法完成时请将分数留空。";return}
+  if((row.humor_score!==null||row.expression_score!==null)&&!["yes","partial"].includes(row.understood)){status.textContent=row.sample_id+"：幽默与表达打分需要填写理解或部分理解；无法理解时请将这两项留空。";return}
+ }
+ store();
+ const data={protocol:pack.protocol,dataset_id:pack.dataset_id,ratings:rows};
+ const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:"application/json"}));
+ const link=document.createElement("a");link.href=url;link.download="listening-v3-ratings.json";link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ status.textContent="已导出。留空项保持为空；请只交回自己的真实评分。";
+});
+</script>
+</html>

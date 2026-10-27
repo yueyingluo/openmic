@@ -84,7 +84,8 @@ def clustered_bootstrap(ids, samples, human, model_scores, n=5000, seed=20261026
             'intervals':{k:interval(v) for k,v in values.items()},'paired_differences':{k:interval(v) for k,v in deltas.items()}}
 
 
-def analyze(sample_rows, rating_rows, prediction_rows, split='pilot', min_raters=1, n_bootstrap=5000):
+def analyze(sample_rows, rating_rows, prediction_rows, split='pilot', min_raters=1, n_bootstrap=5000,
+            score_field='humor_score', comprehension_required=True):
     if split=='test' and min_raters<3:
         raise ValueError('Formal test requires >=3 valid raters; use personal_test for a single-rater study')
     if n_bootstrap<1 or min_raters<1:
@@ -105,10 +106,10 @@ def analyze(sample_rows, rating_rows, prediction_rows, split='pilot', min_raters
     for r in rating_rows:
         if r['sample_id'] not in all_samples:
             raise ValueError('Unknown rating sample')
-        score=r.get('humor_score')
+        score=r.get(score_field)
         if score is not None and (not finite_number(score) or int(score)!=score or not 1<=score<=5):
             raise ValueError('Human score must be an integer 1–5 or null')
-        if r.get('understood')=='no' and score is not None:
+        if comprehension_required and r.get('understood')=='no' and score is not None:
             raise ValueError('Ununderstood rating must be blank')
         if r['sample_id'] in samples and score is not None:
             grouped[r['sample_id']][r['rater_id']]=int(score)

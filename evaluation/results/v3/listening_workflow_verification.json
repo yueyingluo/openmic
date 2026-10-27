@@ -1,0 +1,29 @@
+{
+  "checked_at": "2026-10-27T10:38:34.917616+08:00",
+  "protocol": "openmic-listening-pilot-v3",
+  "pack_clips": 4,
+  "dimensions": [
+    "humor",
+    "expression",
+    "intelligibility"
+  ],
+  "model_scores_visible_to_raters": false,
+  "new_real_human_scores_collected": 0,
+  "ui_checks": {
+    "all_three_dimensions_default_blank": true,
+    "missing_rater_blocks_export": true,
+    "unheard_scored_item_blocks_export": true,
+    "actual_blank_download_verified": true,
+    "all_blank_import_preserved_nulls": true,
+    "blank_analysis_status_each_dimension": "awaiting_human_ratings_or_predictions",
+    "separate_two_second_silent_synthetic_fixture": {
+      "played_fraction": 1.0,
+      "three_distinct_test_fields_exported_and_imported": true,
+      "counts_as_human_observation": false
+    },
+    "real_four_work_form_restored_blank": true
+  },
+  "validation_tests": 7,
+  "formal_test_eligible": false,
+  "meaning": "Collection/import/analysis tooling verified only; no new human validity result, no change to frozen model selection or confirmation outcomes"
+}
