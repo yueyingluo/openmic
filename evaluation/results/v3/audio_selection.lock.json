@@ -1,0 +1,263 @@
+{
+  "chosen": {
+    "method": "waveform",
+    "alpha": 1000,
+    "validation": {
+      "n": 388,
+      "coverage": 1.0,
+      "spearman": 0.5249901743752463,
+      "kendall_tau_b": 0.3824435036853437,
+      "mae": 1.231264854214855,
+      "rmse": 1.4429517817755921
+    }
+  },
+  "per_method": {
+    "waveform": {
+      "method": "waveform",
+      "alpha": 1000,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.5249901743752463,
+        "kendall_tau_b": 0.3824435036853437,
+        "mae": 1.231264854214855,
+        "rmse": 1.4429517817755921
+      }
+    },
+    "audio_embedding": {
+      "method": "audio_embedding",
+      "alpha": 1000,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.35464281516837365,
+        "kendall_tau_b": 0.2592722274577854,
+        "mae": 1.209785430394497,
+        "rmse": 1.4759908557516401
+      }
+    },
+    "text_embedding": {
+      "method": "text_embedding",
+      "alpha": 1000,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.27971684452192147,
+        "kendall_tau_b": 0.20287973348664712,
+        "mae": 1.254282856110445,
+        "rmse": 1.4851795604995757
+      }
+    },
+    "audio_and_text": {
+      "method": "audio_and_text",
+      "alpha": 1000,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.3447419413177163,
+        "kendall_tau_b": 0.2507507851771986,
+        "mae": 1.1998531609466396,
+        "rmse": 1.453178746023935
+      }
+    }
+  },
+  "candidates": [
+    {
+      "method": "waveform",
+      "alpha": 1,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.43637447600912954,
+        "kendall_tau_b": 0.3190628700216898,
+        "mae": 1.2082006559544003,
+        "rmse": 1.4102096024906012
+      }
+    },
+    {
+      "method": "waveform",
+      "alpha": 10,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.4362525446088996,
+        "kendall_tau_b": 0.31876903305523807,
+        "mae": 1.2114200822471344,
+        "rmse": 1.4128698917547422
+      }
+    },
+    {
+      "method": "waveform",
+      "alpha": 100,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.4534604556745189,
+        "kendall_tau_b": 0.33113956934285893,
+        "mae": 1.2169372393298394,
+        "rmse": 1.4173101705498339
+      }
+    },
+    {
+      "method": "waveform",
+      "alpha": 1000,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.5249901743752463,
+        "kendall_tau_b": 0.3824435036853437,
+        "mae": 1.231264854214855,
+        "rmse": 1.4429517817755921
+      }
+    },
+    {
+      "method": "audio_embedding",
+      "alpha": 1,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.24822862093851633,
+        "kendall_tau_b": 0.1811996057292349,
+        "mae": 1.3425141907844347,
+        "rmse": 1.6716322595763735
+      }
+    },
+    {
+      "method": "audio_embedding",
+      "alpha": 10,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.2523797459346541,
+        "kendall_tau_b": 0.18494985058130373,
+        "mae": 1.3371654496979468,
+        "rmse": 1.6635986471620037
+      }
+    },
+    {
+      "method": "audio_embedding",
+      "alpha": 100,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.2850075641885905,
+        "kendall_tau_b": 0.2079084393462112,
+        "mae": 1.3032105193310177,
+        "rmse": 1.6073789953740991
+      }
+    },
+    {
+      "method": "audio_embedding",
+      "alpha": 1000,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.35464281516837365,
+        "kendall_tau_b": 0.2592722274577854,
+        "mae": 1.209785430394497,
+        "rmse": 1.4759908557516401
+      }
+    },
+    {
+      "method": "text_embedding",
+      "alpha": 1,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.16845113108649273,
+        "kendall_tau_b": 0.12120000078582756,
+        "mae": 1.4192719207596534,
+        "rmse": 1.7458750842141602
+      }
+    },
+    {
+      "method": "text_embedding",
+      "alpha": 10,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.19335102501117074,
+        "kendall_tau_b": 0.1407447707435596,
+        "mae": 1.3618446726774431,
+        "rmse": 1.670599685234356
+      }
+    },
+    {
+      "method": "text_embedding",
+      "alpha": 100,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.2506914853469646,
+        "kendall_tau_b": 0.18236991322831128,
+        "mae": 1.275581285203855,
+        "rmse": 1.5535502906268843
+      }
+    },
+    {
+      "method": "text_embedding",
+      "alpha": 1000,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.27971684452192147,
+        "kendall_tau_b": 0.20287973348664712,
+        "mae": 1.254282856110445,
+        "rmse": 1.4851795604995757
+      }
+    },
+    {
+      "method": "audio_and_text",
+      "alpha": 1,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.2674989207995439,
+        "kendall_tau_b": 0.19359352254387455,
+        "mae": 1.2775985325120158,
+        "rmse": 1.563077977721289
+      }
+    },
+    {
+      "method": "audio_and_text",
+      "alpha": 10,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.2677752195839133,
+        "kendall_tau_b": 0.19382871588941003,
+        "mae": 1.2752437674507653,
+        "rmse": 1.5591578485328812
+      }
+    },
+    {
+      "method": "audio_and_text",
+      "alpha": 100,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.2822060206673494,
+        "kendall_tau_b": 0.20422539400647227,
+        "mae": 1.2569900858648044,
+        "rmse": 1.5297286130325172
+      }
+    },
+    {
+      "method": "audio_and_text",
+      "alpha": 1000,
+      "validation": {
+        "n": 388,
+        "coverage": 1.0,
+        "spearman": 0.3447419413177163,
+        "kendall_tau_b": 0.2507507851771986,
+        "mae": 1.1998531609466396,
+        "rmse": 1.453178746023935
+      }
+    }
+  ],
+  "train_mean": 2.6362132352941177,
+  "plan_sha256": "1981ee2ad6c4ee8b5ad4aa5ae0cafafa307acda9837dda3fc0c3eca84eae88db",
+  "preparation_sha256": "11c8282058239ca51161ebe02adcbc969d7248fd0174bcab36927cc55b053d12",
+  "features_sha256": "493a7f01f3bf4018556b04159e2f3b70bcb74a5f2d1511f7cc022d3a7b7e6489",
+  "selection_read_confirmation_labels": false
+}

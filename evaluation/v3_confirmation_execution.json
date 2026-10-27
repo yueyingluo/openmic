@@ -1,0 +1,10 @@
+{
+  "recorded_at": "2026-10-26T23:40:47.768522+00:00",
+  "primary_confirmation_inference": "local CPU float32, the default callable API configuration",
+  "reason": "Repeated SSH failures transferring frozen weights to H100; complete hash-verifiable frozen weights are already local. CPU inference avoids further resource wait.",
+  "model_selection_changed": false,
+  "partitions_grades_and_argmax_rule_changed": false,
+  "confirmation_results_seen": false,
+  "later_gpu_inference_role": "technical precision/parity replication only, not a second independent test or a model selection opportunity",
+  "selection_lock_sha256": "5e3d1ae946784bc40837c7f5fb9fe1085fdcb65a2fdcc92c1d9ea93a03a3a830"
+}

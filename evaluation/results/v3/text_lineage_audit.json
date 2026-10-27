@@ -1,0 +1,20 @@
+{
+  "counts": {
+    "train": 1670,
+    "validation": 513,
+    "confirmation": 407
+  },
+  "id_overlap_train_confirmation": 0,
+  "id_overlap_validation_confirmation": 0,
+  "topic_overlap_train_confirmation": 0,
+  "topic_overlap_validation_confirmation": 0,
+  "old_test_rows_in_new_partitions": 0,
+  "confirmation_previous_partitions": {
+    "train": 353,
+    "validation": 54
+  },
+  "selected_initialization_asset_sha256": "1ded5a5a1c7841dee6e47942f7b5bf2bcf6f73ff19197580f852f7f638f86b35",
+  "selected_initialization": "original hfl public pretrained backbone, not v2 task checkpoints; see v3_text.select source",
+  "unknown_pretraining_or_unrecorded_semantic_overlap": true,
+  "topic_definition": "BGE KMeans clusters, not manual topic labels"
+}

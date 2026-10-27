@@ -1,0 +1,179 @@
+{
+  "selection_lock_sha256": "5e3d1ae946784bc40837c7f5fb9fe1085fdcb65a2fdcc92c1d9ea93a03a3a830",
+  "chosen": "corn-lr2e-05",
+  "confirmation_n": 407,
+  "confirmation_groups": 16,
+  "class_counts": {
+    "2": 93,
+    "4": 87,
+    "3": 173,
+    "5": 9,
+    "1": 45
+  },
+  "neural": {
+    "n": 407,
+    "coverage": 1.0,
+    "spearman": 0.36627283303182917,
+    "kendall_tau_b": 0.28590015084865045,
+    "mae": 0.6937012890891826,
+    "rmse": 0.9142683790664438,
+    "correct": 187,
+    "exact_accuracy": 0.4594594594594595,
+    "macro_f1": 0.28396978157593455,
+    "confusion_matrix": [
+      [
+        2,
+        22,
+        12,
+        9,
+        0
+      ],
+      [
+        7,
+        37,
+        35,
+        14,
+        0
+      ],
+      [
+        1,
+        25,
+        118,
+        29,
+        0
+      ],
+      [
+        0,
+        9,
+        48,
+        30,
+        0
+      ],
+      [
+        0,
+        2,
+        3,
+        4,
+        0
+      ]
+    ]
+  },
+  "lightweight": {
+    "n": 407,
+    "coverage": 1.0,
+    "spearman": 0.2923837116677432,
+    "kendall_tau_b": 0.21706010448157714,
+    "mae": 0.7636634697840167,
+    "rmse": 0.9596369405524855,
+    "correct": 173,
+    "exact_accuracy": 0.4250614250614251,
+    "macro_f1": 0.1193103448275862,
+    "confusion_matrix": [
+      [
+        0,
+        0,
+        45,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        93,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        173,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        87,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        9,
+        0,
+        0
+      ]
+    ]
+  },
+  "train_majority": {
+    "n": 407,
+    "coverage": 1.0,
+    "spearman": null,
+    "kendall_tau_b": null,
+    "mae": 0.7076167076167076,
+    "rmse": 0.9863939238321437,
+    "correct": 173,
+    "exact_accuracy": 0.4250614250614251,
+    "macro_f1": 0.1193103448275862,
+    "confusion_matrix": [
+      [
+        0,
+        0,
+        45,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        93,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        173,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        87,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        9,
+        0,
+        0
+      ]
+    ]
+  },
+  "uncertainty": {
+    "exact_accuracy_ci95": [
+      0.39800734547159494,
+      0.5356202148418507
+    ],
+    "accuracy_minus_lightweight_ci95": [
+      -0.02398515969832831,
+      0.08686210903456949
+    ],
+    "spearman_ci95": [
+      0.26493658808324033,
+      0.4432985018481445
+    ],
+    "unit": "semantic topic group",
+    "resamples": 5000
+  },
+  "target_accuracy": 0.5,
+  "achieved": false,
+  "independence_limit": "Repartition of a previously used public corpus; confirmation items were v2 training or validation items, but no v2 trained weights or confirmation outcomes enter v3 training/selection. Not a new externally collected dataset.",
+  "project_human_alignment": false,
+  "inference_device": "cpu",
+  "inference_precision": "float32"
+}

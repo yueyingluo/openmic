@@ -1,0 +1,31 @@
+{
+  "protocol": "openmic-intelligibility-tmhintqi-v1",
+  "frozen_at": "2026-10-26T13:25:33.377292+00:00",
+  "source": "TMHINT-QI original release, author public Drive 1TMDiz6dnS76hxyeAcCQxeSqqEOH4UDN0",
+  "known_size_bytes": 2278236226,
+  "human_target": "native intelligibility correct-character score 0..10; aggregate human labels by identical waveform; never use quality MOS as intelligibility",
+  "grouping": "all clean/noisy/enhanced variants of the same underlying sentence, including across speakers; use released sentence identifier, audit before fitting; content-group SHA256 order 70/15/15 fit/development/confirmation",
+  "uncertainty": "5000 paired bootstrap resamples by underlying sentence, seed 20261026",
+  "features": [
+    "waveform descriptors",
+    "fixed Qwen2.5-Omni audio tower mean/std",
+    "waveform plus fixed audio embedding"
+  ],
+  "model": "StandardScaler + Ridge, alpha [1,10,100,1000], output clipped to 0..10",
+  "selection": "development Spearman, then MAE, fixed candidate and alpha order; freeze before confirmation",
+  "controls": [
+    "training mean",
+    "waveform descriptors"
+  ],
+  "text_control": "Only if released human transcripts can be grounded; otherwise explicitly unavailable",
+  "complete_waveform": "decode all frames, no sampling/truncation, verify encoder feature lengths",
+  "claim_limits": [
+    "Chinese short noisy/enhanced sentence recognition; not long-work validation",
+    "Not a humor or performance-expression label",
+    "Same speaker may occur in training/confirmation; report speaker coverage",
+    "Unknown pretrained contamination remains"
+  ],
+  "access_limits": "Only public author release; do not bypass access restrictions or accept a new access agreement",
+  "max_gpus": 1,
+  "stage_seconds_cap": 7200
+}

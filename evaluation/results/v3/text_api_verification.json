@@ -1,0 +1,13 @@
+{
+  "actual_cpu_models_loaded": true,
+  "bundle": {
+    "verified_files": 16,
+    "bundle_id": "4af855935c04a4d0753fb191265c56b30f7de01aa69a4660b9c531af84ff1c57"
+  },
+  "short_grade_and_continuous_numeric": true,
+  "measured_deletion_evidence": true,
+  "overlength_rejected_without_truncation": true,
+  "elapsed_seconds": 18.865414917003363,
+  "synthetic_smoke_only_not_an_accuracy_result": true,
+  "installed_openmic_evaluate_cli_verified": true
+}

@@ -1,0 +1,25 @@
+{
+  "n": 4,
+  "input_sha256": "e18857e2cd3048688e5580734cf13bf2a98bf94fe60fd2b021c9e035663f2f3e",
+  "plan_sha256": "952f87a13dcb5f070caf3ec49b60aac60ce2cdd167bcee9b9230830b7c6cd878",
+  "bundle": {
+    "verified_files": 21,
+    "bundle_id": "795ed8d20d7be81387ef95929e2ae05a310c7352625ea5af5b8148b5879126fb"
+  },
+  "decoded_full_waveforms": 4,
+  "duration_seconds_total": 548.18,
+  "text_outputs": {
+    "experimental_score": 3,
+    "scored": 1
+  },
+  "full_audio_humor_numeric_outputs": 4,
+  "full_audio_expression_numeric_outputs": 4,
+  "full_audio_intelligibility_numeric_outputs": 4,
+  "full_omni_feature_coverage_checks": 12,
+  "intelligibility_segment_coverage_checks": 4,
+  "failures": 0,
+  "elapsed_seconds": 46.94242495764047,
+  "actual_model_calls": true,
+  "scientific_full_work_human_validation": false,
+  "meaning": "Engineering integration and complete-input checks only; no human ratings, no generation-condition comparison, no validity claim"
+}

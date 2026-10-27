@@ -1,0 +1,48 @@
+{
+  "protocol": "openmic-evaluation-v3-acceptance",
+  "date": "2026-10-27",
+  "text": {
+    "callable_grade_and_continuous": "verified_actual_models_and_installed_CLI",
+    "target_accuracy": 0.5,
+    "target_status": "not_met",
+    "correct": 187,
+    "n": 407,
+    "exact_accuracy": 0.4594594594594595,
+    "majority_correct": 173,
+    "lightweight_correct": 173,
+    "supported_confirmations": 407,
+    "all_confirmations_before_length_filter": 408,
+    "unseen_external_dataset": false,
+    "main_inference": "CPU FP32; fixed before confirmation outcomes",
+    "independence_limit": "Repartition of a previously used public corpus; confirmation items were v2 training or validation items, but no v2 trained weights or confirmation outcomes enter v3 training/selection. Not a new externally collected dataset."
+  },
+  "audio": {
+    "complete_waveform_interface": "verified_actual_scoring_on_all_four_fixed_pilots",
+    "n": 4,
+    "duration_seconds": 548.18,
+    "failures": 0,
+    "expression_human_label_validation": "limited_new_story_holdout; selected method not clearly better than text",
+    "expression_spearman": 0.32565630594367506,
+    "intelligibility_human_label_validation": "short Chinese noisy/enhanced sentence recognition only",
+    "intelligibility_spearman": 0.4621507486356805,
+    "full_work_humor_human_alignment": "pending_new_real_listener_ratings",
+    "full_work_intelligibility_aggregate": "experimental; no full-work listener validation"
+  },
+  "validation": {
+    "selection_frozen_before_final_text_confirmation": true,
+    "new_fitted_models_trained_on_confirmation": false,
+    "known_exact_cfun_overlap_excluded": true,
+    "topic_groups_are_human_verified": false,
+    "unknown_pretraining_contamination_excluded": false,
+    "original_private_scoring_workbook_read_or_written": false,
+    "human_ratings_invented": false
+  },
+  "delivery": {
+    "version": "openmic-evaluation-v3",
+    "source_and_pinned_assets": "included",
+    "raw_data_weights_private_predictions_in_public_git": false,
+    "actual_full_work_run": "results/v3/full_api_integration.json",
+    "tests": "44 optional-neural evaluation tests and14application tests passed locally; CI gates required before merge",
+    "gpu_jobs_released": true
+  }
+}
