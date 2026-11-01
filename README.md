@@ -179,7 +179,7 @@ python -m openmic.humor_benchmark compare --index artifacts/cfunset/index.jsonl
 新增本地研究模块：[中文笑话数据集训练与正例学习](docs/HUMOR_LEARNING.md)。已在3,365条人工标注笑话上拟合幽默等级／手法输出层，并提供可选的正例记忆实验；目前预测相关性较弱，没有据此宣称生成质量提升，也未微调 DeepSeek。常规 CFunSet 流程默认不启用这项实验。
 
 - [文本生成版本说明与复现](docs/TASK2_RELEASE.md)
-- [文本生成专题汇报（HTML，约7–8分钟）](presentation/text_generation.html) · [中文讲稿与逐页计时](presentation/text_generation_notes.md)
+- [文本生成英文讲稿与计时（2.5分钟）](presentation/README.md#english-speaking-notes)
 - [中期汇报（英文 HTML）](presentation/midterm.html) · [编辑与分工说明](presentation/README.md)
 - [产品需求文档](docs/PRD.md)
 - [第一次项目分工会](docs/MEETING_01.md)

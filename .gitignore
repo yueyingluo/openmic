@@ -29,3 +29,8 @@ evaluation/runtime/gpu_results/
 evaluation/runtime/reports/
 evaluation/*.local.yaml
 evaluation/runtime/*.local.yaml
+
+# Publish only the shared deck and its README; keep personal drafts local.
+/presentation/*
+!/presentation/README.md
+!/presentation/midterm.html
