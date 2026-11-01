@@ -52,33 +52,52 @@ revision limit, and the UI displays the outcome in either case.
 
 ## Task 2 text-generation presentation
 
-The shared [midterm.html](midterm.html) integrates section **02 / znjq** on
-**slides 4–6**, replacing the content-generation placeholder. This is the
-**2.5-minute** English section following the architecture overview.
+The shared [midterm.html](midterm.html) contains section **02 / znjq** on
+**slides 4–6**, with three slides for **2 minutes 30 seconds**.
+The section covers the whole-story view, prompted generation, and evaluation
+with revision. The English script and timing follow below.
 
-For separate rehearsal, open [text_generation_3min.html](text_generation_3min.html).
-Its three slides contain the same text-generation content:
-the whole-story view, prompting and generation, and evaluation with revision.
-The [English script](text_generation_3min_notes.md), about 230 words, allocates
-40 / 55 / 55 seconds (2:30 total). The existing short-version filenames are
-retained so earlier links continue to work.
+This directory tracks only `README.md` and `midterm.html`. Standalone decks
+and private notes remain local and are excluded from Git.
 
-Open [text_generation.html](text_generation.html) for the standalone text-generation section.
-It follows the same white/blue/gray theme, fixed 1920 × 1080 canvas, navigation,
-local editing, **Save HTML**, and print controls. It has no external scripts,
-fonts or build dependencies. Main explanations are in English; Chinese joke
-excerpts retain their original wording.
+Implementation and development evidence: [release summary](../docs/TASK2_RELEASE.md)
+and [compact results](../docs/task2_v39_results.json).
 
-- **Length:** 9 slides, about 7–8 minutes for one speaker.
-- **Speaking plan:** [Chinese notes with per-slide timing](text_generation_notes.md), target 7:40.
-- **Content:** CFunSet preparation, reference selection, two writing routes,
-  topic expansion, a callback example, evaluation, local training experiments
-  and current limitations.
-- **Evidence:** [release summary](../docs/TASK2_RELEASE.md) and
-  [compact development results](../docs/task2_v39_results.json).
+## English speaking notes
 
-The nine-slide standalone file remains an extended version. The shared deck
-uses the shorter three-slide section. Other owners' slide content is preserved,
-with page numbers updated for the nine-slide deck. The optional training experiments
-are distinguished from DeepSeek generation, and the four-topic model review is
-distinguished from human audience evaluation.
+| Team slide | Topic | Time | Elapsed |
+|---|---|---:|---:|
+| 4 | The whole-story view | 40 sec | 0:40 |
+| 5 | Prompting and generation | 55 sec | 1:35 |
+| 6 | Evaluation and revision | 55 sec | 2:30 |
+
+### Slide 4: Humor in the whole story
+
+I work on text generation. I treat a joke as a complete experience: what someone wants, what they do, and how the result changes our expectations.
+
+During optimization, polishing every setup and punchline separately can make the whole story feel artificial. So I check the overall motivation and rhythm. Writing can start from either a funny moment or an experience.
+
+### Slide 5: CFunSet-guided generation
+
+We combine CFunSet retrieval with prompt engineering. Given a topic, audience, and real context, we retrieve examples from the training split and identify their core expectation and reveal.
+
+DeepSeek Flash then handles five roles: direction, audience analysis, writing, delivery coaching, and quality control. The prompts give each role a clear job, while leaving the writer room to improve the plan.
+
+We can adapt an existing joke or transfer its mechanism into a new situation. This uses examples in prompts without updating DeepSeek's weights.
+
+### Slide 6: Evaluation and revision
+
+In the additional quality loop, DeepSeek V4 Pro scores the whole script from one to five on humor, cultural fit, spoken naturalness, and structure. It also checks realism and continuity.
+
+Clear but weak humor stays around three. Four needs a specific, effective comic turn. The reviewer quotes problems and suggests repairs.
+
+Pro then receives the original draft and feedback, rewrites it, and reviews the revision again. We retain the best candidate within a revision limit. These are model judgments, so human ratings are still necessary.
+
+### Presenter reminders (not spoken)
+
+- Aim for about 95–100 words per minute, with brief pauses. The 2:30 timing is a plan, not a recorded duration.
+- Initial drafting uses API model ID `deepseek-flash`. Independent audit and rewriting use `deepseek-v4-pro` in separate calls. These prompts do not train or fine-tune DeepSeek.
+- The ordinary five-role CLI does not automatically run the additional Pro loop.
+- Independent audit uses 1–5 and additionally reports `realism`. Internal five-role QC uses 0–10. CFunSet binary labels train a separate local classifier, whose probability is only a weak auxiliary signal.
+- CFunSet contains multiple tasks. Generation uses references from its training split. Adaptation preserves the source mechanism and necessary context. Short jokes need no forced expansion or callback quota.
+- Sources: `src/openmic/autogen_v02.py`, `humor_generation.py`, `humor_data.py`, `humor_craft.py`, `humor_quality_loop.py` and `humor_scorer.py`.

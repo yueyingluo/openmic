@@ -101,8 +101,8 @@ A同文校正标签后从幽默4变3。B同文回调深度先被判1、后被判
 
 ## 汇报与未完成的效果验证
 
-- [9页HTML专题汇报](../presentation/text_generation.html)，沿用团队模板，约7–8分钟。
-- [中文讲稿与逐页计时](../presentation/text_generation_notes.md)，计划7分40秒。
+- [团队HTML汇报](../presentation/midterm.html)，文本生成部分为第4–6页，约2.5分钟。
+- [英文讲稿与逐页计时](../presentation/README.md#english-speaking-notes)，40/55/55秒，共2分30秒。
 - 仍需新题材真人评分，完整3–5分钟持续笑感验证，以及可靠的自然多层回调案例。
 - 已知工程问题：尾置标签应优先仅修标注，避免全文改写浪费API。
 
