@@ -7,7 +7,8 @@ on:
 
 jobs:
   unit-test:
-    runs-on: ubuntu-latest
+    # Python 3.9 is unavailable on the Ubuntu 26.04 runner.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -36,7 +37,7 @@ jobs:
       - run: python -m openmic tts synth --script examples/jyb_demo.txt --backend tone --conditions baseline timing emotion performance --out artifacts/jyb/offline/shopping
 
   evaluation-test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
