@@ -443,6 +443,9 @@ class AutoGenV02Workflow:
 
 
 def extract_qc_scores(content: str) -> Dict[str, float]:
+    # Models may wrap the labels or scores in Markdown. Preserve the single
+    # underscores in HUMOR_SCORE while normalizing presentation wrappers.
+    content = content.replace("**", "").replace("__", "").replace("`", "")
     labels = ("HUMOR", "CULTURE", "STRUCTURE")
     scores: Dict[str, float] = {}
     for label in labels:

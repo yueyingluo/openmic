@@ -1,0 +1,13 @@
+<SCRIPT>
+[INTRO]大家好，今天聊聊我的网购经历。
+[SETUP][SPEED=1.05]我以前觉得，网购最大的优点，是不用出门就能省钱。
+[PAUSE=0.8]
+[PUNCHLINE][EMOTION=self_deprecating]后来我发现，不出门是真的，[EMPHASIS]省钱是商家的愿望。[/EMPHASIS]
+[PAUSE=2.0]
+[SETUP]昨天平台提醒我，再买二十块就能省十块。我立刻又买了八十块。
+[PUNCHLINE][EMOTION=surprised]我本来想薅平台的羊毛，最后平台给我[EMPHASIS]理了个发。[/EMPHASIS]
+[SETUP][FILLER=那个]我室友问，你买这么多快递，怎么不买个收纳箱？我觉得有道理。
+[PUNCHLINE][EMOTION=calm]现在问题解决了：屋里又多了一个[EMPHASIS]装不下的收纳箱。[/EMPHASIS]
+[SETUP]所以以后购物前，我一定先把购物车清空。
+[CALLBACK][EMOTION=self_deprecating]方法我都想好了：按下[EMPHASIS]全部结算。[/EMPHASIS]
+</SCRIPT>

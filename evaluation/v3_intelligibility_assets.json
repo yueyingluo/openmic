@@ -1,0 +1,11 @@
+[
+  {
+    "destination": "TMHINTQI.zip",
+    "url": "https://drive.google.com/uc?export=download&id=1TMDiz6dnS76hxyeAcCQxeSqqEOH4UDN0",
+    "author_landing_page": "https://github.com/yuwchen/InQSS",
+    "size": 2278236226,
+    "sha256": "cda6581c9fb0ea634b8bac4c6503e772feb080629a5d95eb84f3d1888876912b",
+    "transport": "public gdown 5.2.0 --no-cookies, verify size/SHA256/ZIP CRC; generic HF downloader is not suitable for the Drive confirmation response",
+    "connector_fallback": "Google Drive connector metadata succeeded; raw fetch returned HTTP 413 because of its 268435456-byte limit"
+  }
+]

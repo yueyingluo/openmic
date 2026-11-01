@@ -1,0 +1,45 @@
+{
+  "local_cpu": {
+    "python": "3.11.3",
+    "system": "Darwin",
+    "machine": "arm64",
+    "packages": {
+      "numpy": "1.26.4",
+      "scipy": "1.15.3",
+      "scikit-learn": "1.7.2",
+      "torch": "2.9.1",
+      "torchvision": "0.24.1",
+      "transformers": "4.57.1",
+      "accelerate": "1.12.0",
+      "peft": "0.17.1",
+      "safetensors": "0.8.0",
+      "tokenizers": "0.22.2",
+      "soundfile": "0.13.1",
+      "librosa": "0.11.0",
+      "Pillow": "11.3.0",
+      "pyarrow": "19.0.1"
+    }
+  },
+  "h100_lora_and_full_work": {
+    "python": "3.10.18",
+    "system": "Linux",
+    "machine": "x86_64",
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "cuda": "12.8",
+    "packages": {
+      "numpy": "1.26.4",
+      "scipy": "1.15.3",
+      "scikit-learn": "1.7.2",
+      "torch": "2.9.1",
+      "torchvision": "0.24.1",
+      "transformers": "4.57.1",
+      "accelerate": "1.12.0",
+      "peft": "0.17.1",
+      "safetensors": "0.8.0",
+      "tokenizers": "0.22.2",
+      "soundfile": "0.13.1",
+      "librosa": "0.11.0",
+      "Pillow": "11.3.0"
+    }
+  }
+}

@@ -1,9 +1,12 @@
-import unittest
+import io
 import struct
+import unittest
+import wave
 
 from openmic.tts import (
     SiliconFlowTTS,
     TTSConfig,
+    TTSRequestError,
     extract_spoken_script,
     normalize_wav_header,
     prepare_tts_text,
@@ -12,7 +15,13 @@ from openmic.tts import (
 
 class FakeResponse:
     status_code = 200
-    content = b"RIFFfake-wave"
+    with io.BytesIO() as _buffer:
+        with wave.open(_buffer, "wb") as _wav_file:
+            _wav_file.setnchannels(1)
+            _wav_file.setsampwidth(2)
+            _wav_file.setframerate(16000)
+            _wav_file.writeframes(b"\x00\x00" * 1600)
+        content = _buffer.getvalue()
     text = ""
 
 
@@ -66,6 +75,43 @@ class TTSTests(unittest.TestCase):
         self.assertEqual(kwargs["json"]["sample_rate"], 16000)
         self.assertEqual(kwargs["json"]["response_format"], "wav")
         self.assertEqual(result.media_type, "audio/wav")
+        self.assertEqual(result.channels, 1)
+        self.assertAlmostEqual(result.duration_seconds, 0.1, places=3)
+        self.assertIsNotNone(result.generation_seconds)
+
+    def test_rejects_empty_text_after_script_cleaning(self) -> None:
+        session = FakeSession()
+        config = TTSConfig(
+            api_key="secret",
+            base_url="https://api.siliconflow.cn/v1",
+        )
+        with self.assertRaises(ValueError):
+            SiliconFlowTTS(config, session=session).synthesize(
+                "<SCRIPT>\n</SCRIPT>"
+            )
+
+    def test_inspect_wav_rejects_wrong_sample_rate(self) -> None:
+        config = TTSConfig(
+            api_key="secret",
+            base_url="https://api.siliconflow.cn/v1",
+        )
+
+        class WrongRateResponse(FakeResponse):
+            with io.BytesIO() as _buffer:
+                with wave.open(_buffer, "wb") as _wav_file:
+                    _wav_file.setnchannels(1)
+                    _wav_file.setsampwidth(2)
+                    _wav_file.setframerate(24000)
+                    _wav_file.writeframes(b"\x00\x00" * 2400)
+                content = _buffer.getvalue()
+
+        class WrongRateSession(FakeSession):
+            def post(self, url, **kwargs):
+                self.call = (url, kwargs)
+                return WrongRateResponse()
+
+        with self.assertRaises(TTSRequestError):
+            SiliconFlowTTS(config, session=WrongRateSession()).synthesize("测试语音")
 
     def test_normalizes_streaming_wav_sizes(self) -> None:
         audio = (

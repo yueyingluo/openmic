@@ -1,0 +1,11 @@
+{
+  "recorded_at": "2026-10-26T13:12:52.840982+00:00",
+  "changes": [
+    "Corrected a future clock-time typo to the observed file creation time",
+    "Corrected description of eligible old partitions: v2 training or validation"
+  ],
+  "operational_parameters_changed": false,
+  "confirmation_results_seen": false,
+  "old_plan_sha256": "34e97a8d9c219334648e377653ad898c135f777bbe8f58263f21f5ce6746dfb6",
+  "corrected_plan_sha256": "1981ee2ad6c4ee8b5ad4aa5ae0cafafa307acda9837dda3fc0c3eca84eae88db"
+}

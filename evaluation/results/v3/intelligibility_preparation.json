@@ -1,0 +1,80 @@
+{
+  "source": "author public TMHINT-QI release",
+  "archive_sha256": "cda6581c9fb0ea634b8bac4c6503e772feb080629a5d95eb84f3d1888876912b",
+  "archive_size": 2278236226,
+  "raw_csv_sha256": "832ac3fdaf393e77f62edb096770f8ade9f52fbb574e9bebcab0bf9ba02732a5",
+  "raw_annotation_rows": 24408,
+  "waveforms": 14915,
+  "reference_counts": {
+    "1": 8531,
+    "3": 1448,
+    "2": 4323,
+    "4": 413,
+    "5": 102,
+    "6": 36,
+    "8": 16,
+    "7": 27,
+    "10": 7,
+    "9": 7,
+    "11": 5
+  },
+  "unique_content_groups": 314,
+  "counts": {
+    "validation": 2004,
+    "train": 11178,
+    "confirmation": 1733
+  },
+  "groups_by_split": {
+    "train": 219,
+    "validation": 47,
+    "confirmation": 48
+  },
+  "speakers_by_split": {
+    "train": [
+      "b1",
+      "b2",
+      "b3",
+      "b4",
+      "g1",
+      "g2",
+      "g3",
+      "g4"
+    ],
+    "validation": [
+      "b1",
+      "b2",
+      "b3",
+      "b4",
+      "g1",
+      "g2",
+      "g3",
+      "g4"
+    ],
+    "confirmation": [
+      "b1",
+      "b2",
+      "b3",
+      "b4",
+      "g1",
+      "g2",
+      "g3",
+      "g4"
+    ]
+  },
+  "original_partition_content_overlaps": [
+    115
+  ],
+  "exclusions": {
+    "rating_without_released_waveform": 4,
+    "repeated_subject_rows_averaged_within_rater": 0
+  },
+  "labels": "human intelligibility_score 0..10, NOT quality_score",
+  "text_only_control": "unavailable: released package has sentence IDs but no grounded transcripts; do not invent them",
+  "plan_sha256": "46c3d663cd1ffb0e83a0652b4e082328526925e811f14b2d7af85765110c8bad",
+  "inputs_sha256": "8b8f7a4ecebd99b1e962a60ff99d90bf78ede7a823fa0c1a30407c58846bb8d3",
+  "split_hashes": {
+    "train": "253aef53863db0a1270797686de2afadc5e3d04ae86843c3e022132bcee0870d",
+    "validation": "a133e848e1f9a1b27e3d04c0b486bb06530f648a79d67a660a6c5560304b34c6",
+    "confirmation": "ba4467967cfe9565baba9e69ad300c4975ee3e785c302d859418558b53ab1cc0"
+  }
+}

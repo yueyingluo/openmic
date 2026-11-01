@@ -1,0 +1,38 @@
+{
+  "dataset": "CEAEval-D manual_annotation",
+  "revision": "f737f27f21f073e7a41bf52b0d4ffa40db9f8b08",
+  "metadata_files": 91,
+  "unique_story_ids": 82,
+  "raw_sentence_segments": 5269,
+  "raw_non_sentence_segments": 1876,
+  "eligible_rows": 3268,
+  "exclusions": {
+    "empty_text_or_outside_3_20_seconds": 2001
+  },
+  "selected_rows": 166,
+  "split_counts": {
+    "validation": 64,
+    "test": 102
+  },
+  "stories_by_split": {
+    "validation": 13,
+    "test": 17
+  },
+  "score_range": [
+    0,
+    5
+  ],
+  "actual_reference_score_counts": {
+    "1": 166
+  },
+  "selection": "sha256 identity order, max 6 clips/story, duration 3-20s, no score balancing",
+  "story_split_rule": "sort unique story IDs by sha256; first ceil(20%) test, next ceil(15%) validation, rest train",
+  "context": "preceding utterances within source file, last 2000 chars; not complete novel context",
+  "target_mean_by_split": {
+    "validation": 2.7421875,
+    "test": 2.627450980392157
+  },
+  "metadata_sha256": "29f0698c8823d8cc7a1637f0a89e5f6ba02c8dbb4ed97c2d7f71b8c06c3cda99",
+  "input_sha256": "c46db9384e199f88e722f12019c0c53c4f9ecef5db0b7aece5024211df1d5b92",
+  "project_humor_alignment": false
+}

@@ -1,0 +1,48 @@
+{
+  "mode": "text",
+  "validation_n": 96,
+  "selection": "development Spearman; learned weights use group OOF predictions",
+  "validation_metrics": {
+    "direct": {
+      "n": 96,
+      "coverage": 1.0,
+      "spearman": 0.1405991399605934,
+      "kendall_tau_b": 0.10234629369282783,
+      "mae": 0.8876057194611349,
+      "rmse": 1.109512585116932
+    },
+    "anchored": {
+      "n": 96,
+      "coverage": 1.0,
+      "spearman": 0.08264327713375451,
+      "kendall_tau_b": 0.05870624968167281,
+      "mae": 0.8652899476049546,
+      "rmse": 1.0836044480096776
+    },
+    "dimensions_learned": {
+      "n": 96,
+      "coverage": 1.0,
+      "spearman": 0.015542870781499317,
+      "kendall_tau_b": 0.00935143800239036,
+      "mae": 0.8527044360218445,
+      "rmse": 1.0632111569185712
+    }
+  },
+  "project_human_alignment": false,
+  "weights": {
+    "punchline": 0.22453993593344118,
+    "setup_payoff": 0.0,
+    "novelty": 0.33520080375354233,
+    "coherence": 0.44025926031301654
+  },
+  "equal_weights_validation": {
+    "n": 96,
+    "coverage": 1.0,
+    "spearman": 0.028139800474077468,
+    "kendall_tau_b": 0.019222400338246848,
+    "mae": 0.841108404945165,
+    "rmse": 1.0487929960406719
+  },
+  "chosen_method": "direct",
+  "validation_ids_sha256": "d2566bc4653c827bc583b407e27924ba9dd7095ab3864fafdb6750d4da0d8a1f"
+}

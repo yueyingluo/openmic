@@ -1,0 +1,17 @@
+{
+  "n": 4,
+  "transcribed": 4,
+  "decoder_limit": 0,
+  "total_duration_seconds": 548.18,
+  "min_complete_waveform_processed_fraction": 1.0,
+  "reference_characters": 2332,
+  "edit_distance": 405,
+  "micro_cer": 0.17367066895368782,
+  "mean_clip_cer": 0.16393066466321973,
+  "empty_transcript_baseline_cer": 1.0,
+  "plan_sha256": "1ef5d7c31c1669dac5070d4c054cedc9f93da306f3b64a91ae061e6e89227af4",
+  "input_sha256": "e18857e2cd3048688e5580734cf13bf2a98bf94fe60fd2b021c9e035663f2f3e",
+  "elapsed_seconds": 8.067919310182333,
+  "human_intelligibility_validation": false,
+  "meaning": "Fixed ASR transcript fidelity audit. Human transcripts on CEAEval; authored scripts on project pilot, not new human listener judgments."
+}

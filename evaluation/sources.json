@@ -1,0 +1,113 @@
+{
+  "checked_date": "2026-10-23",
+  "verification": "Pinned sources inspected on 2026-10-23; the three model experiments have since completed. See results and REPORT.md. License statements record that inspection, not a grant of rights.",
+  "models": [
+    {
+      "id": "hfl/chinese-roberta-wwm-ext",
+      "revision": "5c58d0b8ec1d9014354d691c538661bf00bfdb44",
+      "license_in_card": "apache-2.0",
+      "role": "pretrained backbone; classification head requires training",
+      "config_verified": {
+        "model_type": "bert",
+        "max_position_embeddings": 512,
+        "num_hidden_layers": 12,
+        "hidden_size": 768
+      },
+      "source": "https://huggingface.co/hfl/chinese-roberta-wwm-ext"
+    },
+    {
+      "id": "Qwen/Qwen2.5-7B-Instruct",
+      "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "license_in_card": "apache-2.0",
+      "role": "general judge and same-backbone control",
+      "source": "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct"
+    },
+    {
+      "id": "ZhenghanYU/CFunModel",
+      "revision": "f51483398f54f2d8d97996a9c55c4bc175be143f",
+      "subfolder": "CFunModel",
+      "license_in_card": null,
+      "license_status": "No explicit field found; inspect license terms before reuse/redistribution.",
+      "role": "humor-specialized judge candidate",
+      "config_verified": {
+        "model_type": "qwen2",
+        "max_position_embeddings": 32768,
+        "torch_dtype": "bfloat16",
+        "num_hidden_layers": 28
+      },
+      "repository_size_gb_approx": 15.2,
+      "source": "https://huggingface.co/ZhenghanYU/CFunModel/tree/main/CFunModel"
+    }
+  ],
+  "datasets": [
+    {
+      "id": "ZhenghanYU/CFunSet",
+      "revision": "39ded465de072b19d4b843e319d7dc85d704be5f",
+      "license_in_card": null,
+      "purpose": "extract verified binary recognition task only",
+      "source": "https://huggingface.co/datasets/ZhenghanYU/CFunSet",
+      "warning": "CFunModel trained on this collection; a new local split is not unseen for CFunModel."
+    }
+  ],
+  "sources": [
+    {
+      "id": "cfun_paper",
+      "url": "https://arxiv.org/html/2503.20417v1",
+      "use": "Dataset composition, model base, recognition vs generation evaluation."
+    },
+    {
+      "id": "ccl_official",
+      "url": "https://cips-cl.org/static/CCL2019/downloads/pcPPT/01.pdf",
+      "pages_1_indexed": [
+        48,
+        49
+      ],
+      "use": "Task1 generated vs non-generated humor; task2 humor strength."
+    },
+    {
+      "id": "ccl_data",
+      "url": "https://github.com/DUTIR-Emotion-Group/CCL2019-Chinese-Humor-Computation",
+      "use": "Public task data and baseline structure."
+    },
+    {
+      "id": "ccl_solution",
+      "url": "https://github.com/qingbonlp/qingbo_CCL2019-Chinese-Humor-Computation",
+      "use": "BERT solution and label definitions; not a verified runnable checkpoint."
+    },
+    {
+      "id": "multilabeled",
+      "url": "https://aclanthology.org/2020.lrec-1.168/",
+      "use": "Human funniness labels and reported limits of external feedback agreement."
+    },
+    {
+      "id": "humorwb",
+      "url": "https://aclanthology.org/2024.lrec-main.908/",
+      "use": "Chinese humor recognition with social context."
+    },
+    {
+      "id": "semeval",
+      "url": "https://aclanthology.org/2021.semeval-1.9/",
+      "use": "Separate detection, rating and controversy; multiple annotations."
+    },
+    {
+      "id": "judge_bias",
+      "url": "https://arxiv.org/abs/2306.05685",
+      "use": "Position, verbosity and self-enhancement bias concerns."
+    },
+    {
+      "id": "resampling",
+      "url": "https://aclanthology.org/2021.tacl-1.67/",
+      "use": "Uncertainty and comparison of metric correlations."
+    },
+    {
+      "id": "spearman",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html",
+      "use": "Rank correlation and undefined constant inputs."
+    },
+    {
+      "id": "kendall",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kendalltau.html",
+      "use": "Tau-b and ties."
+    }
+  ]
+}

@@ -170,6 +170,8 @@ python -m openmic.humor_benchmark compare --index artifacts/cfunset/index.jsonl
 
 `download` 支持续传并校验官方 SHA256。`baseline` 与 `cfunset` 使用同一生成协议；后者先从 CFunSet 训练划分检索候选，再调用一次模型筛选最多两条结构参考，所选 ID 保存在轨迹中。原始数据、派生索引、模型轨迹和密钥均位于 Git 忽略路径或 `.env` 中。
 
+评估工具见 [evaluation](evaluation/README.md)。[V3 报告](evaluation/V3_REPORT.md)与[复现步骤](evaluation/V3_REPRODUCE.md)提供五档/连续文本接口、真实波形表达与可懂度评估、覆盖和失败状态。文本冻结确认准确率为 187/407 = 45.95%，50% 目标未达到；完整作品的真人幽默盲评仍待完成。公开短句表达/可懂度标签及实验性整段分数不能替代项目真人验证。
+
 ## 文档
 
 当前任务要求、近例改编参数和未达标项见 [任务二优化与验收边界](docs/TASK2_OPTIMIZATION.md)。近例改编可保留 CFunSet 原梗并明确署源；质量闭环按成稿的绝对幽默度与语境筛选，可选择最小适配，再有次数上限地修订或改写新故事。与原例的分差仅为可选诊断，不要求改编胜过原例；真实笑感仍需人评。
@@ -182,4 +184,28 @@ python -m openmic.humor_benchmark compare --index artifacts/cfunset/index.jsonl
 - [产品需求文档](docs/PRD.md)
 - [第一次项目分工会](docs/MEETING_01.md)
 - [真实模型 Smoke Test](docs/SMOKE_TEST.md)
+- [基础 TTS 管线](docs/TTS_PIPELINE.md)
 - [协作规范](CONTRIBUTING.md)
+
+## TTS 表演控制（JYB，02 版）
+
+精确停顿、情绪/重音/语速提示、四条件对照、ASR 辅助核查与人工盲评均整合在现有 `src/openmic/tts_*.py` 模块中。共享入口增加 `tts` 子命令，原生成命令和 csw 的基础 TTS 接口保留。
+
+扩展功能使用 **Python 3.11** 与下列依赖组合。在仓库根目录运行：
+
+```bash
+python -m pip install -e . -r requirements-jyb.txt
+python -m unittest discover -s tests -v
+python -m openmic tts plan --script examples/jyb_demo.txt --out artifacts/jyb/plan.json
+python -m openmic tts synth --script examples/jyb_demo.txt --backend tone --conditions baseline timing emotion performance --out artifacts/jyb/offline/shopping
+python -m streamlit run src/openmic/tts_app.py
+```
+
+`tone` 是无需 Key 的测试音，不能作为真实语音成绩。真实调用在本机 `.env` 配置密钥，生成音频和缓存不提交。
+
+- [Windows / Linux 完整运行说明](docs/JYB_USAGE.md)
+- [相对 csw 的贡献及整合方式](docs/JYB_CONTRIBUTION.md)
+- [02 版历史实测与局限](docs/JYB_RUN_02_RESULTS.md)
+- [02 版最终五主题稿件](examples/jyb_run_02/README.md)
+
+本次整理采用 `jyb_run_20261026_02` 的逻辑，尚未解决分段及情绪提示可能导致的音色漂移，不含后续音色稳定方案，也没有真人 MOS 提升结论。

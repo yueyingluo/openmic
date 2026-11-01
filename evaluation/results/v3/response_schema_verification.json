@@ -1,0 +1,6 @@
+{
+  "actual_response_objects_validated": 7,
+  "schema": "evaluation/schemas/evaluation_response.schema.json",
+  "includes_actual_complete_pilot_models": 4,
+  "includes_local_CLI_and_overlength": true
+}

@@ -1,0 +1,27 @@
+{
+  "mode": "audio",
+  "model_revision": "ae9e1690543ffd5c0221dc27f79834d0294cba00",
+  "grade_tokens": {
+    "0": 15,
+    "1": 16,
+    "2": 17,
+    "3": 18,
+    "4": 19,
+    "5": 20
+  },
+  "scoring": "softmax restricted next-token grade logits, expectation; no calibration claim",
+  "prompts": {
+    "audio_direct": "听实际语音，并结合给定故事语境，评价整体表达适切性0到5：0完全不合适，1很差，2较差，3一般，4合适，5非常合适。只输出一个0到5的数字。",
+    "audio_rubric": "听实际语音并结合故事语境。判断情绪、语调、节奏停顿、重音是否契合角色意图和叙事，而非只看内容通顺或音色好听。整体表达适切性：0完全失效，1严重不符，2明显不符，3基本适合，4合适，5高度贴合且自然。只输出一个0到5的数字。",
+    "text_only": "只根据给定文字推测这段话的表达适切性。你没有获得声音，不能假装听过。此项只是文字对照。预测等级0最差到5最好，只输出一个数字。"
+  },
+  "input_sha256": "c46db9384e199f88e722f12019c0c53c4f9ecef5db0b7aece5024211df1d5b92",
+  "chat_template_sha256": "d027e14db2e64eb2c23597240d42ea747b4fd5efd6e6a7604a990949c610f79c",
+  "torch": "2.9.1+cu128",
+  "batch_size": 4,
+  "seconds_cap": 7100,
+  "audio_input": true,
+  "no_reference_labels_in_model_input": true,
+  "missing_checkpoint_keys": [],
+  "unused_checkpoint_key_count": 1102
+}

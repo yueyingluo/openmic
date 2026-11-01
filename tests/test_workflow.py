@@ -123,6 +123,19 @@ class WorkflowTests(unittest.TestCase):
         content = "HUMOR_SCORE: 8\nCULTURE_SCORE: 7\nSTRUCTURE_SCORE: 9"
         self.assertEqual(_extract_score(content), 8.0)
 
+    def test_markdown_qc_scores_stop_router_without_spurious_revisions(self) -> None:
+        content = (
+            "**HUMOR_SCORE**: **8.5**\n"
+            "__CULTURE_SCORE__：9\n"
+            "`STRUCTURE_SCORE`: 8\nDECISION: APPROVED"
+        )
+        self.assertEqual(extract_qc_scores(content), {"humor": 8.5, "culture": 9.0, "structure": 8.0})
+        self.assertTrue(_qc_quality_passes(content))
+        agents = {name: FakeAgent(name) for name in ("JokeWriter", "QualityController")}
+        router = SpeakerRouter(agents, max_revisions=2)
+        self.assertIsNone(router(agents["QualityController"], FakeGroupChat(content)))
+        self.assertEqual(router.revision_count, 0)
+
     def test_high_average_does_not_hide_low_humor(self) -> None:
         self.assertFalse(_qc_quality_passes("HUMOR_SCORE: 5\nCULTURE_SCORE: 10\nSTRUCTURE_SCORE: 10"))
         self.assertTrue(_qc_quality_passes("HUMOR_SCORE: 7\nCULTURE_SCORE: 8\nSTRUCTURE_SCORE: 8"))
