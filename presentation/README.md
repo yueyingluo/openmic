@@ -12,13 +12,13 @@ and needs no server, build step or network connection.
 | 3 | lyy | Five-agent architecture, revision loop and TTS flow |
 | 4–6 | znjq | Content generation: whole-story view, prompted generation, evaluation and revision |
 | 7 | csw / jyb | TODO: speech generation |
-| 8 | szq | TODO: evaluation and current progress |
-| 9 | szq | TODO: limitations, next steps and closing |
+| 8 | szq | Evaluation: rank correlations with human ratings |
+| 9 | szq | Limitations and proposed audience evaluation |
 
 The lyy section describes the local implementation and project goals. The
 3–5 minute duration is a target, not a measured result. Slides 4–6 contain the
-2.5-minute text-generation section. Speech generation and the evaluation/closing
-sections remain placeholders until their owners supply content.
+2.5-minute text-generation section. Speech generation remains a placeholder.
+The evaluation section reports measured results and the missing audience validation.
 
 Slide 2 presents our working challenge analysis, not a universal theory of humor.
 Audience ratings and matched text/audio comparisons are proposed validation
@@ -101,3 +101,29 @@ Pro then receives the original draft and feedback, rewrites it, and reviews the 
 - Independent audit uses 1–5 and additionally reports `realism`. Internal five-role QC uses 0–10. CFunSet binary labels train a separate local classifier, whose probability is only a weak auxiliary signal.
 - CFunSet contains multiple tasks. Generation uses references from its training split. Adaptation preserves the source mechanism and necessary context. Short jokes need no forced expansion or callback quota.
 - Sources: `src/openmic/autogen_v02.py`, `humor_generation.py`, `humor_data.py`, `humor_craft.py`, `humor_quality_loop.py` and `humor_scorer.py`.
+
+## Evaluation section
+
+Slides 8–9 use the frozen results in [V3_REPORT.md](../evaluation/V3_REPORT.md).
+All evaluation results are presented as Spearman rank correlations with human
+ratings. On the same 407 CMHL confirmation examples, the continuous RoBERTa +
+CORN score reaches 0.366 (95% CI 0.265–0.443), versus 0.292 for the lightweight
+baseline. A constant majority prediction has undefined correlation and is not
+plotted. The chart spans −1 to +1. The external CCL relative-humor diagnostic
+reaches 0.032 on 800 items; this is a different task, not a paired decline estimate.
+The two speech results are correlations on public short-clip human labels;
+they are not full-performance humor validation or official model results.
+English speaking notes and source links are in the comments above each slide.
+
+The external CCL diagnostic uses the public relative-rating data from
+[Chinese Humor Generation](https://github.com/DHfusion/chinese_humor_generation),
+with [the paper](https://aclanthology.org/2025.ccl-1.3/) describing that task.
+The published workbook SHA-256 is
+`59bd49461dc4427240f4721fcc0d2363152dd417c64ed1b272bfec4daaacda82`.
+The primary diagnostic covers 800 generated versions of 200 jokes; its
+200-joke bootstrap interval is −0.0453 to 0.1069. This does not establish
+reliable agreement with human relative humor judgments.
+
+The text-generation slides and shared navigation are unchanged. The two
+evaluation slides keep their English speaking notes in the HTML comments.
+No scripts, fonts or data are loaded over the network.
