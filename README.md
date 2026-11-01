@@ -156,3 +156,26 @@ docs/                  # PRD、会议议程与 Smoke Test 记录
 - [真实模型 Smoke Test](docs/SMOKE_TEST.md)
 - [基础 TTS 管线](docs/TTS_PIPELINE.md)
 - [协作规范](CONTRIBUTING.md)
+
+## TTS 表演控制（JYB，02 版）
+
+精确停顿、情绪/重音/语速提示、四条件对照、ASR 辅助核查与人工盲评均整合在现有 `src/openmic/tts_*.py` 模块中。共享入口增加 `tts` 子命令，原生成命令和 csw 的基础 TTS 接口保留。
+
+扩展功能使用 **Python 3.11** 与下列依赖组合。在仓库根目录运行：
+
+```bash
+python -m pip install -e . -r requirements-jyb.txt
+python -m unittest discover -s tests -v
+python -m openmic tts plan --script examples/jyb_demo.txt --out artifacts/jyb/plan.json
+python -m openmic tts synth --script examples/jyb_demo.txt --backend tone --conditions baseline timing emotion performance --out artifacts/jyb/offline/shopping
+python -m streamlit run src/openmic/tts_app.py
+```
+
+`tone` 是无需 Key 的测试音，不能作为真实语音成绩。真实调用在本机 `.env` 配置密钥，生成音频和缓存不提交。
+
+- [Windows / Linux 完整运行说明](docs/JYB_USAGE.md)
+- [相对 csw 的贡献及整合方式](docs/JYB_CONTRIBUTION.md)
+- [02 版历史实测与局限](docs/JYB_RUN_02_RESULTS.md)
+- [02 版最终五主题稿件](examples/jyb_run_02/README.md)
+
+本次整理采用 `jyb_run_20261026_02` 的逻辑，尚未解决分段及情绪提示可能导致的音色漂移，不含后续音色稳定方案，也没有真人 MOS 提升结论。
