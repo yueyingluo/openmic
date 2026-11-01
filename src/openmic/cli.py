@@ -1,4 +1,5 @@
 import argparse
+import sys
 
 from openmic.autogen_v02 import AutoGenConfig, AutoGenV02Workflow
 from openmic.models import ProjectRequest
@@ -14,7 +15,8 @@ STYLE_ALIASES = {
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Generate Chinese stand-up comedy with the OpenMic workflow"
+        description="Generate Chinese stand-up comedy with the OpenMic workflow",
+        epilog="TTS performance controls: python -m openmic tts --help",
     )
     parser.add_argument("--topic", required=True, help="生活主题")
     parser.add_argument(
@@ -33,8 +35,16 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def main() -> None:
-    args = build_parser().parse_args()
+def main(argv=None) -> None:
+    arguments = list(sys.argv[1:] if argv is None else argv)
+    if arguments and arguments[0] == "tts":
+        # Keep the original generator usable without importing the optional
+        # performance dependencies until the TTS entry point is selected.
+        from openmic.tts_cli import main as tts_main
+
+        tts_main(arguments[1:])
+        return
+    args = build_parser().parse_args(arguments)
     request = ProjectRequest(
         topic=args.topic,
         style=STYLE_ALIASES.get(args.style, args.style),
