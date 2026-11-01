@@ -209,3 +209,22 @@ python -m streamlit run src/openmic/tts_app.py
 - [02 版最终五主题稿件](examples/jyb_run_02/README.md)
 
 本次整理采用 `jyb_run_20261026_02` 的逻辑，尚未解决分段及情绪提示可能导致的音色漂移，不含后续音色稳定方案，也没有真人 MOS 提升结论。
+
+## TTS 后续累计更新（JYB）
+
+上节记录首次 02 版贡献。本次在其上增加与团队 CFunSet 文稿的交接、固定请求音色的舞台计划，以及逐句内容/端点检查后保留完整原始 PCM 的拼接层。新入口为 `openmic tts stage` 和 `openmic tts integrity`；旧四条件入口继续保留，不自动切换算法。
+
+```bash
+python -m pip install -e '.[evaluation]' -r requirements-jyb-delivery.txt
+python -m unittest discover -s tests -v
+python -m openmic tts stage plan --script examples/jyb_demo.txt --manual-script --out artifacts/jyb/stage/plan.json
+python -m openmic tts integrity plan --script examples/jyb_demo.txt --manual-script --stage-plan artifacts/jyb/stage/plan.json --out artifacts/jyb/integrity/plan.json
+```
+
+- [两阶段贡献和实现说明](docs/JYB_DELIVERY_UPDATE.md)
+- [Windows / Linux 安装与运行](docs/JYB_DELIVERY_USAGE.md)
+- [结果、来源与未完成项](docs/JYB_DELIVERY_RESULTS.md)
+- [同稿三版本试听](docs/jyb_audio_compare.html)（音频本机另存，不提交）
+- [中期共享 slides](presentation/midterm.html)（JYB 第8页，当前仅一页）· [英文稿](docs/JYB_MIDTERM_SCRIPT_EN.md) · [中文稿](docs/JYB_MIDTERM_SCRIPT_ZH.md)
+
+历史完整性轮接受 123/124 句，其中 119 自动、2 正字法审定、2 实际核听；三主题整稿可用，网购仍缺两个“啊”的一句未放行。未训练 TTS/latent，未完成 MOS 听评，也不声称全部课程验收已达标。

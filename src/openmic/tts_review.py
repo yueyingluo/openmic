@@ -50,7 +50,8 @@ def parse_quality(content):
             "errors": errors}
 
 
-def review_script(script, trace, *, min_characters=850, max_characters=1100, strict_length=False):
+def review_script(script, trace, *, min_characters=850, max_characters=1100, strict_length=False,
+                  min_punchlines=4, min_callbacks=1):
     """Review the final coach script against its final writer/QC trace.
 
     The lower length bound prevents accidentally synthesizing a tiny sample as
@@ -81,9 +82,9 @@ def review_script(script, trace, *, min_characters=850, max_characters=1100, str
         (errors if strict_length else warnings).append(message)
     if not 12 <= len(spoken) <= 18:
         warnings.append(f"语音段数为{len(spoken)}，建议12–18段；必须试听分段连接")
-    if punches < 4:
-        errors.append(f"包袱只有{punches}处，至少需要4处")
-    if callbacks < 1:
+    if punches < min_punchlines:
+        errors.append(f"包袱只有{punches}处，至少需要{min_punchlines}处")
+    if callbacks < min_callbacks:
         errors.append("缺少CALLBACK回调")
     messages = trace.get("messages", []) if isinstance(trace, dict) else []
     final = {}

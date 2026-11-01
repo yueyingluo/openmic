@@ -20,6 +20,10 @@ def main() -> None:
     gen.add_argument("--topics", type=Path, default=Path("examples/jyb_topics.json"))
     gen.add_argument("--out", type=Path, required=True)
     gen.add_argument("--backend", choices=["mock", "autogen"], default="mock")
+    gen.add_argument("--content-mode", choices=["baseline", "cfunset"], default="baseline")
+    gen.add_argument("--cfunset-index", type=Path)
+    gen.add_argument("--source-mode", choices=["original", "adaptation"], default=None)
+    gen.add_argument("--adaptation-seed", type=int, default=None)
     synth = subs.add_parser("synth")
     synth.add_argument("--scripts", type=Path, required=True)
     synth.add_argument("--out", type=Path, required=True)
@@ -40,6 +44,9 @@ def main() -> None:
             for topic in topics:
                 _generate(SimpleNamespace(topic=topic["topic"], style=topic["style"],
                                           duration=topic["duration_minutes"], audience=topic["audience"],
+                                          context=topic.get("context", ""), content_mode=args.content_mode,
+                                          cfunset_index=args.cfunset_index, source_mode=args.source_mode,
+                                          adaptation_seed=args.adaptation_seed,
                                           backend=args.backend, out=args.out / (topic["id"] + ".txt")))
             return
         paths = sorted(args.scripts.glob("*.txt"))
