@@ -20,6 +20,12 @@ openmic = "openmic.cli:main"
 openmic-evaluate = "openmic.evaluation:main"
 
 [project.optional-dependencies]
+learning = [
+  "scikit-learn>=1.3,<1.8",
+  "onnxruntime>=1.18,<2",
+  "tokenizers>=0.20,<0.23",
+  "opencc-python-reimplemented==0.1.7",
+]
 evaluation = [
   "numpy>=1.24,<3",
   "scipy>=1.10,<2",

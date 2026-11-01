@@ -69,7 +69,7 @@ class IntegratedTTSCLITests(unittest.TestCase):
 
     def test_original_mock_command_remains_usable_without_numpy(self):
         result = self.run_public_cli(
-            ["--backend", "mock", "--topic", "我的网购经历", "--style", "roast"], block_numpy=True)
+            ["--backend", "mock", "--topic", "我的网购经历", "--style", "roast", "--verbose"], block_numpy=True)
         self.assert_success(result)
         for role in ("ComedyDirector", "AudienceAnalyzer", "JokeWriter", "PerformanceCoach", "QualityController"):
             self.assertIn("[" + role + "]", result.stdout)

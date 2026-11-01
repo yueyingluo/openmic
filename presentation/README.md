@@ -10,14 +10,15 @@ and needs no server, build step or network connection.
 | 1 | Team 1234 | Cover |
 | 2 | lyy | Goal; defining humor, writing jokes and delivering them |
 | 3 | lyy | Five-agent architecture, revision loop and TTS flow |
-| 4 | znjq | TODO: content generation |
-| 5 | csw / jyb | TODO: speech generation |
-| 6 | szq | TODO: evaluation and current progress |
-| 7 | szq | TODO: limitations, next steps and closing |
+| 4–6 | znjq | Content generation: whole-story view, prompted generation, evaluation and revision |
+| 7 | csw / jyb | TODO: speech generation |
+| 8 | szq | TODO: evaluation and current progress |
+| 9 | szq | TODO: limitations, next steps and closing |
 
 The lyy section describes the local implementation and project goals. The
-3–5 minute duration is a target, not a measured result. The remaining sections
-are placeholders until their owners supply content.
+3–5 minute duration is a target, not a measured result. Slides 4–6 contain the
+2.5-minute text-generation section. Speech generation and the evaluation/closing
+sections remain placeholders until their owners supply content.
 
 Slide 2 presents our working challenge analysis, not a universal theory of humor.
 Audience ratings and matched text/audio comparisons are proposed validation
@@ -48,3 +49,36 @@ Architecture references: `src/openmic/autogen_v02.py`,
 `src/openmic/streamlit_app.py`, and `src/openmic/tts.py`.
 The TTS action is user-triggered; the quality gate stops at approval or the
 revision limit, and the UI displays the outcome in either case.
+
+## Task 2 text-generation presentation
+
+The shared [midterm.html](midterm.html) integrates section **02 / znjq** on
+**slides 4–6**, replacing the content-generation placeholder. This is the
+**2.5-minute** English section following the architecture overview.
+
+For separate rehearsal, open [text_generation_3min.html](text_generation_3min.html).
+Its three slides contain the same text-generation content:
+the whole-story view, prompting and generation, and evaluation with revision.
+The [English script](text_generation_3min_notes.md), about 230 words, allocates
+40 / 55 / 55 seconds (2:30 total). The existing short-version filenames are
+retained so earlier links continue to work.
+
+Open [text_generation.html](text_generation.html) for the standalone text-generation section.
+It follows the same white/blue/gray theme, fixed 1920 × 1080 canvas, navigation,
+local editing, **Save HTML**, and print controls. It has no external scripts,
+fonts or build dependencies. Main explanations are in English; Chinese joke
+excerpts retain their original wording.
+
+- **Length:** 9 slides, about 7–8 minutes for one speaker.
+- **Speaking plan:** [Chinese notes with per-slide timing](text_generation_notes.md), target 7:40.
+- **Content:** CFunSet preparation, reference selection, two writing routes,
+  topic expansion, a callback example, evaluation, local training experiments
+  and current limitations.
+- **Evidence:** [release summary](../docs/TASK2_RELEASE.md) and
+  [compact development results](../docs/task2_v39_results.json).
+
+The nine-slide standalone file remains an extended version. The shared deck
+uses the shorter three-slide section. Other owners' slide content is preserved,
+with page numbers updated for the nine-slide deck. The optional training experiments
+are distinguished from DeepSeek generation, and the four-topic model review is
+distinguished from human audience evaluation.
