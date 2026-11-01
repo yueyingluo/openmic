@@ -1,0 +1,12 @@
+{
+  "n": 407,
+  "same_weights_sha256_verified": true,
+  "primary": "CPU FP32, frozen before confirmation results",
+  "secondary": "H100 BF16 precision replication, no model selection",
+  "grade_disagreements": 1,
+  "max_class_probability_absolute_difference": 0.005551785230636597,
+  "max_continuous_score_absolute_difference": 0.014735076576471329,
+  "primary_correct": 187,
+  "secondary_correct": 186,
+  "not_a_second_independent_test": true
+}

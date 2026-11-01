@@ -1,0 +1,41 @@
+{
+  "initial_topics": 80,
+  "merged_topic_groups": 80,
+  "near_duplicate_edges": 3,
+  "largest_group": 70,
+  "source_sha256": "ae062ea41a0c0089ec2061fa5693bbe9de28f5fbe9d0f686d851b3d4ae01429c",
+  "retired_v2_test": 718,
+  "plan_sha256": "34e97a8d9c219334648e377653ad898c135f777bbe8f58263f21f5ce6746dfb6",
+  "counts": {
+    "validation": 513,
+    "train": 1670,
+    "confirmation": 407
+  },
+  "excluded_overlength": {
+    "train": 10,
+    "validation": 5,
+    "confirmation": 1
+  },
+  "class_counts_train_and_validation": {
+    "train": {
+      "4": 336,
+      "3": 669,
+      "5": 44,
+      "2": 450,
+      "1": 171
+    },
+    "validation": {
+      "3": 194,
+      "2": 121,
+      "4": 119,
+      "5": 15,
+      "1": 64
+    }
+  },
+  "confirmation_targets_not_used_for_grouping_or_stratification": true,
+  "split_hashes": {
+    "train": "29846970ce3e74c6dba266cccc810fe0501b8db5547575a6a2de810ac9b3c597",
+    "validation": "91fef1b8ea6058f77b39910741efb98b4dc05c0621fde7d4b9c7cf49e471a87d",
+    "confirmation": "21e7a598fc8cc44deec8d631aa9f6e1c31a55458823eca68faeaa2c9a308b1f8"
+  }
+}

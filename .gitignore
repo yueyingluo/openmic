@@ -1,5 +1,5 @@
 .env
-.venv/
+.venv
 __pycache__/
 *.py[cod]
 *.egg-info/
@@ -20,3 +20,12 @@ outputs/
 *.pt
 *.pth
 *.onnx
+
+# Evaluation runtime data and machine-specific configuration stay local.
+evaluation/runtime/data/
+evaluation/runtime/models/
+evaluation/runtime/downloaded_models/
+evaluation/runtime/gpu_results/
+evaluation/runtime/reports/
+evaluation/*.local.yaml
+evaluation/runtime/*.local.yaml

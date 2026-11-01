@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenMic pointwise judge response v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "humor_score",
+    "humor_intent",
+    "understood",
+    "evidence",
+    "reason"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "scored",
+        "abstain"
+      ]
+    },
+    "humor_score": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1,
+      "maximum": 5
+    },
+    "humor_intent": {
+      "enum": [
+        "yes",
+        "no",
+        "uncertain"
+      ]
+    },
+    "understood": {
+      "enum": [
+        "yes",
+        "partial",
+        "no"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "maxItems": 2,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 120
+      }
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "scored"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "humor_score": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "understood": {
+            "enum": [
+              "yes",
+              "partial"
+            ]
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "humor_score": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
+}

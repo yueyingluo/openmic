@@ -1,0 +1,14 @@
+{
+  "input_sha256": "699e91f275cc88ce5e41382f2fdad3d952307a6605b9b18dd2fe93852c7828f8",
+  "features_sha256": "493a7f01f3bf4018556b04159e2f3b70bcb74a5f2d1511f7cc022d3a7b7e6489",
+  "n": 2068,
+  "dimensions": {
+    "waveform": 14,
+    "audio_embedding": 7168,
+    "text_embedding": 512
+  },
+  "complete_waveform_decode_fraction_min": 1.0,
+  "coverage_checks_passed": 2068,
+  "frozen_audio_encoder": "Qwen/Qwen2.5-Omni-7B@ae9e1690543ffd5c0221dc27f79834d0294cba00 audio_tower",
+  "elapsed_seconds": 130.51079422002658
+}

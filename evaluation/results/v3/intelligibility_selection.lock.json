@@ -1,0 +1,203 @@
+{
+  "chosen": {
+    "method": "audio_and_waveform",
+    "alpha": 1000,
+    "validation": {
+      "n": 2004,
+      "coverage": 1.0,
+      "spearman": 0.5309457906309123,
+      "kendall_tau_b": 0.41771452959358535,
+      "mae": 1.385446043082753,
+      "rmse": 1.9936768726327068
+    }
+  },
+  "per_method": {
+    "waveform": {
+      "method": "waveform",
+      "alpha": 1,
+      "validation": {
+        "n": 2004,
+        "coverage": 1.0,
+        "spearman": 0.2986843704037553,
+        "kendall_tau_b": 0.22386965813890572,
+        "mae": 1.7504703989828256,
+        "rmse": 2.3999867626775364
+      }
+    },
+    "audio_embedding": {
+      "method": "audio_embedding",
+      "alpha": 1000,
+      "validation": {
+        "n": 2004,
+        "coverage": 1.0,
+        "spearman": 0.5305375193795204,
+        "kendall_tau_b": 0.41755757231785323,
+        "mae": 1.3881186795407487,
+        "rmse": 1.9957439590846977
+      }
+    },
+    "audio_and_waveform": {
+      "method": "audio_and_waveform",
+      "alpha": 1000,
+      "validation": {
+        "n": 2004,
+        "coverage": 1.0,
+        "spearman": 0.5309457906309123,
+        "kendall_tau_b": 0.41771452959358535,
+        "mae": 1.385446043082753,
+        "rmse": 1.9936768726327068
+      }
+    }
+  },
+  "candidates": [
+    {
+      "method": "waveform",
+      "alpha": 1,
+      "validation": {
+        "n": 2004,
+        "coverage": 1.0,
+        "spearman": 0.2986843704037553,
+        "kendall_tau_b": 0.22386965813890572,
+        "mae": 1.7504703989828256,
+        "rmse": 2.3999867626775364
+      }
+    },
+    {
+      "method": "waveform",
+      "alpha": 10,
+      "validation": {
+        "n": 2004,
+        "coverage": 1.0,
+        "spearman": 0.29850376013625185,
+        "kendall_tau_b": 0.22371461525888311,
+        "mae": 1.7518073128773572,
+        "rmse": 2.4000014268936027
+      }
+    },
+    {
+      "method": "waveform",
+      "alpha": 100,
+      "validation": {
+        "n": 2004,
+        "coverage": 1.0,
+        "spearman": 0.2960419829556389,
+        "kendall_tau_b": 0.22183111370361147,
+        "mae": 1.7591714940298435,
+        "rmse": 2.4013437474795416
+      }
+    },
+    {
+      "method": "waveform",
+      "alpha": 1000,
+      "validation": {
+        "n": 2004,
+        "coverage": 1.0,
+        "spearman": 0.28413743870507524,
+        "kendall_tau_b": 0.21268027562292682,
+        "mae": 1.7793660505826034,
+        "rmse": 2.40804772688749
+      }
+    },
+    {
+      "method": "audio_embedding",
+      "alpha": 1,
+      "validation": {
+        "n": 2004,
+        "coverage": 1.0,
+        "spearman": 0.40063978539815853,
+        "kendall_tau_b": 0.3149425626889611,
+        "mae": 1.6421867452019634,
+        "rmse": 2.4201611464039288
+      }
+    },
+    {
+      "method": "audio_embedding",
+      "alpha": 10,
+      "validation": {
+        "n": 2004,
+        "coverage": 1.0,
+        "spearman": 0.407908884224213,
+        "kendall_tau_b": 0.3206302197692562,
+        "mae": 1.6236851613139671,
+        "rmse": 2.389343277573154
+      }
+    },
+    {
+      "method": "audio_embedding",
+      "alpha": 100,
+      "validation": {
+        "n": 2004,
+        "coverage": 1.0,
+        "spearman": 0.4470998163282194,
+        "kendall_tau_b": 0.3511140623666956,
+        "mae": 1.5400710821112134,
+        "rmse": 2.2417838522204017
+      }
+    },
+    {
+      "method": "audio_embedding",
+      "alpha": 1000,
+      "validation": {
+        "n": 2004,
+        "coverage": 1.0,
+        "spearman": 0.5305375193795204,
+        "kendall_tau_b": 0.41755757231785323,
+        "mae": 1.3881186795407487,
+        "rmse": 1.9957439590846977
+      }
+    },
+    {
+      "method": "audio_and_waveform",
+      "alpha": 1,
+      "validation": {
+        "n": 2004,
+        "coverage": 1.0,
+        "spearman": 0.40111473717511376,
+        "kendall_tau_b": 0.3152195271532865,
+        "mae": 1.6361551457481194,
+        "rmse": 2.410489026518344
+      }
+    },
+    {
+      "method": "audio_and_waveform",
+      "alpha": 10,
+      "validation": {
+        "n": 2004,
+        "coverage": 1.0,
+        "spearman": 0.40782158745142755,
+        "kendall_tau_b": 0.32059632685327644,
+        "mae": 1.6171629308400866,
+        "rmse": 2.3797453764709373
+      }
+    },
+    {
+      "method": "audio_and_waveform",
+      "alpha": 100,
+      "validation": {
+        "n": 2004,
+        "coverage": 1.0,
+        "spearman": 0.4485059883643003,
+        "kendall_tau_b": 0.35231338322157285,
+        "mae": 1.5348208500623652,
+        "rmse": 2.2359392931441358
+      }
+    },
+    {
+      "method": "audio_and_waveform",
+      "alpha": 1000,
+      "validation": {
+        "n": 2004,
+        "coverage": 1.0,
+        "spearman": 0.5309457906309123,
+        "kendall_tau_b": 0.41771452959358535,
+        "mae": 1.385446043082753,
+        "rmse": 1.9936768726327068
+      }
+    }
+  ],
+  "train_mean": 8.482855769953193,
+  "plan_sha256": "46c3d663cd1ffb0e83a0652b4e082328526925e811f14b2d7af85765110c8bad",
+  "preparation_sha256": "56029187173a6ab1de8806670b36a427d39969d44674fd498029791067aa8319",
+  "features_sha256": "4d188ac4c9e93171ee8a6b5e507ddb15b303a329abf25af8f8936f532748cd58",
+  "selection_read_confirmation_labels": false
+}

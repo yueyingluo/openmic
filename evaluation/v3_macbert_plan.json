@@ -1,0 +1,78 @@
+{
+  "protocol": "openmic-evaluation-v3-macbert-development-extension",
+  "frozen_at": "2026-10-26T13:21:06.701494+00:00",
+  "purpose": "Accuracy-led, newly retrained confirmation; previous v2 test retired from selection",
+  "text": {
+    "source": "v2 CMHL retained records, excluding old test entirely",
+    "initialization": "original hfl/chinese-macbert-large@1cf2677c782975600ce58e2961656b1b29eddbae, never task-trained v2/v3 checkpoints",
+    "semantic_encoder": "BAAI/bge-small-zh-v1.5@7999e1d3359715c523056ef9478215996d62a620",
+    "split": "80 KMeans semantic topics, seed 20261026; merge topics linked by old duplicate groups, character 3-5gram cosine >=0.70, or embedding cosine >=0.92; SHA256 topic membership order, 60/20/20 train/validation/confirmation",
+    "grouping_uses_labels": false,
+    "topic_isolation_limit": "Operational embedding clusters, not human topic annotations; unknown pretraining contamination",
+    "overlength": "reject over 512 encoder tokens, never truncate",
+    "objectives": [
+      "ce",
+      "ce_rank"
+    ],
+    "learning_rates": [
+      1e-05,
+      2e-05
+    ],
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "epochs": 8,
+    "batch_size": 24,
+    "checkpoint_selection": "validation exact accuracy, then Spearman, then earliest epoch",
+    "candidate_selection": "mean probabilities of 3 seeds; validation exact accuracy, then Spearman, then fixed candidate order",
+    "classification": "argmax of probabilities, lowest class on exact tie",
+    "continuous_score": "expectation of 1..5 class probabilities",
+    "baselines": "train majority; char TFIDF LogisticRegression C in [0.1,1,10] selected on validation accuracy",
+    "confirmation": "Only selected neural candidate, frozen lightweight baseline and train majority, single report after lock; no follow-up tuning on this confirmation"
+  },
+  "audio": {
+    "task": "CEAEval manual human expressive appropriateness, not humor or intelligibility",
+    "split": "retain v2 story partitions; previously unscored train stories split by story hash 70/15/15 into fit/development/confirmation",
+    "all_previous_validation_and_test_stories": "retired from new confirmation",
+    "features": [
+      "waveform descriptors",
+      "frozen Qwen2.5-Omni audio encoder mean and std",
+      "frozen BGE transcript CLS"
+    ],
+    "candidates": [
+      "waveform",
+      "audio_embedding",
+      "text_embedding",
+      "audio_and_text"
+    ],
+    "regression": "StandardScaler + Ridge alpha in [1,10,100,1000]; no sign flips",
+    "selection": "development story-bootstrap Spearman point estimate, then MAE, fixed candidate order",
+    "confirmation": "all fixed candidate/control results, selected method explicitly identified; no post-confirmation selection",
+    "duration": "all valid complete clips 3..20 seconds; full decode and feature-frame checks",
+    "project_humor": "pending real full-work listener ratings",
+    "intelligibility": "coverage and signal measurements only; no invented human intelligibility label"
+  },
+  "statistics": {
+    "bootstrap_resamples": 5000,
+    "seed": 20261026,
+    "unit": "semantic topic group for text, story for audio",
+    "text_primary": "exact accuracy with correct/n, same-set majority and lightweight baseline",
+    "text_secondary": [
+      "Spearman",
+      "MAE",
+      "macro_f1",
+      "confusion matrix",
+      "coverage"
+    ]
+  },
+  "resources": {
+    "max_gpus": 1,
+    "per_stage_seconds": 7200,
+    "paid_api": false
+  },
+  "independence_limit": "Repartition of a previously used public corpus; confirmation items were v2 training or validation items, but no v2 trained weights or confirmation outcomes enter v3 training/selection. Not a new externally collected dataset.",
+  "extension_reason": "Development-only extension after viewing partial RoBERTa validation results; stronger public Chinese pretrained backbone. No confirmation evaluation has run.",
+  "final_selection": "After both original and extension selection stages finish, choose larger validation exact accuracy, then Spearman; original run wins an exact tie. Evaluate only final chosen candidate on the untouched confirmation once."
+}

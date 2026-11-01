@@ -1,0 +1,21 @@
+{
+  "selected_model": "corn-lr2e-05",
+  "encoder_model_safetensors_sha256": {
+    "17": "4e53797d652a16d0b01e79df8b5b0e03e1943ba0759123e9adc7e35d01770692",
+    "29": "37a2da10d4cd447d853a064b0f1971312405dbd3b9193b3152c2fc60252f1df1",
+    "43": "adfaaa5a21abe86b6ce0001e89c570fd986e1f1374eb00e077deb2d5f1d3eb12"
+  },
+  "matching_locations_verified": [
+    "original training server",
+    "local CPU confirmation files",
+    "H100 inference copies"
+  ],
+  "all_three_match": true,
+  "audio_migration": "one truncated pilot WAV was rejected by SHA256 before inference; repaired; all106migratedwaveforms then verified",
+  "no_predictions_from_mismatched_waveform_accepted": true,
+  "selected_regressor_sha256": {
+    "waveform-1000.joblib": "415241172e8404902627dd6a5189f81e6b661f0445944c756f60f9e610eb8256",
+    "audio_and_waveform-1000.joblib": "f563e8b3ebb9be8a350fd0542eae68a28519ddeed7ee52191c99c0b2002452e9"
+  },
+  "regressor_hashes_match_training_and_inference_servers": true
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "model": "qwen",
+    "pilot_valid_scores": 12,
+    "source_valid_scores": 628,
+    "source_metrics": {
+      "n": 628,
+      "macro_f1": 0.7896170324028554,
+      "balanced_accuracy": 0.7879107790590656,
+      "accuracy": 0.804140127388535,
+      "roc_auc": 0.8743868767256782,
+      "confusion_matrix_labels_0_1": [
+        [
+          335,
+          58
+        ],
+        [
+          65,
+          170
+        ]
+      ]
+    },
+    "candidate_token_counts_including_eot": {
+      "幽默": {
+        "2": 640
+      },
+      "不幽默": {
+        "3": 640
+      }
+    },
+    "source_overlap_caveat": "Pretraining overlap has not been ruled out.",
+    "independent_local_verification_passed": true,
+    "human_alignment_validated": false,
+    "completion": {
+      "model": "qwen",
+      "samples": 640,
+      "pilot": 12,
+      "source_holdout": 628,
+      "elapsed_seconds_including_integrity_and_load": 38.278888077999,
+      "peak_allocated_gib": 14.316567420959473,
+      "raw_sha256": "199706e2f99ce790c7022359d899352721a96a90821d75158845e0aa57098c49",
+      "human_ratings_consumed": false,
+      "human_alignment_validated": false,
+      "source_holdout_unseen_for_cfun": false
+    }
+  },
+  {
+    "model": "cfun",
+    "pilot_valid_scores": 12,
+    "source_valid_scores": 628,
+    "source_metrics": {
+      "n": 628,
+      "macro_f1": 0.9338695697957927,
+      "balanced_accuracy": 0.934984570407666,
+      "accuracy": 0.9378980891719745,
+      "roc_auc": 0.985317524768556,
+      "confusion_matrix_labels_0_1": [
+        [
+          372,
+          21
+        ],
+        [
+          18,
+          217
+        ]
+      ]
+    },
+    "candidate_token_counts_including_eot": {
+      "幽默": {
+        "2": 640
+      },
+      "不幽默": {
+        "3": 640
+      }
+    },
+    "source_overlap_caveat": "CFunModel was trained on CFunSet; this split is not an unseen test for it.",
+    "independent_local_verification_passed": true,
+    "human_alignment_validated": false,
+    "completion": {
+      "model": "cfun",
+      "samples": 640,
+      "pilot": 12,
+      "source_holdout": 628,
+      "elapsed_seconds_including_integrity_and_load": 38.529285709999385,
+      "peak_allocated_gib": 14.316567420959473,
+      "raw_sha256": "341c7c648e6dc78a3d2facdf440d07bea996eeccece96e6d934086e84850fef5",
+      "human_ratings_consumed": false,
+      "human_alignment_validated": false,
+      "source_holdout_unseen_for_cfun": false
+    }
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "scope": "exploratory_source_classification_comparison_not_human_alignment",
+  "sample_n": 628,
+  "cluster_n": 628,
+  "cluster_unit": "duplicate_component",
+  "bootstrap_seed": 20261028,
+  "resamples": 5000,
+  "bert_ensemble_macro_f1": 0.8035193343536753,
+  "logreg_macro_f1": 0.723862675460849,
+  "bert_ci95": [
+    0.76964336017398,
+    0.8347368421052632
+  ],
+  "logreg_ci95": [
+    0.6851508160462775,
+    0.7604067750320146
+  ],
+  "paired_f1_difference": 0.07965665889282625,
+  "paired_difference_ci95": [
+    0.04058573401113414,
+    0.11822268932115094
+  ],
+  "manifest_sha256": "4edfd130e301cc8c386d78c283c1b64b290ebe2704722c352af95b3f12a78511",
+  "limitations": [
+    "Source-domain task only",
+    "Shared-source/paraphrase dependence may remain beyond duplicate components",
+    "Single fixed train/validation/holdout split; intervals do not include resplitting or retraining uncertainty"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "selected": "audio_and_waveform",
+  "n": 1733,
+  "content_groups": 48,
+  "scale": [
+    0,
+    10
+  ],
+  "results": {
+    "waveform": {
+      "n": 1733,
+      "coverage": 1.0,
+      "spearman": 0.21936529582280376,
+      "kendall_tau_b": 0.16648454986713568,
+      "mae": 1.6069171692468955,
+      "rmse": 2.186263268320476,
+      "spearman_ci95": [
+        0.10362152496038558,
+        0.30687511189106825
+      ]
+    },
+    "audio_embedding": {
+      "n": 1733,
+      "coverage": 1.0,
+      "spearman": 0.4615769248907926,
+      "kendall_tau_b": 0.36037523150759,
+      "mae": 1.3191215920032062,
+      "rmse": 1.937802076197466,
+      "spearman_ci95": [
+        0.39182965620195453,
+        0.5358148635936912
+      ]
+    },
+    "audio_and_waveform": {
+      "n": 1733,
+      "coverage": 1.0,
+      "spearman": 0.4621507486356805,
+      "kendall_tau_b": 0.3608074839189626,
+      "mae": 1.3167414136528424,
+      "rmse": 1.9350866708023942,
+      "spearman_ci95": [
+        0.39143173349594124,
+        0.5368211089029198
+      ]
+    },
+    "train_mean": {
+      "n": 1733,
+      "coverage": 1.0,
+      "spearman": null,
+      "kendall_tau_b": null,
+      "mae": 1.7617438871423632,
+      "rmse": 2.257423483909234,
+      "spearman_ci95": null
+    }
+  },
+  "selected_minus_waveform_spearman_ci95": [
+    0.15545102077839998,
+    0.36387257822542896
+  ],
+  "bootstrap_unit": "underlying sentence, all noisy/enhanced/speaker variants together",
+  "resamples": 5000,
+  "selection_lock_sha256": "e94b7d76c9f846d36344ab5a548b8e5b72767eceb09274d830d2415d62029755",
+  "human_intelligibility_label": true,
+  "full_work_intelligibility_human_validation": false,
+  "text_control": "unavailable: released package has sentence IDs but no grounded transcripts; do not invent them",
+  "meaning": "Chinese short noisy/enhanced sentence intelligibility, not stand-up humor, long-work clarity, or quality MOS"
+}

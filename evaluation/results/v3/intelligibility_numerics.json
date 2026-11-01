@@ -1,0 +1,7 @@
+{
+  "reason": "float32 Ridge cholesky emitted ill-conditioned warnings; repeat development-only fitting with float64 feature matrices",
+  "features_unchanged": true,
+  "split_target_alpha_unchanged": true,
+  "confirmation_not_evaluated": true,
+  "original_development_lock_sha256": "8b5a8b90cea9fb38aaf19199d15310aa797e99bf3b7fae95d4e1ceeb8b1cabb3"
+}

@@ -148,6 +148,8 @@ docs/                  # PRD、会议议程与 Smoke Test 记录
 
 后续开发集中在 CFunSet 数据管线、中文幽默生成对照实验、可执行的语音表演控制、人工盲评和课程交付。具体范围、验收指标和五人分工见 [PRD](docs/PRD.md)。
 
+评估工具见 [evaluation](evaluation/README.md)。[V3 报告](evaluation/V3_REPORT.md)与[复现步骤](evaluation/V3_REPRODUCE.md)提供五档/连续文本接口、真实波形表达与可懂度评估、覆盖和失败状态。文本冻结确认准确率为 187/407 = 45.95%，50% 目标未达到；完整作品的真人幽默盲评仍待完成。公开短句表达/可懂度标签及实验性整段分数不能替代项目真人验证。
+
 ## 文档
 
 - [中期汇报（英文 HTML）](presentation/midterm.html) · [编辑与分工说明](presentation/README.md)

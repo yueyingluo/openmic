@@ -1,0 +1,104 @@
+{
+  "prediction_rule": "argmax of mean class probabilities across frozen seeds 17/29/43; lowest grade breaks ties",
+  "checkpoint_sha256": {
+    "17": "0070d64b016bc6fceb82dc396bc60bef64ad5270214933f819f8aadd363279c3",
+    "29": "dbc2ffd4771d54f6ea15d531aa42d38ee5e63b1a06b4e1708cb0d324dbc526f4",
+    "43": "bf36ba8d4813131684bc8e362720fe7a875408ace639b5e61c43410cc2a91668"
+  },
+  "train_majority_grade": 3,
+  "no_retraining_or_test_selection": true,
+  "splits": {
+    "validation": {
+      "n": 324,
+      "correct": 153,
+      "accuracy": 0.4722222222222222,
+      "majority_baseline_correct": 142,
+      "majority_baseline_accuracy": 0.4382716049382716,
+      "macro_f1": 0.2397605083088954,
+      "confusion_matrix_true_rows_predicted_columns": [
+        [
+          0,
+          12,
+          5,
+          0,
+          0
+        ],
+        [
+          0,
+          44,
+          36,
+          4,
+          0
+        ],
+        [
+          0,
+          34,
+          103,
+          5,
+          0
+        ],
+        [
+          0,
+          16,
+          50,
+          6,
+          0
+        ],
+        [
+          1,
+          2,
+          5,
+          1,
+          0
+        ]
+      ],
+      "max_expected_score_difference_from_original": 2.7008354663848877e-07
+    },
+    "test": {
+      "n": 707,
+      "correct": 282,
+      "accuracy": 0.3988684582743989,
+      "majority_baseline_correct": 260,
+      "majority_baseline_accuracy": 0.36775106082036774,
+      "macro_f1": 0.258194964649476,
+      "confusion_matrix_true_rows_predicted_columns": [
+        [
+          15,
+          39,
+          28,
+          1,
+          0
+        ],
+        [
+          2,
+          83,
+          97,
+          4,
+          0
+        ],
+        [
+          2,
+          78,
+          175,
+          5,
+          0
+        ],
+        [
+          1,
+          32,
+          119,
+          9,
+          0
+        ],
+        [
+          0,
+          3,
+          12,
+          2,
+          0
+        ]
+      ],
+      "max_expected_score_difference_from_original": 3.03611159324646e-07
+    }
+  }
+}

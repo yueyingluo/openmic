@@ -1,0 +1,25 @@
+{
+  "metadata_sha256": "29f0698c8823d8cc7a1637f0a89e5f6ba02c8dbb4ed97c2d7f71b8c06c3cda99",
+  "plan_sha256": "34e97a8d9c219334648e377653ad898c135f777bbe8f58263f21f5ce6746dfb6",
+  "counts": {
+    "confirmation": 320,
+    "train": 1360,
+    "validation": 388
+  },
+  "story_counts": {
+    "train": 36,
+    "validation": 8,
+    "confirmation": 8
+  },
+  "exclusions": {
+    "outside_3_20_seconds": 1215
+  },
+  "retired_all_v2_validation_and_test_stories": true,
+  "split_hashes": {
+    "train": "907523bae014352dcb5cd6583982ed21e63400cd8889fb8dfb6b3698233b6a20",
+    "validation": "1eb2a7c99219e082b5feed0509d3127e5e260db28a20333d52789a24b2884c03",
+    "confirmation": "4c33e20ae919270695c94df8c0f705a00fe357e59cfb255a79e132c613b5419d"
+  },
+  "inputs_sha256": "699e91f275cc88ce5e41382f2fdad3d952307a6605b9b18dd2fe93852c7828f8",
+  "target": "human expressive appropriateness 0..5, not humor or intelligibility"
+}

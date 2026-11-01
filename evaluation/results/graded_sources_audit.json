@@ -1,0 +1,72 @@
+{
+  "scope": "source_data_audit_not_model_evaluation",
+  "files": {
+    "ccl2019/task2_train.csv": {
+      "rows": 16670,
+      "label_counts": {
+        "1": 4408,
+        "3": 8624,
+        "5": 3638
+      },
+      "unique_normalized_texts": 16572,
+      "empty_texts": 0,
+      "sha256": "1a6057f95219f10892e70f82913d752fe29ccaab946509b2a1916a3b6b505b61"
+    },
+    "ccl2019/task2_development.csv": {
+      "rows": 1041,
+      "label_counts": null,
+      "unique_normalized_texts": 1041,
+      "empty_texts": 0,
+      "sha256": "dfa387279f2dc459d3f0622f948a6cc255bab371616c018da06524b44c8cc99f"
+    },
+    "ccl2019/task2_test_with_label.csv": {
+      "rows": 4171,
+      "label_counts": {
+        "1": 1103,
+        "3": 2159,
+        "5": 909
+      },
+      "unique_normalized_texts": 4168,
+      "empty_texts": 0,
+      "sha256": "33f3822ca17523051f165c1cefed3f0c1f2db1fff1e291e7cc44b1f954be1b59"
+    },
+    "cmhl/JokeHumorLevel.txt": {
+      "rows": 3365,
+      "label_counts": {
+        "1": 363,
+        "2": 867,
+        "3": 1313,
+        "4": 729,
+        "5": 93
+      },
+      "unique_normalized_texts": 3365,
+      "empty_texts": 0,
+      "sha256": "b7ce4aa8323f6a61853016d684b45e6aa9b60d3d05db513fc648f3fbbfd2cdd4"
+    }
+  },
+  "split_overlap": {
+    "ccl_train_test_exact": 30,
+    "ccl_dev_test_exact": 1041,
+    "ccl_dev_train_exact": 8,
+    "cmhl_ccl_train_exact": 36,
+    "cmhl_ccl_test_exact": 8
+  },
+  "cmhl_reused_id_rows": 25,
+  "cfunset_exact_overlap_lower_bound": {
+    "ccl2019/task2_train.csv": 6779,
+    "ccl2019/task2_development.csv": 242,
+    "ccl2019/task2_test_with_label.csv": 950,
+    "cmhl/JokeHumorLevel.txt": 41
+  },
+  "cfunset_sha256": "b8535022560118a830acb8e550556aadcd37df27ba303795c8db1b2b88c006ab",
+  "normalization": {
+    "html_unescape_and_tag_removal": true,
+    "nfkc": true,
+    "lower": true,
+    "alphanumeric_only": true,
+    "traditional_to_simplified": true,
+    "fuzzy_or_substring_matching": false,
+    "contamination_counts_are_lower_bounds": true
+  },
+  "raw_texts_or_individual_scores_published": false
+}
