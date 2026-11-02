@@ -1,0 +1,22 @@
+My work builds on Chen Shouwen's TTS pipeline. I turn the coach's performance cues into controls that the program can execute.
+
+First, I take a script with tags. The compiler turns the tags into Speech and Pause events. The execution layer sends expression instructions to the speech model and inserts silence between the returned audio segments.
+
+In the compiler, I use two frozen dataclasses. Speech stores the text for one spoken segment and its controls. Pause stores the duration of silence to be inserted locally.
+
+Based on the tags and the selected condition, the program chooses the text sent to the model, the instruction, and the speaking speed. For example, the words marked with [EMPHASIS] in this sentence become the model's <strong> markup.
+
+Sometimes, one sentence ran straight into the next. So I added silence between the segments to control the gaps.
+
+Please listen to the original reading and the first performance version. You can hear a change in emotion. The system also changes the pauses, but this short excerpt does not show the main pause changes. We only have time for a short example today.
+
+[Play audio 1: Original reading]
+[Play audio 2: First full performance]
+
+The performance version still sounds like radio or a bedtime story, rather than stand-up comedy. So the next step is to add more annotations to the original text, such as delivery intent. These are the intents shown on the slide. Each intent maps to delivery controls. This gives us the stage base units.
+
+When I listened again, some gaps still sounded unnatural. The beginnings and endings of some sentences were also unclear. So I split the base units into sentence units. For each sentence, I check the candidate audio clips for valid audio data and basic content errors before accepting them.
+
+When every sentence has an accepted clip, I join the clips using the delivery information from the earlier steps. This is the result.
+
+[Play audio 3: Compact version with integrity repair]

@@ -37,3 +37,8 @@ evaluation/runtime/*.local.yaml
 
 # Local audio for the JYB comparison page stays out of Git.
 /docs/media/
+
+# Three reviewed classroom excerpts travel with the JYB slides.
+!/assets/jyb_midterm_audio/deadline_01_baseline.wav
+!/assets/jyb_midterm_audio/deadline_02_first_performance.wav
+!/assets/jyb_midterm_audio/deadline_03_integrity_repair.wav

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-revision="midterm-merged-slides-20261102-r3">
+<html lang="en" data-revision="midterm-jyb-published-audio-20261102-r1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -270,21 +270,40 @@ body.editing .edit-help { display:block; }
 
 /* === jyb: delivery and sentence integrity; owner-scoped only === */
 [data-owner="jyb"] .jyb-lead { position:absolute; left:110px; right:110px; top:239px; font-size:29px; line-height:1.4; color:var(--muted); }
-[data-owner="jyb"] .jyb-flow { position:absolute; top:315px; left:110px; right:110px; display:grid; grid-template-columns:repeat(4,1fr); gap:44px; }
+[data-owner="jyb"] .jyb-flow { position:absolute; top:309px; left:110px; right:110px; display:grid; grid-template-columns:repeat(3,1fr); gap:44px; }
 [data-owner="jyb"] .jyb-node { position:relative; border:2px solid var(--line); min-height:142px; padding:21px 19px; }
 [data-owner="jyb"] .jyb-node + .jyb-node::before { content:'\2192'; position:absolute; left:-35px; top:48px; font-size:34px; color:var(--blue); }
 [data-owner="jyb"] .jyb-node h3 { font-size:29px; font-weight:600; line-height:1.25; margin-bottom:12px; }
 [data-owner="jyb"] .jyb-node p { font-size:23px; line-height:1.35; color:var(--muted); }
 [data-owner="jyb"] .jyb-node.jyb-focus { border-color:#b9cde2; background:#f3f7fc; }
-[data-owner="jyb"] .jyb-matrix { position:absolute; top:505px; left:110px; width:1700px; border-collapse:collapse; font-size:28px; line-height:1.35; }
-[data-owner="jyb"] .jyb-matrix th { text-align:left; color:var(--muted); font-size:23px; font-weight:500; border-bottom:2px solid var(--line); padding:13px 20px; }
-[data-owner="jyb"] .jyb-matrix td { border-bottom:1px solid var(--line); padding:11px 20px; }
+[data-owner="jyb"] code { font-family:Consolas,"Microsoft YaHei",monospace; }
+[data-owner="jyb"] .jyb-event-note { position:absolute; top:468px; left:110px; right:110px; font-size:24px; line-height:1.4; }
+[data-owner="jyb"] .jyb-matrix { position:absolute; top:514px; left:110px; width:1700px; border-collapse:collapse; font-size:26px; line-height:1.35; }
+[data-owner="jyb"] .jyb-matrix th { text-align:left; color:var(--muted); font-size:23px; font-weight:500; border-bottom:2px solid var(--line); padding:10px 20px; }
+[data-owner="jyb"] .jyb-matrix td { border-bottom:1px solid var(--line); padding:8px 20px; }
 [data-owner="jyb"] .jyb-matrix th:first-child,[data-owner="jyb"] .jyb-matrix td:first-child { padding-left:0; width:285px; }
 [data-owner="jyb"] .jyb-matrix th:nth-child(2) { width:540px; }
-[data-owner="jyb"] .jyb-limits { position:absolute; top:815px; left:110px; right:110px; font-size:23px; line-height:1.45; color:var(--muted); }
-
-[data-owner="jyb"] .jyb-script-example { position:absolute; top:866px; left:110px; right:110px; padding:12px 20px; background:#f3f7fc; border-left:4px solid var(--blue); }
+[data-owner="jyb"] .jyb-limits { position:absolute; top:783px; left:110px; right:110px; font-size:23px; line-height:1.45; color:var(--muted); }
+[data-owner="jyb"] .jyb-script-example { position:absolute; top:831px; left:110px; right:110px; padding:12px 20px; background:#f3f7fc; border-left:4px solid var(--blue); }
 [data-owner="jyb"] .jyb-script-example p { margin:0; font-family:Consolas,"Microsoft YaHei",monospace; font-size:23px; line-height:1.6; white-space:pre; color:var(--ink); }
+[data-owner="jyb"] .jyb-integrity-flow { position:absolute; top:263px; left:110px; right:110px; }
+[data-owner="jyb"] .jyb-integrity-flow .jyb-node { width:500px; height:76px; min-height:76px; padding:16px 19px; display:flex; align-items:center; justify-content:center; }
+[data-owner="jyb"] .jyb-integrity-flow h3 { margin:0; }
+[data-owner="jyb"] .jyb-transition { height:50px; display:flex; align-items:center; gap:40px; }
+[data-owner="jyb"] .jyb-transition-arrow { width:500px; flex-shrink:0; text-align:center; color:var(--blue); font-size:34px; line-height:1; }
+[data-owner="jyb"] .jyb-transition p { font-size:26px; line-height:1.4; }
+[data-owner="jyb"] .jyb-integrity-notes { position:absolute; top:749px; left:110px; right:110px; font-size:25px; line-height:1.4; }
+[data-owner="jyb"] .jyb-integrity-notes p + p { margin-top:14px; }
+[data-owner="jyb"] .jyb-intents { font-size:24px; }
+[data-owner="jyb"] .jyb-audio-row { position:absolute; top:936px; left:110px; right:110px; height:44px; display:flex; align-items:center; gap:18px; }
+#jyb-sentence-integrity .jyb-audio-row { top:927px; }
+[data-owner="jyb"] .jyb-audio-caption { font-size:22px; color:var(--muted); white-space:nowrap; }
+[data-owner="jyb"] .jyb-audio-button { display:inline-flex; align-items:center; gap:16px; font-size:22px; line-height:1.2; padding:6px 16px; border-color:#b9cde2; white-space:nowrap; }
+[data-owner="jyb"] .jyb-audio-button[aria-pressed="true"] { background:#e6f0fb; border-color:var(--blue); }
+[data-owner="jyb"] .jyb-audio-duration { font-size:20px; font-variant-numeric:tabular-nums; color:var(--muted); }
+[data-owner="jyb"] .jyb-audio-status { font-size:19px; line-height:1.25; color:#a13636; }
+[data-owner="jyb"] audio { display:none; }
+@media print { [data-owner="jyb"] .jyb-audio-row { display:none; } }
 </style>
 </head>
 <body>
@@ -303,7 +322,7 @@ body.editing .edit-help { display:block; }
 <rect x="1355" y="25" width="340" height="175" rx="5" class="box"/><text x="1525" y="100" class="major">Speech performance</text><text x="1525" y="150" class="small">CosyVoice2</text>
 </svg>
 <p class="names" data-edit>Team 1234</p>
-<footer><span>OpenMic · Midterm Review</span><span>Team 1234 · 01 / 10</span></footer>
+<footer><span>OpenMic · Midterm Review</span><span>Team 1234 · 01 / 11</span></footer>
 </section>
 <!-- === lyy: project purpose and challenge analysis ===
 Speaker notes:
@@ -364,7 +383,7 @@ directions. No listener study or performance improvement is claimed here.
 <text x="1434" y="475" class="small">Timing · Emphasis · Emotion</text>
 <text x="850" y="595" class="small">Proposed validation: audience ratings + matched text/audio comparisons</text>
 </svg>
-<footer><span>OpenMic · Midterm Review</span><span>lyy · 02 / 10</span></footer>
+<footer><span>OpenMic · Midterm Review</span><span>lyy · 02 / 11</span></footer>
 </section>
 <!-- === lyy: architecture / TTS is manually triggered; stop after at most 2 rewrites === -->
 <section class="slide" data-owner="lyy" aria-label="System architecture">
@@ -392,7 +411,7 @@ directions. No listener study or performance improvement is claimed here.
 <path d="M1150 533 H1310" class="link" marker-end="url(#arrow-3)"/>
 <rect x="1330" y="475" width="370" height="115" rx="5" class="box"/><text x="1515" y="517" class="major">16 kHz WAV</text><text x="1515" y="560" class="small">Play / Download</text>
 </svg>
-<footer><span>OpenMic · Midterm Review</span><span>lyy · 03 / 10</span></footer>
+<footer><span>OpenMic · Midterm Review</span><span>lyy · 03 / 11</span></footer>
 </section>
 <!-- === znjq: Content generation / three slides / 2 minutes 30 seconds === -->
 <!-- Speaker notes: 40 seconds. Explain the whole-story approach and the risk of polishing isolated beats. Allow both joke-first and experience-first writing, including plausible inner thoughts and coincidences. -->
@@ -407,7 +426,7 @@ directions. No listener study or performance improvement is claimed here.
 </ol>
 <p class="body-copy" style="margin-top:40px" data-edit>A funny moment can grow into a story. An experience can also lead to a joke.</p>
 <div class="takeaway" data-edit>Judge the whole story's motivation and rhythm.</div></div><p class="source">Working approach developed through iterative script review</p>
-<footer><span>OpenMic · Midterm Review</span><span>znjq · 04 / 10</span></footer></section>
+<footer><span>OpenMic · Midterm Review</span><span>znjq · 04 / 11</span></footer></section>
 <!-- Speaker notes: 55 seconds. Explain CFunSet training-split retrieval, core expectation/reveal, role prompts and flexible plans. The five roles use deepseek-flash. They are prompted roles rather than separately trained generators. Adaptation preserves the source mechanism and context. -->
 <section class="slide" data-owner="znjq" data-section="text-generation" aria-label="CFunSet-guided generation">
 <header><p class="eyebrow" data-edit>02 / znjq</p><h2 data-edit>CFunSet-guided generation</h2></header>
@@ -423,7 +442,7 @@ directions. No listener study or performance improvement is claimed here.
 </ol>
 <div class="takeaway" data-edit>Prompt: preserve the core joke, use spoken Chinese and trim repeated explanations.</div>
 <p class="small-copy" style="margin-top:25px" data-edit>Reference adaptation or original writing. Flash handles all five roles.</p></div><p class="source">Training-split references and role prompts. Generator weights remain unchanged.</p>
-<footer><span>OpenMic · Midterm Review</span><span>znjq · 05 / 10</span></footer></section>
+<footer><span>OpenMic · Midterm Review</span><span>znjq · 05 / 11</span></footer></section>
 <!-- Speaker notes: 55 seconds. Pro audits and rewrites in separate calls, preserving the original request and useful jokes. Quote problems, explain repairs, review the revision and keep the best candidate within the budget. The audit also reports realism. These prompted 1-5 judgments differ from CFunSet binary labels and internal 0-10 QC. -->
 <section class="slide" data-owner="znjq" data-section="text-generation" aria-label="Evaluation and revision">
 <header><p class="eyebrow" data-edit>02 / znjq</p><h2 data-edit>Evaluation and revision</h2></header>
@@ -437,7 +456,7 @@ directions. No listener study or performance improvement is claimed here.
 </tbody></table>
 <div class="takeaway" data-edit>Quoted feedback informs a rewrite, followed by another review.</div>
 <p class="small-copy" data-edit>Humor: 3 = clear but weak. 4 = an effective comic turn. Human ratings remain necessary.</p></div><p class="source">Review and revision: deepseek-v4-pro. Additional realism and continuity checks.</p>
-<footer><span>OpenMic · Midterm Review</span><span>znjq · 06 / 10</span></footer></section>
+<footer><span>OpenMic · Midterm Review</span><span>znjq · 06 / 11</span></footer></section>
 <!-- === csw: TTS reliability and validation / approximately 2 minutes ===
 Speaker notes:
 My part focused on improving the reliability of the existing text-to-speech
@@ -504,18 +523,18 @@ docs/TTS_PIPELINE.md and README.md.
  <p style="margin-top:32px;font-size:30px;line-height:1.5" data-edit><strong>Verification:</strong> valid mock WAV responses, edge-case tests and metadata checks.</p>
  <p style="margin-top:10px;font-size:25px;color:var(--muted)" data-edit>Tests cover adapter behavior. They do not measure speech quality.</p>
 </div>
-<footer><span>OpenMic · Midterm Review</span><span>csw · 07 / 10</span></footer>
+<footer><span>OpenMic · Midterm Review</span><span>csw · 07 / 11</span></footer>
 </section>
-<!-- === jyb: first GitHub contribution, built on csw foundation === -->
+<!-- === jyb: executable delivery cues; built on CSW's TTS foundation === -->
 <section class="slide" data-owner="jyb" id="jyb-delivery-control" aria-label="JYB: making delivery cues executable">
-<header><p class="eyebrow" data-edit>03 / jyb &middot; Delivery control</p><h2 data-edit>Making delivery cues executable</h2></header>
+<header><p class="eyebrow" data-edit>03 / jyb</p><h2 data-edit>Making delivery cues executable</h2></header>
 <p class="jyb-lead" data-edit>My delivery layer builds on CSW's API, WAV validation and metadata work.</p>
-<div class="jyb-flow" role="group" aria-label="Script markers, event compilation, audio assembly and delivery control">
+<div class="jyb-flow" role="group" aria-label="Script markers, event compilation and audio assembly">
 <div class="jyb-node"><h3 data-edit>Coach's tagged script</h3><p data-edit>Roles &middot; pauses &middot; emotion<br>Speed &middot; emphasis</p></div>
 <div class="jyb-node jyb-focus"><h3 data-edit>Strict event compiler</h3><p data-edit>Speech + Pause<br>Unknown tags rejected</p></div>
 <div class="jyb-node jyb-focus"><h3 data-edit>Synthesis + assembly</h3><p data-edit>Native expression hints<br>Exact PCM silence</p></div>
-<div class="jyb-node"><h3 data-edit>Control delivery</h3><p data-edit>Fixed intent and focus planning.</p></div>
 </div>
+<p class="jyb-event-note" data-edit><code>Speech</code> stores a spoken segment and its controls; <code>Pause</code> stores silence inserted locally.</p>
 <table class="jyb-matrix" aria-label="Four same-script conditions in the original contribution">
 <thead><tr><th data-edit>Condition</th><th data-edit>Inserted pauses</th><th data-edit>Expression controls</th></tr></thead>
 <tbody><tr><td data-edit>Baseline</td><td data-edit>0.12 s between segments</td><td data-edit>Neutral; speed 1.0; no emphasis</td></tr>
@@ -527,7 +546,47 @@ docs/TTS_PIPELINE.md and README.md.
 <p data-edit>[SETUP] [EMOTION=self_deprecating] 期末作业给了三周时间。但我前两周一直没打开那个文档。</p>
 <p data-edit>[PAUSE=0.8] [PUNCHLINE] [EMOTION=self_deprecating] 我要等[EMPHASIS]焦虑到位[/EMPHASIS]。</p>
 </div>
-<footer><span>OpenMic &middot; Midterm Review</span><span>jyb &middot; 08 / 10</span></footer>
+<div class="jyb-audio-row" role="group" aria-label="Deadline excerpt playback">
+<span class="jyb-audio-caption" data-edit>Deadline excerpt</span>
+<button type="button" class="jyb-audio-button" data-jyb-audio="baseline" aria-controls="jyb-audio-baseline" aria-pressed="false" aria-label="Play Original reading">
+<span class="jyb-audio-action">Play</span><span data-edit>Original reading</span><span class="jyb-audio-duration">14.46 s</span></button>
+<audio id="jyb-audio-baseline" preload="none" src="../assets/jyb_midterm_audio/deadline_01_baseline.wav"></audio>
+<button type="button" class="jyb-audio-button" data-jyb-audio="performance" aria-controls="jyb-audio-performance" aria-pressed="false" aria-label="Play First full performance">
+<span class="jyb-audio-action">Play</span><span data-edit>First full performance</span><span class="jyb-audio-duration">20.10 s</span></button>
+<audio id="jyb-audio-performance" preload="none" src="../assets/jyb_midterm_audio/deadline_02_first_performance.wav"></audio>
+<span class="jyb-audio-status" role="status" aria-live="polite"></span>
+</div>
+<footer><span>OpenMic &middot; Midterm Review</span><span>jyb &middot; 08 / 11</span></footer>
+</section>
+<!-- === jyb: stage annotations and complete sentence assembly ===
+The diagram describes our delivery implementation, not a trained TTS model.
+All three listening examples use the same original text and end after
+“不是灵感，是情绪。” The three classroom excerpts are tracked under assets/jyb_midterm_audio/.
+=== -->
+<section class="slide" data-owner="jyb" id="jyb-sentence-integrity" aria-label="JYB: stage annotations and sentence integrity">
+<header><p class="eyebrow" data-edit>03 / jyb</p><h2 data-edit>Keeping every sentence in the performance</h2></header>
+<div class="jyb-integrity-flow" role="group" aria-label="Stage annotations, deterministic sentence splitting and complete assembly">
+<div class="jyb-node"><h3 data-edit>Speech / Pause events</h3></div>
+<div class="jyb-transition"><span class="jyb-transition-arrow" aria-hidden="true">↓</span><p data-edit><code>stage</code>: annotate the original text only</p></div>
+<div class="jyb-node jyb-focus"><h3 data-edit>Stage base units</h3></div>
+<div class="jyb-transition"><span class="jyb-transition-arrow" aria-hidden="true">↓</span><p data-edit><code>integrity</code>: split sentences deterministically; retain source offsets</p></div>
+<div class="jyb-node jyb-focus"><h3 data-edit>Sentence candidates</h3></div>
+<div class="jyb-transition"><span class="jyb-transition-arrow" aria-hidden="true">↓</span><p data-edit>Assemble only after every sentence is accepted</p></div>
+<div class="jyb-node"><h3 data-edit>Output</h3></div>
+</div>
+<div class="jyb-integrity-notes">
+<p class="jyb-intents" data-edit>Intents: setup, audience_question, self_question, quoted_question, contrast, reveal, aside, button</p>
+<p data-edit>Short gaps made sentences run together, and trimming affected weak onsets and endings. We therefore added integrity.</p>
+<p data-edit><code>integrity</code>: deterministically split base units into sentence units, then concatenate them.</p>
+</div>
+<div class="jyb-audio-row" role="group" aria-label="Deadline excerpt playback">
+<span class="jyb-audio-caption" data-edit>Deadline excerpt</span>
+<button type="button" class="jyb-audio-button" data-jyb-audio="safe_club" aria-controls="jyb-audio-safe_club" aria-pressed="false" aria-label="Play Compact · integrity repair">
+<span class="jyb-audio-action">Play</span><span data-edit>Compact · integrity repair</span><span class="jyb-audio-duration">17.36 s</span></button>
+<audio id="jyb-audio-safe_club" preload="none" src="../assets/jyb_midterm_audio/deadline_03_integrity_repair.wav"></audio>
+<span class="jyb-audio-status" role="status" aria-live="polite"></span>
+</div>
+<footer><span>OpenMic &middot; Midterm Review</span><span>jyb &middot; 09 / 11</span></footer>
 </section>
 <!-- === szq: Evaluation & current progress ===
 Speaker notes (about 60 seconds):
@@ -585,7 +644,7 @@ The audio results are our frozen regression baselines, not official model scores
 </div>
 </div>
 <div class="szq-full"><h3 data-edit>Complete audio: 4 technical trials · 548 s</h3><p data-edit>Audience validation of full performances is still pending.</p></div>
-<footer><span>OpenMic · Midterm Review</span><span>szq · 09 / 10</span></footer>
+<footer><span>OpenMic · Midterm Review</span><span>szq · 10 / 11</span></footer>
 </section>
 <!-- === szq: Limitations & next steps ===
 Speaker notes (about 45 seconds):
@@ -618,7 +677,7 @@ No project listener ratings or revision gains are claimed.
 </tbody>
 </table>
 <p class="szq-next" data-edit>Next test: rank agreement on complete scripts and recordings.</p>
-<footer><span>OpenMic · Midterm Review</span><span>szq · 10 / 10</span></footer>
+<footer><span>OpenMic · Midterm Review</span><span>szq · 11 / 11</span></footer>
 </section>
 </main></div>
 <!-- === DECK CHROME === -->
@@ -687,5 +746,38 @@ function saveDeck(){
 }
 document.getElementById('save').onclick=saveDeck;
 document.getElementById('print').onclick=()=>window.print();
+</script>
+<script>
+/* === JYB AUDIO: local files, explicit clicks, exclusive playback === */
+(() => {
+ const items=[...document.querySelectorAll('[data-owner="jyb"] [data-jyb-audio]')].map(button=>({button,audio:document.getElementById(button.getAttribute('aria-controls')),slide:button.closest('.slide'),status:button.closest('.jyb-audio-row').querySelector('.jyb-audio-status')}));
+ const sync=item=>{const playing=!item.audio.paused&&!item.audio.ended;item.button.setAttribute('aria-pressed',String(playing));item.button.querySelector('.jyb-audio-action').textContent=playing?'Pause':'Play';item.button.setAttribute('aria-label',(playing?'Pause ':'Play ')+item.button.querySelector('[data-edit]').textContent);};
+ const stop=item=>{item.audio.pause();item.audio.currentTime=0;item.status.textContent='';sync(item);};
+ for(const item of items){
+  item.button.onclick=async()=>{
+   if(item.button.closest('body').classList.contains('editing'))return;
+   if(!item.audio.paused){item.audio.pause();return;}
+   items.forEach(other=>{if(other!==item)stop(other);});
+   item.status.textContent='';
+   if(item.audio.error)item.audio.load();
+   if(item.audio.ended)item.audio.currentTime=0;
+   try{await item.audio.play();if(!item.slide.classList.contains('active'))stop(item);}
+   catch(error){sync(item);if(error.name!=='AbortError'&&item.slide.classList.contains('active'))item.status.textContent='Audio unavailable. Download the complete repository, including assets/jyb_midterm_audio/.';}
+  };
+  ['play','pause','ended','error'].forEach(name=>item.audio.addEventListener(name,()=>sync(item)));
+  // Keep slide navigation usable after a playback button receives focus.
+  item.button.addEventListener('keydown',event=>{
+   if(document.body.classList.contains('editing'))return;
+   const forward=['ArrowRight','ArrowDown','PageDown'].includes(event.key),back=['ArrowLeft','ArrowUp','PageUp'].includes(event.key);
+   if(forward||back){event.preventDefault();event.stopPropagation();document.getElementById(forward?'next':'previous').click();}
+  });
+  // Reset runtime button labels when reopening a Save HTML export.
+  sync(item);
+ }
+ const slides=[...new Set(items.map(item=>item.slide))];
+ const observer=new MutationObserver(()=>items.forEach(item=>{if(!item.slide.classList.contains('active'))stop(item);}));
+ slides.forEach(slide=>observer.observe(slide,{attributes:true,attributeFilter:['class']}));
+ addEventListener('pagehide',()=>items.forEach(stop));
+})();
 </script>
 </body></html>
