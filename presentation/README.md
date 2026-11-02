@@ -11,13 +11,16 @@ and needs no server, build step or network connection.
 | 2 | lyy | Goal; defining humor, writing jokes and delivering them |
 | 3 | lyy | Five-agent architecture, revision loop and TTS flow |
 | 4 | znjq | TODO: content generation |
-| 5 | csw / jyb | TODO: speech generation |
-| 6 | szq | TODO: evaluation and current progress |
-| 7 | szq | TODO: limitations, next steps and closing |
+| 5 | csw | TTS reliability and validation |
+| 6 | jyb | TODO: speech generation |
+| 7 | szq | TODO: evaluation and current progress |
+| 8 | szq | TODO: limitations, next steps and closing |
 
 The lyy section describes the local implementation and project goals. The
-3–5 minute duration is a target, not a measured result. The remaining sections
-are placeholders until their owners supply content.
+3–5 minute duration is a target, not a measured result. CSW's page documents
+adapter reliability checks and mocked verification; it does not claim speech
+quality improvements. The remaining sections are placeholders until their
+owners supply content.
 
 Slide 2 presents our working challenge analysis, not a universal theory of humor.
 Audience ratings and matched text/audio comparisons are proposed validation
