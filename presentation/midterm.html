@@ -438,6 +438,83 @@ directions. No listener study or performance improvement is claimed here.
 <div class="takeaway" data-edit>Quoted feedback informs a rewrite, followed by another review.</div>
 <p class="small-copy" data-edit>Humor: 3 = clear but weak. 4 = an effective comic turn. Human ratings remain necessary.</p></div><p class="source">Review and revision: deepseek-v4-pro. Additional realism and continuity checks.</p>
 <footer><span>OpenMic · Midterm Review</span><span>znjq · 06 / 10</span></footer></section>
+<!-- === csw: TTS reliability and validation / approximately 2 minutes ===
+Speaker notes:
+My part focused on improving the reliability of the existing text-to-speech
+pipeline. I worked on input checks, audio validation, and testing.
+
+First, I added a check before sending a synthesis request. Our generated
+scripts contain formatting tags, and after cleaning, some inputs may contain
+no actual spoken text. The adapter now detects this case and reports an error
+before calling the API.
+
+Second, I added checks on the returned audio. A successful HTTP response alone
+does not tell us whether the audio matches our configuration. I parse the WAV
+header to read its actual sample rate, channel count, and duration. If the
+response cannot be read as WAV audio, or its sample rate differs from the
+requested value, the adapter reports an error.
+
+I also added audio duration and API request time to the returned results and
+displayed them on the existing page. These are different measurements: one
+describes how long the audio lasts, while the other describes how long we
+waited for the API response.
+
+To test these changes, I replaced the placeholder response bytes with a valid,
+in-memory WAV sample. I added tests for empty cleaned scripts and incorrect
+sample rates, and checked the returned metadata. These tests use mocked
+responses, so they verify the adapter's behavior rather than the model's
+speech quality.
+
+Finally, I documented the pipeline and helped integrate the updated branches,
+including fixing a CI environment issue.
+
+Evidence: src/openmic/tts.py, src/openmic/streamlit_app.py, tests/test_tts.py,
+docs/TTS_PIPELINE.md and README.md.
+=== -->
+<section class="slide" data-owner="csw" aria-label="CSW: TTS reliability and validation">
+<header>
+ <p class="eyebrow" data-edit>03 / csw</p>
+ <h2 data-edit>TTS reliability and validation</h2>
+ <p style="margin-top:22px;font-size:29px;color:var(--muted)" data-edit>Improvements to the existing CosyVoice2 adapter</p>
+</header>
+<div style="position:absolute;left:110px;right:110px;top:300px">
+ <table aria-label="CSW changes to the existing TTS adapter" style="width:100%;border-collapse:collapse;table-layout:fixed;text-align:left">
+  <colgroup><col style="width:370px"><col></colgroup>
+  <thead>
+   <tr style="border-bottom:2px solid var(--line);font-size:25px;color:var(--muted)">
+    <th scope="col" style="padding:0 0 22px;font-weight:400" data-edit>Component</th>
+    <th scope="col" style="padding:0 0 22px;font-weight:400" data-edit>My implementation</th>
+   </tr>
+  </thead>
+  <tbody style="font-size:34px;line-height:1.45">
+   <tr style="border-bottom:1px solid var(--line)">
+    <th scope="row" style="padding:31px 25px 31px 0;color:var(--blue);font-weight:500;vertical-align:top" data-edit>Input validation</th>
+    <td style="padding:31px 0" data-edit>Reject empty spoken text after script cleaning,<br>before making an API request.</td>
+   </tr>
+   <tr style="border-bottom:1px solid var(--line)">
+    <th scope="row" style="padding:31px 25px 31px 0;color:var(--blue);font-weight:500;vertical-align:top" data-edit>WAV validation</th>
+    <td style="padding:31px 0" data-edit>Read audio metadata from the WAV header.<br>Reject unreadable WAV data or a sample-rate mismatch.</td>
+   </tr>
+   <tr style="border-bottom:1px solid var(--line)">
+    <th scope="row" style="padding:31px 25px 31px 0;color:var(--blue);font-weight:500;vertical-align:top" data-edit>Result visibility</th>
+    <td style="padding:31px 0" data-edit>Display audio duration and API request time.<br>Audio length and request latency measure different things.</td>
+   </tr>
+  </tbody>
+ </table>
+ <p style="margin-top:32px;font-size:30px;line-height:1.5" data-edit><strong>Verification:</strong> valid mock WAV responses, edge-case tests and metadata checks.</p>
+ <p style="margin-top:10px;font-size:25px;color:var(--muted)" data-edit>Tests cover adapter behavior. They do not measure speech quality.</p>
+</div>
+<footer><span>OpenMic · Midterm Review</span><span>csw · 07 / 10</span></footer>
+</section>
+<!-- === jyb: TODO / Speech generation ===
+The original shared speech-generation page remains as a separate placeholder
+for JYB's contribution. It follows CSW's reliability slide in the speech
+section so each contributor has a distinct page.
+=== -->
+<section class="slide" data-owner="jyb" aria-label="JYB speech generation">
+<header><p class="eyebrow" data-edit>03 / jyb</p><h2 data-edit>Speech generation</h2></header>
+<div class="placeholder"><span class="todo" data-edit>TODO</span><p data-edit>jyb</p><p class="hint" data-edit>CosyVoice2 · Voice · Speed · 16 kHz WAV</p></div>
+<footer><span>OpenMic · Midterm Review</span><span>jyb · 08 / 10</span></footer>
 <!-- === csw / jyb: TODO / Speech generation === -->
 <section class="slide" data-owner="csw / jyb" aria-label="Speech generation">
 <header><p class="eyebrow" data-edit>03 / csw / jyb</p><h2 data-edit>Speech generation</h2></header>
