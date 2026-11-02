@@ -1,3 +1,12 @@
 # Install the existing project separately with: python -m pip install -e .
 -c constraints-jyb.txt
 numpy>=1.24,<3
+# Network-isolation test fixtures patch the classic httpx sync/async clients.
+# OpenAI's httpx2 dependency does not install this separate package.
+httpx==0.28.1
+# Stage/integrity diagnostics; CPU only. Keep the existing CI JYB job usable.
+scipy==1.15.3
+pyloudnorm==0.2.0
+# Streamlit binary compatibility with the existing NumPy 1.26.4 constraint.
+pyarrow==19.0.1
+pandas==2.2.3

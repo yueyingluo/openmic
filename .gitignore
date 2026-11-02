@@ -34,3 +34,6 @@ evaluation/runtime/*.local.yaml
 /presentation/*
 !/presentation/README.md
 !/presentation/midterm.html
+
+# Local audio for the JYB comparison page stays out of Git.
+/docs/media/
