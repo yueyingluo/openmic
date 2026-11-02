@@ -1,7 +1,8 @@
 # OpenMic midterm presentation
 
-Open `midterm.html` in a browser. The deck is self-contained, uses system fonts,
-and needs no server, build step or network connection.
+Open `midterm.html` in a browser. The deck uses system fonts and needs no server, build step or network
+connection for local playback. JYB's three classroom audio excerpts are
+included in the repository under `assets/jyb_midterm_audio/`.
 
 ## Slide ownership
 
@@ -12,15 +13,15 @@ and needs no server, build step or network connection.
 | 3 | lyy | Five-agent architecture, revision loop and TTS flow |
 | 4–6 | znjq | Content generation: whole-story view, prompted generation, evaluation and revision |
 | 7 | csw | TTS reliability and validation |
-| 8 | jyb | Executable delivery control and tagged deadline excerpts |
-| 9 | szq | Evaluation: rank correlations with human ratings |
-| 10 | szq | Limitations and proposed audience evaluation |
+| 8–9 | jyb | Executable delivery cues; stage annotations and sentence integrity |
+| 10 | szq | Evaluation: rank correlations with human ratings |
+| 11 | szq | Limitations and proposed audience evaluation |
 
 The lyy section describes the local implementation and project goals. The
 3–5 minute duration is a target, not a measured result. Slides 4–6 contain the
 2.5-minute text-generation section. CSW's page documents adapter reliability
 checks and mocked verification; it does not claim speech quality improvements.
-JYB's page presents delivery controls and same-script comparisons. The evaluation
+JYB's two pages cover executable delivery cues and sentence integrity. The evaluation
 section reports measured results and the missing audience validation.
 
 Slide 2 presents our working challenge analysis, not a universal theory of humor.
@@ -107,7 +108,7 @@ Pro then receives the original draft and feedback, rewrites it, and reviews the 
 
 ## Evaluation section
 
-Slides 9–10 use the frozen results in [V3_REPORT.md](../evaluation/V3_REPORT.md).
+Slides 10–11 use the frozen results in [V3_REPORT.md](../evaluation/V3_REPORT.md).
 All evaluation results are presented as Spearman rank correlations with human
 ratings. On the same 407 CMHL confirmation examples, the continuous RoBERTa +
 CORN score reaches 0.366 (95% CI 0.265–0.443), versus 0.292 for the lightweight
@@ -131,36 +132,74 @@ The text-generation slides and shared navigation are unchanged. The two
 evaluation slides keep their English speaking notes in the HTML comments.
 No scripts, fonts or data are loaded over the network.
 
-## JYB delivery section and local demo
+## JYB delivery slides, audio and final scripts
 
-Page 8 presents the delivery pipeline, four same-script conditions, a delivery
-control box, and two tagged excerpts from the deadline script. CSW's adapter
-reliability page precedes it, and SZQ's evaluation pages follow it. All ten
-slides are direct children of the deck stage; no speech-generation TODO
-pages remain.
+Slides **8–9** are JYB's two pages. Slide 8 covers executable delivery cues,
+the four original same-script conditions, and two tagged deadline examples.
+`Speech` keeps a spoken segment and its controls; `Pause` is local silence.
+Slide 9 shows stage annotations, deterministic sentence splitting with source
+offsets, and assembly after every sentence candidate has been accepted.
+It lists the eight delivery intents and explains the boundary and endpoint
+problems that led to the integrity layer. These are delivery and assembly
+changes, not TTS model training.
 
-The two deadline excerpts retain their original Chinese words and prompt tags,
-as requested for this example; the surrounding slide text remains English.
+The two approved slide layouts and their visible text are unchanged in this
+revision. Only the media locations and missing-file message have changed.
+The stale JYB and joint CSW/JYB TODO blocks remain removed: one had a missing
+closing tag that nested completed pages inside a hidden placeholder.
+The nine completed non-JYB pages, shared CSS and existing navigation retain
+their substantive content. The full deck has eleven pages.
 
-Speaking notes: [English](../docs/JYB_MIDTERM_SCRIPT_EN.md) and
-[Chinese](../docs/JYB_MIDTERM_SCRIPT_ZH.md).
+### Open and play
 
-The player is separate from the slide: [three-version player](../docs/jyb_audio_compare.html).
-It compares the same frozen canteen, deadline or fitness script using the
-Nov 1 run's baseline and performance, then the integrity run's safe_club.
-Raw audio and whole-file gain-matched audio are separate selections.
-Only the canteen example has additional source-interval excerpts, in both raw
-and matched forms.
+**Clone or download the complete repository**, extract the ZIP if needed,
+then open `presentation/midterm.html` in a browser. Go to slides 8–9.
+Before this change is merged, use the `jyb` branch; after merging, use `main`.
+The three audio files are now committed with the slides, so no separate media
+copy, API key, TTS setup, server or network connection is needed for local
+playback. Keep the repository's folder structure. The GitHub file browser
+shows HTML source; it does not run the slide deck. Pushing this change does
+not automatically publish a GitHub Pages website.
 
-Generated audio is excluded from Git under CONTRIBUTING.md. The local delivery
-bundle has a ready-to-open player and all 24 WAV files. To play them from this
-repository, copy the contents of its `local_demo/audio/` into
-`docs/media/jyb_compare/`, then click **加载已复制音频**. Alternatively,
-select that local audio folder in the player; matching file paths and SHA256
-are checked locally. No API or upload occurs. The external JSON manifest is
-an inspectable copy; the page embeds it, so file:// playback needs no fetch.
+- Slide 8: **Original reading** and **First full performance**.
+- Slide 9: **Compact · integrity repair**.
+- Click Play/Pause to start or pause. Starting another clip stops and resets
+  the previous one. Leaving its slide also stops and resets playback.
+- Arrow and Page Up/Down navigation works while a playback button has focus.
+- Save HTML exports and PDFs do not embed audio. If sharing an edited HTML,
+  keep it in `presentation/` alongside the unchanged `../assets/` directory.
 
-The shopping script is withheld from the new complete-audio demo because one
-sentence still omits two particles. The historical 71-test result is not a
-fresh test count for this slide revision. No listener MOS or causal humor gain
-is claimed. See [results and limits](../docs/JYB_DELIVERY_RESULTS.md).
+| Button | Tracked path from the repository root | Duration |
+|---|---|---:|
+| Original reading | `assets/jyb_midterm_audio/deadline_01_baseline.wav` | 14.456375 s |
+| First full performance | `assets/jyb_midterm_audio/deadline_02_first_performance.wav` | 20.1016875 s |
+| Compact · integrity repair | `assets/jyb_midterm_audio/deadline_03_integrity_repair.wav` | 17.3570625 s |
+
+These are the same previously prepared, whole-file gain-matched deadline
+excerpts. They contain the same words and end after **“不是灵感，是情绪。”**
+They were copied byte for byte: no new synthesis, cropping, gain change or
+speed adjustment was performed for this revision. The three WAVs total
+1,661,416 bytes. Their different durations reflect the existing delivery.
+
+The three named excerpts are an explicit classroom-demo exception documented
+in `CONTRIBUTING.md`. `.gitignore` allows only these three WAV paths; other
+generated media retain the existing ignore rules. No `git add -f` is needed.
+The tracked `presentation/` directory still contains exactly `midterm.html`
+and `README.md`; audio is under `assets/`, and speaking scripts are under `docs/`.
+
+### Final speaking script
+
+- [Final English script](../docs/JYB_MIDTERM_FINAL_SCRIPT_EN.txt)
+- [Original final Chinese script](../docs/JYB_MIDTERM_FINAL_SCRIPT_ZH.txt)
+
+The Chinese script preserves the presenter's final wording; only the
+repository copy's line endings are normalized to LF for Git checks.
+The English version follows its order and three playback cues, using short
+sentences. It describes candidate checks without claiming perfect speech.
+These final scripts supersede the earlier JYB speaking notes for this talk.
+
+The older [three-version comparison player](../docs/jyb_audio_compare.html)
+still uses its separate local `docs/media/jyb_compare/` files. The three
+tracked classroom excerpts do not supply that player's full recordings.
+See [results and limits](../docs/JYB_DELIVERY_RESULTS.md) for the existing
+experiment limitations. No listener MOS or causal humor gain is claimed.
