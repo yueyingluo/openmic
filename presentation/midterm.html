@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-revision="draft-2">
+<html lang="en" data-revision="midterm-evaluation-rank-20261101">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -169,6 +169,44 @@ svg .accent { fill:var(--blue); }
 .todo { font-size:80px; color:#aab5c1; font-weight:500; }
 .placeholder p { font-size:32px; color:var(--muted); }
 .placeholder .hint { font-size:26px; color:#8793a0; }
+/* === szq: evaluation / styles restricted to the two owned slides === */
+[data-owner="szq"] .szq-lead { position:absolute; top:263px; left:110px; font-size:34px; line-height:1.4; }
+[data-owner="szq"] .szq-results { position:absolute; top:349px; left:110px; right:110px; display:grid; grid-template-columns:900px 1fr; gap:90px; }
+[data-owner="szq"] .szq-results h3 { font-size:35px; font-weight:600; }
+[data-owner="szq"] .szq-method { margin-top:12px; font-size:27px; color:var(--muted); }
+[data-owner="szq"] .szq-bars { margin-top:35px; }
+[data-owner="szq"] .szq-bar-row + .szq-bar-row { margin-top:25px; }
+[data-owner="szq"] .szq-bar-label { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+[data-owner="szq"] .szq-bar-name { font-size:29px; line-height:1.4; }
+[data-owner="szq"] .szq-count { display:block; font-size:25px; color:var(--muted); }
+[data-owner="szq"] .szq-score { font-size:52px; font-weight:600; color:var(--blue); font-variant-numeric:tabular-nums; }
+[data-owner="szq"] .szq-score-baseline { font-size:44px; color:var(--muted); }
+[data-owner="szq"] .szq-track { height:20px; margin-top:14px; position:relative; background:#edf1f5; }
+[data-owner="szq"] .szq-track::after { content:""; position:absolute; left:50%; top:-5px; bottom:-5px; border-left:2px dashed #8797a8; }
+[data-owner="szq"] .szq-fill { height:100%; background:var(--blue); }
+[data-owner="szq"] .szq-fill-baseline { background:#a6b7c8; }
+[data-owner="szq"] .szq-ticks { position:relative; height:28px; margin-top:12px; font-size:23px; color:var(--muted); }
+[data-owner="szq"] .szq-ticks span:first-child { position:absolute; left:0; }
+[data-owner="szq"] .szq-ticks span:nth-child(2) { position:absolute; left:50%; transform:translateX(-50%); }
+[data-owner="szq"] .szq-ticks span:last-child { position:absolute; right:0; }
+[data-owner="szq"] .szq-uncertainty { margin-top:16px; font-size:25px; line-height:1.5; color:var(--muted); }
+[data-owner="szq"] .szq-audio { width:100%; border-collapse:collapse; margin-top:25px; }
+[data-owner="szq"] .szq-audio th { text-align:left; font-size:24px; font-weight:400; color:var(--muted); padding-bottom:16px; border-bottom:1px solid var(--line); }
+[data-owner="szq"] .szq-audio th:last-child { text-align:right; }
+[data-owner="szq"] .szq-audio td { padding:23px 0; border-bottom:1px solid var(--line); font-size:31px; }
+[data-owner="szq"] .szq-audio td:last-child { text-align:right; font-size:46px; color:var(--blue); font-variant-numeric:tabular-nums; }
+[data-owner="szq"] .szq-audio-source { display:block; margin-top:10px; font-size:25px; color:var(--muted); }
+[data-owner="szq"] .szq-audio-note { margin-top:24px; font-size:25px; line-height:1.5; color:var(--muted); }
+[data-owner="szq"] .szq-full { position:absolute; top:859px; left:110px; right:110px; padding:17px 27px; border-left:3px solid var(--blue); background:#f3f7fc; }
+[data-owner="szq"] .szq-full h3 { font-size:30px; font-weight:500; }
+[data-owner="szq"] .szq-full p { margin-top:9px; font-size:26px; color:var(--muted); }
+[data-owner="szq"] .szq-plan { position:absolute; top:303px; left:110px; width:1700px; table-layout:fixed; border-collapse:collapse; }
+[data-owner="szq"] .szq-plan th { text-align:left; font-size:25px; color:var(--muted); font-weight:400; padding:0 0 22px; border-bottom:1px solid var(--line); }
+[data-owner="szq"] .szq-plan td { vertical-align:top; padding:31px 0; border-bottom:1px solid var(--line); font-size:32px; line-height:1.45; }
+[data-owner="szq"] .szq-plan th + th, [data-owner="szq"] .szq-plan td + td { padding-left:80px; }
+[data-owner="szq"] .szq-plan strong { display:block; font-weight:500; }
+[data-owner="szq"] .szq-plan p { margin-top:10px; font-size:28px; color:var(--muted); }
+[data-owner="szq"] .szq-next { position:absolute; top:888px; left:110px; right:110px; font-size:34px; line-height:1.4; color:var(--blue); }
 /* === CONTROLS: outside the slide canvas === */
 .deck-controls { display:flex; gap:8px; align-items:center; background:#ffffffed; padding:7px 12px; border:1px solid #d7e0e8; border-radius:6px; }
 button { font:inherit; cursor:pointer; background:white; color:#263a51; border:1px solid #d7e0e8; border-radius:4px; padding:6px 12px; }
@@ -188,6 +226,47 @@ body.editing .edit-help { display:block; }
  [data-edit] { outline:none!important; }
  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
 }
+
+/* === TASK 2: scoped content-generation layouts === */
+
+.slide[data-section="text-generation"] .content { margin-top:55px; }
+.slide[data-section="text-generation"] .lead { font-size:40px; line-height:1.5; }
+.slide[data-section="text-generation"] .body-copy { font-size:33px; line-height:1.55; }
+.slide[data-section="text-generation"] .small-copy { font-size:26px; line-height:1.5; color:var(--muted); }
+.slide[data-section="text-generation"] .source { position:absolute; left:110px; right:110px; bottom:135px; font-size:23px; line-height:1.45; color:var(--muted); }
+.slide[data-section="text-generation"] .story-grid { list-style:none; display:grid; grid-template-columns:repeat(3,1fr); gap:54px; margin:47px 0 0; padding:0; }
+.slide[data-section="text-generation"] .story-grid li { position:relative; min-height:185px; border:2px solid var(--line); padding:30px; }
+.slide[data-section="text-generation"] .story-grid li+li::before { content:'→'; position:absolute; left:-44px; top:68px; color:#567190; font-size:38px; }
+.slide[data-section="text-generation"] .story-grid h3 { font-size:33px; font-weight:600; margin-bottom:18px; }
+.slide[data-section="text-generation"] .story-grid p { font-size:28px; color:var(--muted); line-height:1.5; }
+.slide[data-section="text-generation"] .story-grid .focus { background:#f3f7fc; border-color:#b9cde2; }
+.slide[data-section="text-generation"] .takeaway { border-left:5px solid var(--blue); padding:21px 0 21px 28px; font-size:34px; line-height:1.5; margin-top:40px; }
+.slide[data-section="text-generation"] .prompt-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:54px; margin-top:40px; }
+.slide[data-section="text-generation"] .prompt-part { border-top:3px solid var(--line); padding-top:24px; }
+.slide[data-section="text-generation"] .prompt-part h3 { font-size:33px; font-weight:600; margin-bottom:17px; }
+.slide[data-section="text-generation"] .prompt-part p { font-size:29px; line-height:1.5; }
+.slide[data-section="text-generation"] .prompt-example { margin-top:37px; padding:24px 30px; background:#f3f7fc; border-left:4px solid var(--blue); }
+.slide[data-section="text-generation"] .prompt-example .label { font-size:25px; color:var(--blue); margin-bottom:12px; }
+.slide[data-section="text-generation"] .prompt-example .text { font-size:31px; line-height:1.5; }
+.slide[data-section="text-generation"] .input-strip { padding-bottom:20px; border-bottom:1px solid var(--line); font-size:33px; line-height:1.5; }
+.slide[data-section="text-generation"] .retrieval { margin-top:23px; font-size:31px; color:var(--blue); }
+.slide[data-section="text-generation"] .agents { list-style:none; display:grid; grid-template-columns:repeat(5,1fr); gap:45px; padding:0; margin:35px 0 0; }
+.slide[data-section="text-generation"] .agents li { position:relative; border:2px solid var(--line); padding:24px 13px; text-align:center; min-height:140px; }
+.slide[data-section="text-generation"] .agents li+li::before { content:'→'; position:absolute; left:-37px; top:45px; color:#567190; font-size:36px; }
+.slide[data-section="text-generation"] .agents h3 { font-size:30px; font-weight:600; margin-bottom:18px; }
+.slide[data-section="text-generation"] .agents p { font-size:22px; color:var(--muted); }
+.slide[data-section="text-generation"] .agents .quality { background:#f3f7fc; border-color:#b9cde2; }
+.slide[data-section="text-generation"] .audit-line { margin:33px 0 0; text-align:center; font-size:32px; color:var(--blue); }
+.slide[data-section="text-generation"] .output-line { margin-top:24px; padding:20px; text-align:center; border:2px solid var(--line); font-size:32px; }
+.slide[data-section="text-generation"] .feedback-line { margin-top:25px; font-size:29px; color:var(--muted); line-height:1.5; }
+.slide[data-section="text-generation"] table { width:100%; border-collapse:collapse; margin-top:33px; font-size:31px; line-height:1.4; }
+.slide[data-section="text-generation"] th { text-align:left; font-size:26px; color:var(--muted); font-weight:500; border-bottom:2px solid var(--line); padding:15px 22px; }
+.slide[data-section="text-generation"] td { padding:12px 22px; border-bottom:1px solid var(--line); vertical-align:top; }
+.slide[data-section="text-generation"] th:first-child,.slide[data-section="text-generation"] td:first-child { padding-left:0; width:370px; }
+.slide[data-section="text-generation"] .evaluation .lead { font-size:35px; }
+.slide[data-section="text-generation"] .evaluation .takeaway { font-size:31px; margin-top:27px; padding-top:16px; padding-bottom:16px; }
+.slide[data-section="text-generation"] .evaluation .small-copy { margin-top:19px; }
+
 </style>
 </head>
 <body>
@@ -206,7 +285,7 @@ body.editing .edit-help { display:block; }
 <rect x="1355" y="25" width="340" height="175" rx="5" class="box"/><text x="1525" y="100" class="major">Speech performance</text><text x="1525" y="150" class="small">CosyVoice2</text>
 </svg>
 <p class="names" data-edit>Team 1234</p>
-<footer><span>OpenMic · Midterm Review</span><span>Team 1234 · 01 / 08</span></footer>
+<footer><span>OpenMic · Midterm Review</span><span>Team 1234 · 01 / 10</span></footer>
 </section>
 <!-- === lyy: project purpose and challenge analysis ===
 Speaker notes:
@@ -267,7 +346,7 @@ directions. No listener study or performance improvement is claimed here.
 <text x="1434" y="475" class="small">Timing · Emphasis · Emotion</text>
 <text x="850" y="595" class="small">Proposed validation: audience ratings + matched text/audio comparisons</text>
 </svg>
-<footer><span>OpenMic · Midterm Review</span><span>lyy · 02 / 08</span></footer>
+<footer><span>OpenMic · Midterm Review</span><span>lyy · 02 / 10</span></footer>
 </section>
 <!-- === lyy: architecture / TTS is manually triggered; stop after at most 2 rewrites === -->
 <section class="slide" data-owner="lyy" aria-label="System architecture">
@@ -295,14 +374,52 @@ directions. No listener study or performance improvement is claimed here.
 <path d="M1150 533 H1310" class="link" marker-end="url(#arrow-3)"/>
 <rect x="1330" y="475" width="370" height="115" rx="5" class="box"/><text x="1515" y="517" class="major">16 kHz WAV</text><text x="1515" y="560" class="small">Play / Download</text>
 </svg>
-<footer><span>OpenMic · Midterm Review</span><span>lyy · 03 / 08</span></footer>
+<footer><span>OpenMic · Midterm Review</span><span>lyy · 03 / 10</span></footer>
 </section>
-<!-- === znjq: TODO / Content generation === -->
-<section class="slide" data-owner="znjq" aria-label="Content generation">
-<header><p class="eyebrow" data-edit>02 / znjq</p><h2 data-edit>Content generation</h2></header>
-<div class="placeholder"><span class="todo" data-edit>TODO</span><p data-edit>znjq</p><p class="hint" data-edit>Topic input · Audience analysis · Script & delivery cues</p></div>
-<footer><span>OpenMic · Midterm Review</span><span>znjq · 04 / 08</span></footer>
-</section>
+<!-- === znjq: Content generation / three slides / 2 minutes 30 seconds === -->
+<!-- Speaker notes: 40 seconds. Explain the whole-story approach and the risk of polishing isolated beats. Allow both joke-first and experience-first writing, including plausible inner thoughts and coincidences. -->
+<section class="slide" data-owner="znjq" data-section="text-generation" aria-label="Humor in the whole story">
+<header><p class="eyebrow" data-edit>02 / znjq</p><h2 data-edit>Humor in the whole story</h2></header>
+
+<div class="content"><p class="lead" data-edit>A believable experience with a change in expectations.</p>
+<ol class="story-grid">
+<li><h3 data-edit>Situation</h3><p data-edit>What the character wants<br>and expects</p></li>
+<li class="focus"><h3 data-edit>Response</h3><p data-edit>A choice, misunderstanding<br>or believable inner thought</p></li>
+<li><h3 data-edit>Surprise</h3><p data-edit>An outcome the audience<br>can follow</p></li>
+</ol>
+<p class="body-copy" style="margin-top:40px" data-edit>A funny moment can grow into a story. An experience can also lead to a joke.</p>
+<div class="takeaway" data-edit>Judge the whole story's motivation and rhythm.</div></div><p class="source">Working approach developed through iterative script review</p>
+<footer><span>OpenMic · Midterm Review</span><span>znjq · 04 / 10</span></footer></section>
+<!-- Speaker notes: 55 seconds. Explain CFunSet training-split retrieval, core expectation/reveal, role prompts and flexible plans. The five roles use deepseek-flash. They are prompted roles rather than separately trained generators. Adaptation preserves the source mechanism and context. -->
+<section class="slide" data-owner="znjq" data-section="text-generation" aria-label="CFunSet-guided generation">
+<header><p class="eyebrow" data-edit>02 / znjq</p><h2 data-edit>CFunSet-guided generation</h2></header>
+
+<div class="content"><p class="input-strip" data-edit>Input: topic, audience and real context</p>
+<p class="retrieval" data-edit>Retrieve CFunSet examples. Identify the expectation and reveal.</p>
+<ol class="agents">
+<li><h3 data-edit>Direction</h3><p data-edit>ComedyDirector</p></li>
+<li><h3 data-edit>Audience</h3><p data-edit>AudienceAnalyzer</p></li>
+<li><h3 data-edit>Writing</h3><p data-edit>JokeWriter</p></li>
+<li><h3 data-edit>Delivery</h3><p data-edit>PerformanceCoach</p></li>
+<li class="quality"><h3 data-edit>Quality</h3><p data-edit>QualityController</p></li>
+</ol>
+<div class="takeaway" data-edit>Prompt: preserve the core joke, use spoken Chinese and trim repeated explanations.</div>
+<p class="small-copy" style="margin-top:25px" data-edit>Reference adaptation or original writing. Flash handles all five roles.</p></div><p class="source">Training-split references and role prompts. Generator weights remain unchanged.</p>
+<footer><span>OpenMic · Midterm Review</span><span>znjq · 05 / 10</span></footer></section>
+<!-- Speaker notes: 55 seconds. Pro audits and rewrites in separate calls, preserving the original request and useful jokes. Quote problems, explain repairs, review the revision and keep the best candidate within the budget. The audit also reports realism. These prompted 1-5 judgments differ from CFunSet binary labels and internal 0-10 QC. -->
+<section class="slide" data-owner="znjq" data-section="text-generation" aria-label="Evaluation and revision">
+<header><p class="eyebrow" data-edit>02 / znjq</p><h2 data-edit>Evaluation and revision</h2></header>
+
+<div class="content evaluation"><p class="lead" data-edit>Pro reviews the full script using a 1–5 rubric.</p>
+<table><thead><tr><th>Dimension</th><th>Scoring criteria</th></tr></thead><tbody>
+<tr><td data-edit>Humor</td><td data-edit>An effective surprise or comic response</td></tr>
+<tr><td data-edit>Cultural fit</td><td data-edit>Chinese context and audience knowledge</td></tr>
+<tr><td data-edit>Spoken naturalness</td><td data-edit>Natural wording when read aloud</td></tr>
+<tr><td data-edit>Structure</td><td data-edit>Coherence, reveal timing and meaningful callbacks</td></tr>
+</tbody></table>
+<div class="takeaway" data-edit>Quoted feedback informs a rewrite, followed by another review.</div>
+<p class="small-copy" data-edit>Humor: 3 = clear but weak. 4 = an effective comic turn. Human ratings remain necessary.</p></div><p class="source">Review and revision: deepseek-v4-pro. Additional realism and continuity checks.</p>
+<footer><span>OpenMic · Midterm Review</span><span>znjq · 06 / 10</span></footer></section>
 <!-- === csw: TTS reliability and validation / approximately 2 minutes ===
 Speaker notes:
 My part focused on improving the reliability of the existing text-to-speech
@@ -369,7 +486,7 @@ docs/TTS_PIPELINE.md and README.md.
  <p style="margin-top:32px;font-size:30px;line-height:1.5" data-edit><strong>Verification:</strong> valid mock WAV responses, edge-case tests and metadata checks.</p>
  <p style="margin-top:10px;font-size:25px;color:var(--muted)" data-edit>Tests cover adapter behavior. They do not measure speech quality.</p>
 </div>
-<footer><span>OpenMic · Midterm Review</span><span>csw · 05 / 08</span></footer>
+<footer><span>OpenMic · Midterm Review</span><span>csw · 07 / 10</span></footer>
 </section>
 <!-- === jyb: TODO / Speech generation ===
 The original shared speech-generation page remains as a separate placeholder
@@ -379,19 +496,98 @@ section so each contributor has a distinct page.
 <section class="slide" data-owner="jyb" aria-label="JYB speech generation">
 <header><p class="eyebrow" data-edit>03 / jyb</p><h2 data-edit>Speech generation</h2></header>
 <div class="placeholder"><span class="todo" data-edit>TODO</span><p data-edit>jyb</p><p class="hint" data-edit>CosyVoice2 · Voice · Speed · 16 kHz WAV</p></div>
-<footer><span>OpenMic · Midterm Review</span><span>jyb · 06 / 08</span></footer>
+<footer><span>OpenMic · Midterm Review</span><span>jyb · 08 / 10</span></footer>
 </section>
-<!-- === szq: TODO / Evaluation & current progress === -->
+<!-- === szq: Evaluation & current progress ===
+Speaker notes (about 60 seconds):
+We evaluate text humor separately from speech delivery and intelligibility.
+For text, we trained a five-grade RoBERTa model with CORN, an ordinal loss.
+We chose the model on development data and froze it before confirmation.
+Its continuous score has a Spearman rank correlation of 0.366 with human
+ratings on 407 examples; the lightweight baseline reaches 0.292.
+The model correlation has a 95 percent interval of 0.265 to 0.443.
+A constant majority prediction has undefined correlation, so it is not plotted.
+The plot uses the full correlation range, from minus one to plus one.
+These are regrouped public examples, not a new audience test.
+All three tasks use Spearman rank correlation with human ratings.
+On the right, the numbers are correlations with human labels
+on short speech clips. They are not accuracies or scores for how funny a show is.
+We also ran four complete recordings through the experimental pipeline.
+That checks whether the audio can be processed; listener validation is still missing.
+Sources: ../evaluation/V3_REPORT.md;
+../evaluation/results/v3/text_confirmation.json;
+../evaluation/results/v3/audio_confirmation.json;
+../evaluation/results/v3/intelligibility_confirmation.json;
+../evaluation/results/v3/full_api_integration.json.
+The audio results are our frozen regression baselines, not official model scores.
+=== -->
 <section class="slide" data-owner="szq" aria-label="Evaluation & current progress">
 <header><p class="eyebrow" data-edit>04 / szq</p><h2 data-edit>Evaluation & current progress</h2></header>
-<div class="placeholder"><span class="todo" data-edit>TODO</span><p data-edit>szq</p><p class="hint" data-edit>TODO: evaluation methods and results</p></div>
-<footer><span>OpenMic · Midterm Review</span><span>szq · 07 / 08</span></footer>
+<p class="szq-lead" data-edit>Spearman rank correlation with human ratings, reported separately for each task.</p>
+<div class="szq-results">
+<div>
+<h3 data-edit>Text humor</h3>
+<p class="szq-method" data-edit>CMHL · 407 examples · Spearman ρ</p>
+<div class="szq-bars" role="img" aria-label="Spearman rank correlation with human ratings on the same 407 public confirmation examples: RoBERTa plus CORN 0.366; lightweight baseline 0.292. The axis runs from minus one to plus one, with zero at the center. The constant majority baseline has undefined correlation and is omitted.">
+<div class="szq-bar-row">
+<div class="szq-bar-label"><p class="szq-bar-name"><span data-edit>RoBERTa + CORN</span><span class="szq-count" data-edit>Continuous five-grade score</span></p><p class="szq-score" data-edit>0.366</p></div>
+<div class="szq-track"><div class="szq-fill" style="margin-left:50%;width:18.3136416516%"></div></div>
+</div>
+<div class="szq-bar-row">
+<div class="szq-bar-label"><p class="szq-bar-name"><span data-edit>Lightweight baseline</span><span class="szq-count" data-edit>Same confirmation examples</span></p><p class="szq-score szq-score-baseline" data-edit>0.292</p></div>
+<div class="szq-track"><div class="szq-fill szq-fill-baseline" style="margin-left:50%;width:14.6191855834%"></div></div>
+</div>
+<div class="szq-ticks"><span>−1</span><span>0</span><span>+1</span></div>
+</div>
+<p class="szq-uncertainty"><span data-edit>Model ρ: 0.366 · 95% CI: 0.265–0.443</span><br><span data-edit>Regrouped public data; audience validation pending.</span></p>
+</div>
+<div>
+<h3 data-edit>Speech evaluation</h3>
+<table class="szq-audio" aria-label="Our speech regressors on public human labels">
+<thead><tr><th>Task</th><th>Spearman ρ</th></tr></thead>
+<tbody>
+<tr><td><span data-edit>Delivery fit</span><span class="szq-audio-source" data-edit>CEAEval · 320 clips</span></td><td data-edit>0.326</td></tr>
+<tr><td><span data-edit>Intelligibility</span><span class="szq-audio-source" data-edit>TMHINT-QI · 1,733 clips</span></td><td data-edit>0.462</td></tr>
+</tbody>
+</table>
+<p class="szq-audio-note"><span data-edit>Correlation with human labels on short clips.</span><br><span data-edit>These are not humor scores.</span></p>
+</div>
+</div>
+<div class="szq-full"><h3 data-edit>Complete audio: 4 technical trials · 548 s</h3><p data-edit>Audience validation of full performances is still pending.</p></div>
+<footer><span>OpenMic · Midterm Review</span><span>szq · 09 / 10</span></footer>
 </section>
-<!-- === szq: TODO / Limitations & next steps === -->
+<!-- === szq: Limitations & next steps ===
+Speaker notes (about 45 seconds):
+The main limitation is that public benchmark scores do not yet tell us how
+an audience will respond to an OpenMic performance. A separate public comparison
+also failed to show stable agreement with human humor rankings:
+Spearman rho was 0.032 on 800 generated jokes scored relative to human originals.
+That relative-label task differs from absolute CMHL grades; it is not a paired
+measurement of performance decline.
+There is a practical length problem as well: all five final scripts from the
+TTS branch exceed our supervised text model's 512-token limit. We reject those
+inputs rather than cut off the ending. An experimental model accepts the full
+scripts, but we do not count its scores as validated results.
+Our next study should use complete scripts and recordings, with blind ratings
+for humor, delivery and intelligibility. To test the delivery changes, we would
+compare baseline and coached audio of the same script. We also need paired
+drafts to check whether revisions actually help.
+Sources: ../evaluation/V3_REPORT.md;
+../examples/jyb_run_02/; ../docs/JYB_RUN_02_RESULTS.md.
+No project listener ratings or revision gains are claimed.
+=== -->
 <section class="slide" data-owner="szq" aria-label="Limitations & next steps">
 <header><p class="eyebrow" data-edit>05 / szq</p><h2 data-edit>Limitations & next steps</h2></header>
-<div class="placeholder"><span class="todo" data-edit>TODO</span><p data-edit>szq</p><p class="hint" data-edit>TODO: limitations, next steps and closing</p></div>
-<footer><span>OpenMic · Midterm Review</span><span>szq · 08 / 08</span></footer>
+<table class="szq-plan" aria-label="Current limitations and the next evaluation steps">
+<thead><tr><th>What we found</th><th>Next step</th></tr></thead>
+<tbody>
+<tr><td><strong data-edit>External humor ranking remains weak</strong><p data-edit>CCL relative ratings: ρ = 0.032 · 800 items.</p></td><td data-edit>Measure rank agreement with fresh audience ratings.</td></tr>
+<tr><td><strong data-edit>Long scripts exceed the model’s input limit</strong><p data-edit>All 5 project scripts exceed 512 tokens.</p></td><td data-edit>Use complete scripts in a separate human study.</td></tr>
+<tr><td><strong data-edit>Full performances need listener feedback</strong><p data-edit>Short-clip speech scores do not measure humor.</p></td><td data-edit>Compare baseline and coached audio of the same script.</td></tr>
+</tbody>
+</table>
+<p class="szq-next" data-edit>Next test: rank agreement on complete scripts and recordings.</p>
+<footer><span>OpenMic · Midterm Review</span><span>szq · 10 / 10</span></footer>
 </section>
 </main></div>
 <!-- === DECK CHROME === -->
