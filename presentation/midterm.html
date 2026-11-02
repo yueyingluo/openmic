@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-revision="midterm-evaluation-rank-20261101">
+<html lang="en" data-revision="midterm-jyb-single-slide-20261102-r2">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -267,6 +267,24 @@ body.editing .edit-help { display:block; }
 .slide[data-section="text-generation"] .evaluation .takeaway { font-size:31px; margin-top:27px; padding-top:16px; padding-bottom:16px; }
 .slide[data-section="text-generation"] .evaluation .small-copy { margin-top:19px; }
 
+
+/* === jyb: delivery and sentence integrity; owner-scoped only === */
+[data-owner="jyb"] .jyb-lead { position:absolute; left:110px; right:110px; top:239px; font-size:29px; line-height:1.4; color:var(--muted); }
+[data-owner="jyb"] .jyb-flow { position:absolute; top:315px; left:110px; right:110px; display:grid; grid-template-columns:repeat(4,1fr); gap:44px; }
+[data-owner="jyb"] .jyb-node { position:relative; border:2px solid var(--line); min-height:142px; padding:21px 19px; }
+[data-owner="jyb"] .jyb-node + .jyb-node::before { content:'\2192'; position:absolute; left:-35px; top:48px; font-size:34px; color:var(--blue); }
+[data-owner="jyb"] .jyb-node h3 { font-size:29px; font-weight:600; line-height:1.25; margin-bottom:12px; }
+[data-owner="jyb"] .jyb-node p { font-size:23px; line-height:1.35; color:var(--muted); }
+[data-owner="jyb"] .jyb-node.jyb-focus { border-color:#b9cde2; background:#f3f7fc; }
+[data-owner="jyb"] .jyb-matrix { position:absolute; top:505px; left:110px; width:1700px; border-collapse:collapse; font-size:28px; line-height:1.35; }
+[data-owner="jyb"] .jyb-matrix th { text-align:left; color:var(--muted); font-size:23px; font-weight:500; border-bottom:2px solid var(--line); padding:13px 20px; }
+[data-owner="jyb"] .jyb-matrix td { border-bottom:1px solid var(--line); padding:11px 20px; }
+[data-owner="jyb"] .jyb-matrix th:first-child,[data-owner="jyb"] .jyb-matrix td:first-child { padding-left:0; width:285px; }
+[data-owner="jyb"] .jyb-matrix th:nth-child(2) { width:540px; }
+[data-owner="jyb"] .jyb-limits { position:absolute; top:815px; left:110px; right:110px; font-size:23px; line-height:1.45; color:var(--muted); }
+
+[data-owner="jyb"] .jyb-script-example { position:absolute; top:866px; left:110px; right:110px; padding:12px 20px; background:#f3f7fc; border-left:4px solid var(--blue); }
+[data-owner="jyb"] .jyb-script-example p { margin:0; font-family:Consolas,"Microsoft YaHei",monospace; font-size:23px; line-height:1.6; white-space:pre; color:var(--ink); }
 </style>
 </head>
 <body>
@@ -497,6 +515,34 @@ section so each contributor has a distinct page.
 <header><p class="eyebrow" data-edit>03 / jyb</p><h2 data-edit>Speech generation</h2></header>
 <div class="placeholder"><span class="todo" data-edit>TODO</span><p data-edit>jyb</p><p class="hint" data-edit>CosyVoice2 · Voice · Speed · 16 kHz WAV</p></div>
 <footer><span>OpenMic · Midterm Review</span><span>jyb · 08 / 10</span></footer>
+<!-- === csw / jyb: TODO / Speech generation === -->
+<section class="slide" data-owner="csw / jyb" aria-label="Speech generation">
+<header><p class="eyebrow" data-edit>03 / csw / jyb</p><h2 data-edit>Speech generation</h2></header>
+<div class="placeholder"><span class="todo" data-edit>TODO</span><p data-edit>csw / jyb</p><p class="hint" data-edit>CosyVoice2 · Voice · Speed · 16 kHz WAV</p></div>
+<footer><span>OpenMic · Midterm Review</span><span>csw / jyb · 07 / 10</span></footer>
+</section>
+<!-- === jyb: first GitHub contribution, built on csw foundation === -->
+<section class="slide" data-owner="jyb" id="jyb-delivery-control" aria-label="JYB: making delivery cues executable">
+<header><p class="eyebrow" data-edit>03 / jyb &middot; Delivery control</p><h2 data-edit>Making delivery cues executable</h2></header>
+<p class="jyb-lead" data-edit>My delivery layer builds on CSW's API, WAV validation and metadata work.</p>
+<div class="jyb-flow" role="group" aria-label="Script markers, event compilation, audio assembly and delivery control">
+<div class="jyb-node"><h3 data-edit>Coach's tagged script</h3><p data-edit>Roles &middot; pauses &middot; emotion<br>Speed &middot; emphasis</p></div>
+<div class="jyb-node jyb-focus"><h3 data-edit>Strict event compiler</h3><p data-edit>Speech + Pause<br>Unknown tags rejected</p></div>
+<div class="jyb-node jyb-focus"><h3 data-edit>Synthesis + assembly</h3><p data-edit>Native expression hints<br>Exact PCM silence</p></div>
+<div class="jyb-node"><h3 data-edit>Control delivery</h3><p data-edit>Fixed intent and focus planning.</p></div>
+</div>
+<table class="jyb-matrix" aria-label="Four same-script conditions in the original contribution">
+<thead><tr><th data-edit>Condition</th><th data-edit>Inserted pauses</th><th data-edit>Expression controls</th></tr></thead>
+<tbody><tr><td data-edit>Baseline</td><td data-edit>0.12 s between segments</td><td data-edit>Neutral; speed 1.0; no emphasis</td></tr>
+<tr><td data-edit>Timing</td><td data-edit>Scripted; baseline speech PCM</td><td data-edit>Neutral; speed 1.0; no emphasis</td></tr>
+<tr><td data-edit>Emotion</td><td data-edit>0.12 s between segments</td><td data-edit>Emotion prompt; speed 1.0; no emphasis</td></tr>
+<tr><td data-edit>Performance</td><td data-edit>Scripted</td><td data-edit>Emotion + speed + native emphasis</td></tr></tbody></table>
+<p class="jyb-limits" data-edit>Emotion and &lt;strong&gt; are soft controls.</p>
+<div class="jyb-script-example" role="group" aria-label="Two tagged excerpts from the Deadline script">
+<p data-edit>[SETUP] [EMOTION=self_deprecating] 期末作业给了三周时间。但我前两周一直没打开那个文档。</p>
+<p data-edit>[PAUSE=0.8] [PUNCHLINE] [EMOTION=self_deprecating] 我要等[EMPHASIS]焦虑到位[/EMPHASIS]。</p>
+</div>
+<footer><span>OpenMic &middot; Midterm Review</span><span>jyb &middot; 08 / 10</span></footer>
 </section>
 <!-- === szq: Evaluation & current progress ===
 Speaker notes (about 60 seconds):

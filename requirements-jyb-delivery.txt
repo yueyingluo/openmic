@@ -1,0 +1,10 @@
+# Python 3.11, CPU only. Install with: pip install -e ".[evaluation]" -r requirements-jyb-delivery.txt
+# Preserve the original JYB/AutoGen version constraints.
+-r requirements-jyb.txt
+# Existing CPU evaluation helpers and the listening-level comparison builder.
+scikit-learn==1.7.2
+soundfile==0.13.1
+opencc-python-reimplemented==0.1.7
+tokenizers==0.22.2
+PyYAML==6.0.3
+pytest==8.4.2

@@ -1,0 +1,801 @@
+{
+  "schema": "openmic.jyb-three-version-demo/1",
+  "generated_at": "2026-11-02T02:12:57.950923+08:00",
+  "default_topic": "canteen",
+  "default_version": "baseline",
+  "default_mode": "matched",
+  "default_scope": "full",
+  "versions": {
+    "baseline": {
+      "label": "① 普通朗读",
+      "description": "早期普通朗读基线：不执行稿中的情绪、重音和表演停顿；原普通段边界为120ms。"
+    },
+    "performance": {
+      "label": "② 早期表演",
+      "description": "早期完整表演链路：情绪指令、重音、速度和停顿已经执行。这是此前听起来较像电台的版本；该感受是用户反馈，不是模型评分。"
+    },
+    "safe_club": {
+      "label": "③ 紧凑修复版",
+      "description": "最新完整性修复的紧凑版：完整句/引用块、原始PCM不裁边、句间至少360ms、转折/反应取max并保留首尾保护；含明确区分的自动、正字法和用户核听接受依据。"
+    }
+  },
+  "topics": [
+    {
+      "id": "canteen",
+      "title": "食堂",
+      "source": {
+        "script_bytes_sha256": "407816dab8f1250e30381f91672627c7c8560c84c9c5ecb7daa374eea2d91839",
+        "script_normalized_lf_sha256": "a017a0474ec21d2f77c69f85b47331ca638c6928199fceb6b152b1ec1f03cc00",
+        "spoken_concat_sha256": "548441f5de9d1936c0dc91cd59beef531c964181d9fb0811d8c62243fb098af1",
+        "trace_sha256": "07b2124de9fa7954aa3a71a61a408d0f1d32cd8297d999a3173b4520b4cc080e",
+        "script_bytes_equal": true,
+        "trace_bytes_equal": true,
+        "canonical_body_equal": true,
+        "canonical_rule": "Remove only literal <strong> tags from old planned speech, concatenate speech in source order; retain words and punctuation",
+        "old_hash_rule": "Historical metrics use newline-joined speech; compare using that rule separately",
+        "hash_scope": "Input and timeline identity, not a guarantee that the waveform contains every source word",
+        "text": "你们有没有那种，站在食堂窗口前，感觉自己在参加《最强大脑》？我每次到食堂，都要在窗口前站五分钟。不是因为菜多，是因为我总想“万一后面有更好的呢”。结果后面排队的同学都开始给我让路了，以为我在认真思考人生。其实我只是在等一个天意——哪个窗口的阿姨先看我一眼，我就去哪个窗口。结果那天，我等到了打汤的阿姨看了我一眼。我就去打了碗汤。然后端着空碗站在窗口前，不知道下一步该干什么。后来我学聪明了，用手机随机数决定，选到哪个窗口就去哪个，绝不犹豫。结果随机数选中的是“今日特供”窗口。今日特供是炒苦瓜。隔壁窗口是红烧肉。我端着那盘苦瓜，手机屏保正好亮着——“天将降大任于斯人也”。我当时差点跪在食堂里。我坐在红烧肉窗口对面，一边吃一边安慰自己：苦瓜降火，我这是健康饮食。最绝的是有一次，我下定决心排最长的队，心想“这么多人排，肯定好吃”。结果排到我才发现，那是免费汤窗口。大家排队是因为今天汤里加了蛋花。前面的人端走时还特意说了句“阿姨今天蛋花给得大方”。我端着一碗蛋花汤，站在红烧肉窗口前，看着阿姨舀起一勺肉，又抖掉三块。我突然觉得，选择困难症其实是一种保护机制，让我少受点打击。因为不管你选哪个窗口，最后都会发现，你真正想吃的，在隔壁。我有个朋友更绝。他每次打饭都让阿姨“随便打点”。阿姨真的随便打，一勺炒土豆丝，一勺番茄炒蛋，混在一起。他先拍照发朋友圈，配文“今日轻食”，然后才敢动筷子。他现在已经靠自我欺骗活到了大三。我现在也学会了终极技巧：不管选哪个窗口，都告诉自己这是命运的安排。然后吃的时候闭着眼睛，这样就能把苦瓜吃出红烧肉的味道。就是有个副作用——有次闭着眼睛吃，阿姨以为我哭了，多给了我一块肉。我没敢睁眼告诉她，那是感动，还是苦的。",
+        "paragraphs": [
+          "你们有没有那种，站在食堂窗口前，感觉自己在参加《最强大脑》？",
+          "我每次到食堂，都要在窗口前站五分钟。不是因为菜多，是因为我总想“万一后面有更好的呢”。结果后面排队的同学都开始给我让路了，以为我在认真思考人生。",
+          "其实我只是在等一个天意——哪个窗口的阿姨先看我一眼，我就去哪个窗口。",
+          "结果那天，我等到了打汤的阿姨看了我一眼。我就去打了碗汤。然后端着空碗站在窗口前，不知道下一步该干什么。",
+          "后来我学聪明了，用手机随机数决定，选到哪个窗口就去哪个，绝不犹豫。",
+          "结果随机数选中的是“今日特供”窗口。今日特供是炒苦瓜。隔壁窗口是红烧肉。我端着那盘苦瓜，手机屏保正好亮着——“天将降大任于斯人也”。我当时差点跪在食堂里。",
+          "我坐在红烧肉窗口对面，一边吃一边安慰自己：苦瓜降火，我这是健康饮食。",
+          "最绝的是有一次，我下定决心排最长的队，心想“这么多人排，肯定好吃”。",
+          "结果排到我才发现，那是免费汤窗口。大家排队是因为今天汤里加了蛋花。前面的人端走时还特意说了句“阿姨今天蛋花给得大方”。",
+          "我端着一碗蛋花汤，站在红烧肉窗口前，看着阿姨舀起一勺肉，又抖掉三块。",
+          "我突然觉得，选择困难症其实是一种保护机制，让我少受点打击。因为不管你选哪个窗口，最后都会发现，你真正想吃的，在隔壁。",
+          "我有个朋友更绝。他每次打饭都让阿姨“随便打点”。阿姨真的随便打，一勺炒土豆丝，一勺番茄炒蛋，混在一起。",
+          "他先拍照发朋友圈，配文“今日轻食”，然后才敢动筷子。",
+          "他现在已经靠自我欺骗活到了大三。",
+          "我现在也学会了终极技巧：不管选哪个窗口，都告诉自己这是命运的安排。然后吃的时候闭着眼睛，这样就能把苦瓜吃出红烧肉的味道。",
+          "就是有个副作用——有次闭着眼睛吃，阿姨以为我哭了，多给了我一块肉。",
+          "我没敢睁眼告诉她，那是感动，还是苦的。"
+        ],
+        "source_files": {
+          "original_run": "jyb_current_main_run_20261101_01",
+          "original_script": "outputs/cfunset/canteen/script.txt",
+          "integrity_run": "jyb_audio_integrity_20261101_03",
+          "integrity_script": "inputs/canteen/source.txt",
+          "original_trace": "outputs/scripts/cfunset/canteen.trace.json"
+        },
+        "original_speech_count": 17,
+        "integrity_unit_count": 31,
+        "cfunset_example_ids": [
+          "6fc9e79f4f387bd06bb1ff38ce6323c2729014ddac55531a39a9d4ea6e4bca5c",
+          "ba4cbb4a010887e6376e958d06610fcdb7df6667c8993ae9ad8a2d530d17c6a1"
+        ],
+        "source_policy": {
+          "requested": "original",
+          "probability": 0.25,
+          "draw": null,
+          "reason": "explicit_or_checkpoint",
+          "effective": "original",
+          "fallback_reason": ""
+        },
+        "content_mode": "cfunset"
+      },
+      "target_lufs": -27.580122323511056,
+      "versions": {
+        "baseline": {
+          "label": "① 普通朗读",
+          "description": "早期普通朗读基线：不执行稿中的情绪、重音和表演停顿；原普通段边界为120ms。",
+          "raw": {
+            "audio_sha256": "cd3c79a964afb08a6b694a825ee3b9da1b7ddb14dfb4bb4952b56229d2eb2a69",
+            "pcm_sha256": "45b94df6eddd7f9075e8a1c4c2e490cc82864169fa0d29de0f3cb81c1a378318",
+            "frames": 2216349,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 138.5218125,
+            "integrated_lufs": -27.53087778597487,
+            "sample_peak_dbfs": -1.3994055685367448,
+            "approx_true_peak_dbtp": -1.126382012907206,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/canteen/baseline/raw.wav"
+          },
+          "matched": {
+            "audio_sha256": "95568a161c8543cb8f5296f54f639027c279e3b33ca0505fbcc303d54109c798",
+            "pcm_sha256": "f8414fd1d9d1e588875e1399be5614c2e3a2b533dcfdd8c14025c978b55e98f3",
+            "frames": 2216349,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 138.5218125,
+            "integrated_lufs": -27.580122079877167,
+            "sample_peak_dbfs": -1.4487484748586568,
+            "approx_true_peak_dbtp": -1.1756636204256306,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/canteen/baseline/matched.wav",
+            "gain_db": -0.04924453753618607,
+            "linear_gain": 0.9943465543092931,
+            "lufs_error_db": 2.436338881750544e-07
+          },
+          "metadata": {
+            "condition": "baseline",
+            "voice_id": "FunAudioLLM/CosyVoice2-0.5B:alex",
+            "speech_count": 17,
+            "speech_seconds": 136.6018125,
+            "inserted_silence_seconds": 1.92,
+            "synthetic": false
+          },
+          "origin": {
+            "run": "jyb_current_main_run_20261101_01",
+            "audio": "outputs/cfunset/canteen/baseline/audio.wav",
+            "metrics": "outputs/cfunset/canteen/baseline/metrics.json",
+            "timeline": "outputs/cfunset/canteen/baseline/timeline.json"
+          },
+          "source_metrics_sha256": "18d3dd4a8a033d39e7081568a9bec61ce620b5f219e245946644f379a751a75f",
+          "source_timeline_sha256": "301ec6e44f67badc6a6fa717bf9d64e37a42225cb3038da3543433f70b32329a",
+          "snippet": {
+            "raw": {
+              "url": "media/jyb_compare/canteen/baseline/snippet_raw.wav",
+              "audio_sha256": "42990106a1c305e9e295e8f1c2dc9122a0de70ec8aedb0e6e6d5e04de9651e3d",
+              "frames": 262182,
+              "sample_rate": 16000,
+              "channels": 1,
+              "sample_width_bytes": 2,
+              "duration_seconds": 16.386375,
+              "source_start_frame": 316516,
+              "source_end_frame": 578698,
+              "source_start_seconds": 19.78225,
+              "source_end_seconds": 36.168625,
+              "whole_audio_sha256": "cd3c79a964afb08a6b694a825ee3b9da1b7ddb14dfb4bb4952b56229d2eb2a69",
+              "additional_gain_db": 0,
+              "boundary_scope": "Original Speech indices 2–3, new units 4–7; real adjacent inserted silence retained; not word timestamps"
+            },
+            "matched": {
+              "url": "media/jyb_compare/canteen/baseline/snippet_matched.wav",
+              "audio_sha256": "c974a4e32e9fdd61243a95fa6e1d2e8c9276e192c623b1e7cbe0d7e9707e4c3d",
+              "frames": 262182,
+              "sample_rate": 16000,
+              "channels": 1,
+              "sample_width_bytes": 2,
+              "duration_seconds": 16.386375,
+              "source_start_frame": 316516,
+              "source_end_frame": 578698,
+              "source_start_seconds": 19.78225,
+              "source_end_seconds": 36.168625,
+              "whole_audio_sha256": "95568a161c8543cb8f5296f54f639027c279e3b33ca0505fbcc303d54109c798",
+              "additional_gain_db": 0,
+              "boundary_scope": "Original Speech indices 2–3, new units 4–7; real adjacent inserted silence retained; not word timestamps"
+            }
+          }
+        },
+        "performance": {
+          "label": "② 早期表演",
+          "description": "早期完整表演链路：情绪指令、重音、速度和停顿已经执行。这是此前听起来较像电台的版本；该感受是用户反馈，不是模型评分。",
+          "raw": {
+            "audio_sha256": "364b75527f721e6485ea18e66ab1e09ca135ca813ccb1896e73dfc05a6b533d1",
+            "pcm_sha256": "2871c2b4c83357982744622706ec0c495a7df2acf1d0f8aea4395c4d1239ed0b",
+            "frames": 2673678,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 167.104875,
+            "integrated_lufs": -27.327982388295673,
+            "sample_peak_dbfs": -1.1356375038963866,
+            "approx_true_peak_dbtp": -0.8478600647846203,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/canteen/performance/raw.wav"
+          },
+          "matched": {
+            "audio_sha256": "5f0463e6a33ed378b6ccf32f58c14d504bb037eae1205d11da63fc9320a7ec4d",
+            "pcm_sha256": "0428fceeaa77ae17cf3ea4695e00623f615b25aaede6e4e86a1c85dcbc0273a2",
+            "frames": 2673678,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 167.104875,
+            "integrated_lufs": -27.580122568709488,
+            "sample_peak_dbfs": -1.3878909785554132,
+            "approx_true_peak_dbtp": -1.100088112382139,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/canteen/performance/matched.wav",
+            "gain_db": -0.25213993521538214,
+            "linear_gain": 0.9713886019135074,
+            "lufs_error_db": 2.4519843222492455e-07
+          },
+          "metadata": {
+            "condition": "performance",
+            "voice_id": "FunAudioLLM/CosyVoice2-0.5B:alex",
+            "speech_count": 17,
+            "speech_seconds": 147.664875,
+            "inserted_silence_seconds": 19.44,
+            "synthetic": false
+          },
+          "origin": {
+            "run": "jyb_current_main_run_20261101_01",
+            "audio": "outputs/cfunset/canteen/performance/audio.wav",
+            "metrics": "outputs/cfunset/canteen/performance/metrics.json",
+            "timeline": "outputs/cfunset/canteen/performance/timeline.json"
+          },
+          "source_metrics_sha256": "d45584ba97566eeea77d0a5a08836bd9b885dcdce4f4fe0b3ec393ac0292aa46",
+          "source_timeline_sha256": "deb99219a37fad756ed2ece99f84252592c358daf56b415cce2e79a3583da1e0",
+          "snippet": {
+            "raw": {
+              "url": "media/jyb_compare/canteen/performance/snippet_raw.wav",
+              "audio_sha256": "a124c814edfeb93d4f19d6f360b00ae0524db035faa821dce4a65fc1cc8f03d5",
+              "frames": 307624,
+              "sample_rate": 16000,
+              "channels": 1,
+              "sample_width_bytes": 2,
+              "duration_seconds": 19.2265,
+              "source_start_frame": 307407,
+              "source_end_frame": 615031,
+              "source_start_seconds": 19.2129375,
+              "source_end_seconds": 38.4394375,
+              "whole_audio_sha256": "364b75527f721e6485ea18e66ab1e09ca135ca813ccb1896e73dfc05a6b533d1",
+              "additional_gain_db": 0,
+              "boundary_scope": "Original Speech indices 2–3, new units 4–7; real adjacent inserted silence retained; not word timestamps"
+            },
+            "matched": {
+              "url": "media/jyb_compare/canteen/performance/snippet_matched.wav",
+              "audio_sha256": "fe0a02872b1a2eed9a3a90d1f12c1a3b2bd44ec50490de590ab89e74be5df2b6",
+              "frames": 307624,
+              "sample_rate": 16000,
+              "channels": 1,
+              "sample_width_bytes": 2,
+              "duration_seconds": 19.2265,
+              "source_start_frame": 307407,
+              "source_end_frame": 615031,
+              "source_start_seconds": 19.2129375,
+              "source_end_seconds": 38.4394375,
+              "whole_audio_sha256": "5f0463e6a33ed378b6ccf32f58c14d504bb037eae1205d11da63fc9320a7ec4d",
+              "additional_gain_db": 0,
+              "boundary_scope": "Original Speech indices 2–3, new units 4–7; real adjacent inserted silence retained; not word timestamps"
+            }
+          }
+        },
+        "safe_club": {
+          "label": "③ 紧凑修复版",
+          "description": "最新完整性修复的紧凑版：完整句/引用块、原始PCM不裁边、句间至少360ms、转折/反应取max并保留首尾保护；含明确区分的自动、正字法和用户核听接受依据。",
+          "raw": {
+            "audio_sha256": "b10b83134fa870e36313d5efdcc3ec9713d46b648f7d8d2fd5bd470447192e0e",
+            "pcm_sha256": "97f508408b28c4860b0f6224ac3c5ffeb3ff35239b47efe564f8a2235d017684",
+            "frames": 2724745,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 170.2965625,
+            "integrated_lufs": -26.65621442472167,
+            "sample_peak_dbfs": -0.570759217715153,
+            "approx_true_peak_dbtp": -0.45781150025527245,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/canteen/safe_club/raw.wav"
+          },
+          "matched": {
+            "audio_sha256": "f6925ff902b95b6446750b1b99c3c7d65193e2e023b41b077a275db1a1ad58db",
+            "pcm_sha256": "9c21a2d40a05a5c20d90bb3e9fdc84cfa4892460377c7ef66194d6a66c140694",
+            "frames": 2724745,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 170.2965625,
+            "integrated_lufs": -27.580120767440356,
+            "sample_peak_dbfs": -1.494594352856281,
+            "approx_true_peak_dbtp": -1.38164518885603,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/canteen/safe_club/matched.wav",
+            "gain_db": -0.9239078987893841,
+            "linear_gain": 0.899092976472952,
+            "lufs_error_db": 1.556070699848533e-06
+          },
+          "metadata": {
+            "condition": "safe_club",
+            "voice_id": "FunAudioLLM/CosyVoice2-0.5B:alex",
+            "speech_count": 31,
+            "speech_seconds": 144.2565625,
+            "inserted_silence_seconds": 26.04,
+            "synthetic": false,
+            "recorded_acceptance": {
+              "automatic_content_and_edge": 31,
+              "exact_orthography_review": 0,
+              "user_actual_listening": 0,
+              "note": "Machine failures remain in the original ledger; user listening receipts are not a MOS study"
+            }
+          },
+          "origin": {
+            "run": "jyb_audio_integrity_20261101_03",
+            "audio": "outputs/canteen/safe_club/audio.wav",
+            "metrics": "outputs/canteen/safe_club/metrics.json",
+            "timeline": "outputs/canteen/safe_club/timeline.json"
+          },
+          "source_metrics_sha256": "d35e3eadd0c80d027e2f733ed404ca2efc779ffb6b530de4b623b6f11c1ea786",
+          "source_timeline_sha256": "7644b0ce5eceb106d8c1edfa14f6ec1b2338a9463758679e168a53daf74bddce",
+          "snippet": {
+            "raw": {
+              "url": "media/jyb_compare/canteen/safe_club/snippet_raw.wav",
+              "audio_sha256": "ca8fdabb83fb7c0d003913a33e81810e9d911eb83fc7a6235634ad529cc1eb4e",
+              "frames": 263609,
+              "sample_rate": 16000,
+              "channels": 1,
+              "sample_width_bytes": 2,
+              "duration_seconds": 16.4755625,
+              "source_start_frame": 315412,
+              "source_end_frame": 579021,
+              "source_start_seconds": 19.71325,
+              "source_end_seconds": 36.1888125,
+              "whole_audio_sha256": "b10b83134fa870e36313d5efdcc3ec9713d46b648f7d8d2fd5bd470447192e0e",
+              "additional_gain_db": 0,
+              "boundary_scope": "Original Speech indices 2–3, new units 4–7; real adjacent inserted silence retained; not word timestamps"
+            },
+            "matched": {
+              "url": "media/jyb_compare/canteen/safe_club/snippet_matched.wav",
+              "audio_sha256": "c9087466479582a846763143a28201d672ccc225390d07804fe74b0cf454303c",
+              "frames": 263609,
+              "sample_rate": 16000,
+              "channels": 1,
+              "sample_width_bytes": 2,
+              "duration_seconds": 16.4755625,
+              "source_start_frame": 315412,
+              "source_end_frame": 579021,
+              "source_start_seconds": 19.71325,
+              "source_end_seconds": 36.1888125,
+              "whole_audio_sha256": "f6925ff902b95b6446750b1b99c3c7d65193e2e023b41b077a275db1a1ad58db",
+              "additional_gain_db": 0,
+              "boundary_scope": "Original Speech indices 2–3, new units 4–7; real adjacent inserted silence retained; not word timestamps"
+            }
+          }
+        }
+      },
+      "demo": {
+        "text": "其实我只是在等一个天意——哪个窗口的阿姨先看我一眼，我就去哪个窗口。结果那天，我等到了打汤的阿姨看了我一眼。我就去打了碗汤。然后端着空碗站在窗口前，不知道下一步该干什么。",
+        "source_speech_indices": [
+          2,
+          3
+        ],
+        "integrity_unit_ids": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "not_word_timestamps": true
+      }
+    },
+    {
+      "id": "deadline",
+      "title": "截止日期",
+      "source": {
+        "script_bytes_sha256": "e70d3d9a4d1884a42a43655fc6352145bd763588898127f973b4b3c8a9dbed8d",
+        "script_normalized_lf_sha256": "3994adbb19e9d3bc3f1f5a9a7f9d0fb78f4e6cac91e97bda89be0932a7020b3c",
+        "spoken_concat_sha256": "99558ef6c77341c401c5f3ff884165b175ff41e3937cb72f1213f2877197f52c",
+        "trace_sha256": "0692b9c8e6690d61e5b2812b28831d07c0445cdea358ff790d6690ebb20301a7",
+        "script_bytes_equal": true,
+        "trace_bytes_equal": true,
+        "canonical_body_equal": true,
+        "canonical_rule": "Remove only literal <strong> tags from old planned speech, concatenate speech in source order; retain words and punctuation",
+        "old_hash_rule": "Historical metrics use newline-joined speech; compare using that rule separately",
+        "hash_scope": "Input and timeline identity, not a guarantee that the waveform contains every source word",
+        "text": "期末作业给了三周时间。但我前两周一直没打开那个文档。朋友们问我在等什么，我说不出来。其实我心里清楚——我在等一个特别的东西。不是灵感，是情绪。我要等焦虑到位。情绪越差，效率越高。所以我得先把自己搞焦虑了才肯开工。别人复习是查漏补缺，我复习是怎么让自己难受怎么来。焦虑到位那天终于到了。我打开文档，正儿八经写了一个小时。然后我停了下来。因为我发现有个更急的事——三小时前我往洗衣机里扔了一堆衣服，忘了晾。我当时觉得，晾衣服比写论文更有完成感。因为它是三分钟的事。三分钟能把衣服晾完。三分钟连论文标题都选不出一个字体。晾完衣服回来，我决定给这次作业做个正经的规划。这不是普通的拖延，这是项目管理。我列了个表，非常科学——不写的时间，写的理由，不写的理由。表做完了。特别漂亮，我还加了边框。因为那是当天最像样的作品。我看着那个表，心满意足，抬头一看——夜里十一点了。一个字没写。那一刻我知道，焦虑确实到位了。只是焦虑的不是作业写不完，是我表格做完了发现作文没开头。最后半小时进入极限状态。手速历史最高，脑子说“先写结论再补开头”。我照做了。写出来的开头是结论的道歉信——“对不起，以下内容我本来早就该写的”。提交的时候我反而松了口气。因为那个道歉，正好是给这学期所有的deadline的。一稿多用，又赚了。老师回复我说：“你这不是期末作业，是忏悔录。”我想了想，把文件名改了一下——“期末作业最终版2（真的）”，然后发给他，说：“老师，下次我一定提前写。”嘴上这么说，心里已经在预演下次怎么道歉了。毕竟拖延这件事，我是真的没拖，我一直在提前准备着怎么道歉。",
+        "paragraphs": [
+          "期末作业给了三周时间。但我前两周一直没打开那个文档。朋友们问我在等什么，我说不出来。其实我心里清楚——我在等一个特别的东西。不是灵感，是情绪。",
+          "我要等焦虑到位。情绪越差，效率越高。所以我得先把自己搞焦虑了才肯开工。别人复习是查漏补缺，我复习是怎么让自己难受怎么来。",
+          "焦虑到位那天终于到了。我打开文档，正儿八经写了一个小时。然后我停了下来。因为我发现有个更急的事——三小时前我往洗衣机里扔了一堆衣服，忘了晾。",
+          "我当时觉得，晾衣服比写论文更有完成感。因为它是三分钟的事。三分钟能把衣服晾完。三分钟连论文标题都选不出一个字体。",
+          "晾完衣服回来，我决定给这次作业做个正经的规划。这不是普通的拖延，这是项目管理。我列了个表，非常科学——不写的时间，写的理由，不写的理由。",
+          "表做完了。特别漂亮，我还加了边框。因为那是当天最像样的作品。",
+          "我看着那个表，心满意足，抬头一看——夜里十一点了。一个字没写。",
+          "那一刻我知道，焦虑确实到位了。只是焦虑的不是作业写不完，是我表格做完了发现作文没开头。",
+          "最后半小时进入极限状态。手速历史最高，脑子说“先写结论再补开头”。我照做了。写出来的开头是结论的道歉信——“对不起，以下内容我本来早就该写的”。",
+          "提交的时候我反而松了口气。因为那个道歉，正好是给这学期所有的deadline的。一稿多用，又赚了。",
+          "老师回复我说：“你这不是期末作业，是忏悔录。”",
+          "我想了想，把文件名改了一下——“期末作业最终版2（真的）”，然后发给他，说：“老师，下次我一定提前写。”嘴上这么说，心里已经在预演下次怎么道歉了。毕竟拖延这件事，我是真的没拖，我一直在提前准备着怎么道歉。"
+        ],
+        "source_files": {
+          "original_run": "jyb_current_main_run_20261101_01",
+          "original_script": "outputs/cfunset/deadline/script.txt",
+          "integrity_run": "jyb_audio_integrity_20261101_03",
+          "integrity_script": "inputs/deadline/source.txt",
+          "original_trace": "outputs/scripts/cfunset/deadline.trace.json"
+        },
+        "original_speech_count": 12,
+        "integrity_unit_count": 38,
+        "cfunset_example_ids": [
+          "e69c4d03ad39094911453090f038802434bc86e454914bfc037c5892873edb09",
+          "e31cee81120427330bce33f697adc477086b4de7975ef3b810d7d5f97e2b61c7"
+        ],
+        "source_policy": {
+          "requested": "original",
+          "probability": 0.25,
+          "draw": null,
+          "reason": "explicit_or_checkpoint",
+          "effective": "original",
+          "fallback_reason": ""
+        },
+        "content_mode": "cfunset"
+      },
+      "target_lufs": -28.18487190825384,
+      "versions": {
+        "baseline": {
+          "label": "① 普通朗读",
+          "description": "早期普通朗读基线：不执行稿中的情绪、重音和表演停顿；原普通段边界为120ms。",
+          "raw": {
+            "audio_sha256": "e3a39be80043ee9a1e27ee8e59b268cc79d81be5f423bd8d5e98da4b4225931c",
+            "pcm_sha256": "769d5c7ea02ec8094eeebb766d4d9bc376eb36de88766a3cdf315e4bdbce58eb",
+            "frames": 2189930,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 136.870625,
+            "integrated_lufs": -28.04304498957392,
+            "sample_peak_dbfs": -1.9188053827515432,
+            "approx_true_peak_dbtp": -1.8943298744294634,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/deadline/baseline/raw.wav"
+          },
+          "matched": {
+            "audio_sha256": "16a105b53d5f84ab53ff496748cf42860dc63f4dbf0842097c13222fe5f4674c",
+            "pcm_sha256": "bafab96d619fae5511979d7add907e1efdac64aafe84f005fe8c1aafc71e872d",
+            "frames": 2189930,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 136.870625,
+            "integrated_lufs": -28.184869985593096,
+            "sample_peak_dbfs": -2.060795842706607,
+            "approx_true_peak_dbtp": -2.036193695779728,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/deadline/baseline/matched.wav",
+            "gain_db": -0.14182691867991792,
+            "linear_gain": 0.9838041587124235,
+            "lufs_error_db": 1.922660743503002e-06
+          },
+          "metadata": {
+            "condition": "baseline",
+            "voice_id": "FunAudioLLM/CosyVoice2-0.5B:alex",
+            "speech_count": 12,
+            "speech_seconds": 135.550625,
+            "inserted_silence_seconds": 1.32,
+            "synthetic": false
+          },
+          "origin": {
+            "run": "jyb_current_main_run_20261101_01",
+            "audio": "outputs/cfunset/deadline/baseline/audio.wav",
+            "metrics": "outputs/cfunset/deadline/baseline/metrics.json",
+            "timeline": "outputs/cfunset/deadline/baseline/timeline.json"
+          },
+          "source_metrics_sha256": "0f19200aea183f1768ee5fa2179a2a1b6231917bc6744ede57fcbff8cdee6107",
+          "source_timeline_sha256": "747453af0f29fb9e59966f46ad0b3d9cb564d198effee5635454e604671e7034"
+        },
+        "performance": {
+          "label": "② 早期表演",
+          "description": "早期完整表演链路：情绪指令、重音、速度和停顿已经执行。这是此前听起来较像电台的版本；该感受是用户反馈，不是模型评分。",
+          "raw": {
+            "audio_sha256": "c2536f02d14c21ef0e4cd9f3f3bf1a3a9dd1df7e8589c58e6d854fcbc100085e",
+            "pcm_sha256": "f1acbdfd321f380923db76de96d125539d4d1adc35a6caaea797f86182a43ff3",
+            "frames": 2878933,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 179.9333125,
+            "integrated_lufs": -27.802682632137977,
+            "sample_peak_dbfs": -1.0293481990002145,
+            "approx_true_peak_dbtp": -0.7178107238841378,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/deadline/performance/raw.wav"
+          },
+          "matched": {
+            "audio_sha256": "148187a5cb2cb550fe719587fdeed086d2dcd298c405bd912e7565e1a06048b7",
+            "pcm_sha256": "0d43a5eebeaeffabbaaf36f39e8e2bd627a8fdcbfecc2adb62fb8cecd4dfdf91",
+            "frames": 2878933,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 179.9333125,
+            "integrated_lufs": -28.18487276062102,
+            "sample_peak_dbfs": -1.411559115981456,
+            "approx_true_peak_dbtp": -1.1000167240288719,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/deadline/performance/matched.wav",
+            "gain_db": -0.38218927611586295,
+            "linear_gain": 0.9569528411923337,
+            "lufs_error_db": 8.523671795046539e-07
+          },
+          "metadata": {
+            "condition": "performance",
+            "voice_id": "FunAudioLLM/CosyVoice2-0.5B:alex",
+            "speech_count": 12,
+            "speech_seconds": 163.1333125,
+            "inserted_silence_seconds": 16.8,
+            "synthetic": false
+          },
+          "origin": {
+            "run": "jyb_current_main_run_20261101_01",
+            "audio": "outputs/cfunset/deadline/performance/audio.wav",
+            "metrics": "outputs/cfunset/deadline/performance/metrics.json",
+            "timeline": "outputs/cfunset/deadline/performance/timeline.json"
+          },
+          "source_metrics_sha256": "7e125e2a48cd6754519fd7c8ddc5fc5473523e6098dfa3fddab56456341f84d3",
+          "source_timeline_sha256": "47b43348c2bbef83912392cf8e7b3ba845ee311c751f4e3e181835016eb950ee"
+        },
+        "safe_club": {
+          "label": "③ 紧凑修复版",
+          "description": "最新完整性修复的紧凑版：完整句/引用块、原始PCM不裁边、句间至少360ms、转折/反应取max并保留首尾保护；含明确区分的自动、正字法和用户核听接受依据。",
+          "raw": {
+            "audio_sha256": "c9d15b55055bcfb74e32c7b24fd12b31e9f9ab05dcddb85f21bd9f1670fc6296",
+            "pcm_sha256": "0797d12e670d47bf31881afc71f702e496fbfbcd01871ffcc37c8aa40923eb3a",
+            "frames": 2810681,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 175.6675625,
+            "integrated_lufs": -26.71867886308266,
+            "sample_peak_dbfs": -1.7742202664616764,
+            "approx_true_peak_dbtp": -1.5411644349266154,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/deadline/safe_club/raw.wav"
+          },
+          "matched": {
+            "audio_sha256": "ca429ec1b7e97fd77edba496bea75b53918b96cfc9bbd4046fddf13428d7bc66",
+            "pcm_sha256": "b9a4709a0c5d37722b0b53865a62a35d065bb243edbf151c3e4d4ea00b606f3a",
+            "frames": 2810681,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 175.6675625,
+            "integrated_lufs": -28.181434173374857,
+            "sample_peak_dbfs": -3.2402919420710656,
+            "approx_true_peak_dbtp": -3.0073086483890825,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/deadline/safe_club/matched.wav",
+            "gain_db": -1.466193045171181,
+            "linear_gain": 0.8446763755796227,
+            "lufs_error_db": 0.003437734878982468
+          },
+          "metadata": {
+            "condition": "safe_club",
+            "voice_id": "FunAudioLLM/CosyVoice2-0.5B:alex",
+            "speech_count": 38,
+            "speech_seconds": 148.7575625,
+            "inserted_silence_seconds": 26.91,
+            "synthetic": false,
+            "recorded_acceptance": {
+              "automatic_content_and_edge": 37,
+              "exact_orthography_review": 0,
+              "user_actual_listening": 1,
+              "note": "Machine failures remain in the original ledger; user listening receipts are not a MOS study"
+            }
+          },
+          "origin": {
+            "run": "jyb_audio_integrity_20261101_03",
+            "audio": "outputs/deadline/safe_club/audio.wav",
+            "metrics": "outputs/deadline/safe_club/metrics.json",
+            "timeline": "outputs/deadline/safe_club/timeline.json"
+          },
+          "source_metrics_sha256": "f133ae77274b8d9eaeb51277e9719bfb6fae08120a018527bf5d0422c36f9eed",
+          "source_timeline_sha256": "4392c36d88e7411149b076537c313acdef9b2dec35bc104afab046adce213e7a"
+        }
+      }
+    },
+    {
+      "id": "fitness",
+      "title": "健身",
+      "source": {
+        "script_bytes_sha256": "79a7db326a18f0d0dc5a5177a8b0ebbd95b5ff86077ad9e6e0b445f3b5424c93",
+        "script_normalized_lf_sha256": "b1420e42a3439889f26c95c6b371a1486037f6cda5f6729c038dc8d6b32de212",
+        "spoken_concat_sha256": "194436de20e82998c82da0fbe0f729e80704c14bb14ac175b61468ffd11f084f",
+        "trace_sha256": "bc2abfda734753ca8d2621dbafa7147ca82206ad7319fb15863721a8471592ce",
+        "script_bytes_equal": true,
+        "trace_bytes_equal": true,
+        "canonical_body_equal": true,
+        "canonical_rule": "Remove only literal <strong> tags from old planned speech, concatenate speech in source order; retain words and punctuation",
+        "old_hash_rule": "Historical metrics use newline-joined speech; compare using that rule separately",
+        "hash_scope": "Input and timeline identity, not a guarantee that the waveform contains every source word",
+        "text": "我办那张健身卡，是因为那天我称了一次体重。那个数字，怎么说呢，我以前觉得自己是微胖，那天才知道，原来微胖是种乐观主义。我当时特别冷静，冷静到给自己做了一个健康评估，评估结果是：我需要为健康做点什么。然后我做的那件事，就是——办了一张健身卡。买完卡那一刻，我长舒了一口气，觉得这件事已经完成了。那个前台小姑娘特别专业，递给我一个POS机，问我：“扫码还是刷卡？”我说扫码。滴一声，钱出去了。她把卡递给我的时候，我觉得那张卡是热的，不是体温，是“健康到账”的温度。回去路上我给自己规划了一个宏伟的课表，周一练胸，周二练腿，周三休息，周四……后来发现，这张卡在我生活里最稳定的角色，不是健身工具，是镇宅的。每天早上出门前，我必须看一眼它，确认它还在抽屉里。真的，它要是不见了，我这一天都过不踏实。因为它在，就等于我的健康计划还在。两千块钱买一个“我已在健身”的错觉，算下来比私教课便宜多了，私教课还得真出汗。后来有一次，朋友约我去夜跑，我拒绝了。他说：“你怎么还不运动？”我说：“不了，我这辈子的运动额度，已经用那张卡透支完了。”他愣住了，我也愣住了。我发现自己说了一句真正的人生哲理：办了卡，就等于用完了，这逻辑放哪都立不住，但放在我身上，它就是我的生活方式。我手机里还存着三个健身App，从来没打开过。有人问，那你存它们干嘛？我说，它们是备用的。万一哪天那张卡不小心找不到了，它们还能帮我撑一阵子“我健康得很好”的幻觉。我妈前两天打电话，问我卡用得怎么样，我说利用率很高，每天都用。她特别欣慰：“真的？每天都去？”我说：“嗯，每天都用——用来看一眼。”",
+        "paragraphs": [
+          "我办那张健身卡，是因为那天我称了一次体重。那个数字，怎么说呢，我以前觉得自己是微胖，那天才知道，原来微胖是种乐观主义。",
+          "我当时特别冷静，冷静到给自己做了一个健康评估，评估结果是：我需要为健康做点什么。然后我做的那件事，就是——办了一张健身卡。买完卡那一刻，我长舒了一口气，觉得这件事已经完成了。",
+          "那个前台小姑娘特别专业，递给我一个POS机，问我：“扫码还是刷卡？”我说扫码。滴一声，钱出去了。她把卡递给我的时候，我觉得那张卡是热的，不是体温，是“健康到账”的温度。",
+          "回去路上我给自己规划了一个宏伟的课表，周一练胸，周二练腿，周三休息，周四……后来发现，这张卡在我生活里最稳定的角色，不是健身工具，是镇宅的。",
+          "每天早上出门前，我必须看一眼它，确认它还在抽屉里。真的，它要是不见了，我这一天都过不踏实。因为它在，就等于我的健康计划还在。两千块钱买一个“我已在健身”的错觉，算下来比私教课便宜多了，私教课还得真出汗。",
+          "后来有一次，朋友约我去夜跑，我拒绝了。",
+          "他说：“你怎么还不运动？”",
+          "我说：“不了，我这辈子的运动额度，已经用那张卡透支完了。”",
+          "他愣住了，我也愣住了。我发现自己说了一句真正的人生哲理：办了卡，就等于用完了，这逻辑放哪都立不住，但放在我身上，它就是我的生活方式。",
+          "我手机里还存着三个健身App，从来没打开过。有人问，那你存它们干嘛？",
+          "我说，它们是备用的。万一哪天那张卡不小心找不到了，它们还能帮我撑一阵子“我健康得很好”的幻觉。",
+          "我妈前两天打电话，问我卡用得怎么样，我说利用率很高，每天都用。",
+          "她特别欣慰：“真的？每天都去？”",
+          "我说：“嗯，每天都用——用来看一眼。”"
+        ],
+        "source_files": {
+          "original_run": "jyb_current_main_run_20261101_01",
+          "original_script": "outputs/cfunset/fitness/script.txt",
+          "integrity_run": "jyb_audio_integrity_20261101_03",
+          "integrity_script": "inputs/fitness/source.txt",
+          "original_trace": "outputs/scripts/cfunset/fitness.trace.json"
+        },
+        "original_speech_count": 14,
+        "integrity_unit_count": 26,
+        "cfunset_example_ids": [
+          "2531f013b52db489dcd74ca930b7a2f7652f652060b7aaed4ed7abb6a3e88bac",
+          "aca39f576d5f88955b255c9bfa3563714962887c86e9bedc46c87fdc6d1be78f"
+        ],
+        "source_policy": {
+          "requested": "original",
+          "probability": 0.25,
+          "draw": null,
+          "reason": "explicit_or_checkpoint",
+          "effective": "original",
+          "fallback_reason": ""
+        },
+        "content_mode": "cfunset"
+      },
+      "target_lufs": -28.26158655434739,
+      "versions": {
+        "baseline": {
+          "label": "① 普通朗读",
+          "description": "早期普通朗读基线：不执行稿中的情绪、重音和表演停顿；原普通段边界为120ms。",
+          "raw": {
+            "audio_sha256": "b7ca911750e6d582b0041ca4ad47b5467555a898f947ebff154ab70f91b8cc03",
+            "pcm_sha256": "ee8888252c0dae45339dbbda7be67d11455f83d7ed348c333d82b6969f163785",
+            "frames": 2101223,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 131.3264375,
+            "integrated_lufs": -27.91258185959565,
+            "sample_peak_dbfs": -0.8743656695933367,
+            "approx_true_peak_dbtp": -0.7509953052482632,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/fitness/baseline/raw.wav"
+          },
+          "matched": {
+            "audio_sha256": "c161e44d61856b5e302e07101e5b0bc2b8eca302de21fad85b9c52a24ea8dd47",
+            "pcm_sha256": "82f664e71d8ffd1f7f068935f20bfa6759cf05768707eb9759cd8df04f6b588e",
+            "frames": 2101223,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 131.3264375,
+            "integrated_lufs": -28.261588895835285,
+            "sample_peak_dbfs": -1.223385243272376,
+            "approx_true_peak_dbtp": -1.1000195735932299,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/fitness/baseline/matched.wav",
+            "gain_db": -0.3490046947517378,
+            "linear_gain": 0.9606158878553952,
+            "lufs_error_db": 2.3414878960181795e-06
+          },
+          "metadata": {
+            "condition": "baseline",
+            "voice_id": "FunAudioLLM/CosyVoice2-0.5B:alex",
+            "speech_count": 14,
+            "speech_seconds": 129.7664375,
+            "inserted_silence_seconds": 1.56,
+            "synthetic": false
+          },
+          "origin": {
+            "run": "jyb_current_main_run_20261101_01",
+            "audio": "outputs/cfunset/fitness/baseline/audio.wav",
+            "metrics": "outputs/cfunset/fitness/baseline/metrics.json",
+            "timeline": "outputs/cfunset/fitness/baseline/timeline.json"
+          },
+          "source_metrics_sha256": "9b582f26b43711e41580771ccc0eaabcd69b95468f91983290b14c6c77166493",
+          "source_timeline_sha256": "16f9d18f1a8bc7cb6f10a8e0f73268ef51fab6a126e4d4b35bd4d80e64172464"
+        },
+        "performance": {
+          "label": "② 早期表演",
+          "description": "早期完整表演链路：情绪指令、重音、速度和停顿已经执行。这是此前听起来较像电台的版本；该感受是用户反馈，不是模型评分。",
+          "raw": {
+            "audio_sha256": "f29ccb0af68173777a9a8e8aeeaa903f5eb38b945215652e0a8f6b1e1f605ecc",
+            "pcm_sha256": "63eed539a13afa78025120274db7e905a2e6b94d8f23193c63f4996694ecc116",
+            "frames": 2362866,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 147.679125,
+            "integrated_lufs": -27.12570410527259,
+            "sample_peak_dbfs": -1.1081900999621936,
+            "approx_true_peak_dbtp": -1.0220100565724077,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/fitness/performance/raw.wav"
+          },
+          "matched": {
+            "audio_sha256": "66c2a7b4d6ca4423930552fbf0edb379386d5e68a6d3b31344739d2883400556",
+            "pcm_sha256": "728e7a0c0f0f1eafcd036d7be5a7a62428c1386fa4c9d3a16710f98618ad1466",
+            "frames": 2362866,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 147.679125,
+            "integrated_lufs": -28.261583047084866,
+            "sample_peak_dbfs": -2.2441853975048534,
+            "approx_true_peak_dbtp": -2.1579620560542083,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/fitness/performance/matched.wav",
+            "gain_db": -1.1358824490747992,
+            "linear_gain": 0.8774166624390257,
+            "lufs_error_db": 3.5072625230725407e-06
+          },
+          "metadata": {
+            "condition": "performance",
+            "voice_id": "FunAudioLLM/CosyVoice2-0.5B:alex",
+            "speech_count": 14,
+            "speech_seconds": 133.199125,
+            "inserted_silence_seconds": 14.48,
+            "synthetic": false
+          },
+          "origin": {
+            "run": "jyb_current_main_run_20261101_01",
+            "audio": "outputs/cfunset/fitness/performance/audio.wav",
+            "metrics": "outputs/cfunset/fitness/performance/metrics.json",
+            "timeline": "outputs/cfunset/fitness/performance/timeline.json"
+          },
+          "source_metrics_sha256": "acb0f0c74b938c2c3736a4a8dcf8b2e9b075afc4137fee18db75646fc0a831d7",
+          "source_timeline_sha256": "d5f32bd5b1d25d4f108cca21b551a17fe0afb6b90e8008fe45c573370674cd1e"
+        },
+        "safe_club": {
+          "label": "③ 紧凑修复版",
+          "description": "最新完整性修复的紧凑版：完整句/引用块、原始PCM不裁边、句间至少360ms、转折/反应取max并保留首尾保护；含明确区分的自动、正字法和用户核听接受依据。",
+          "raw": {
+            "audio_sha256": "f6cbe98dde8feee3572aaa3cebdca4b8517efbff7756a0338c33d25f13ddeff4",
+            "pcm_sha256": "61a3df3e4907c5965af9054a058cd1f32a0e3e51cb2262187f4bfb777021d816",
+            "frames": 2473700,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 154.60625,
+            "integrated_lufs": -26.907000086787736,
+            "sample_peak_dbfs": -0.09729428325300785,
+            "approx_true_peak_dbtp": 0.15142994801384402,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/fitness/safe_club/raw.wav"
+          },
+          "matched": {
+            "audio_sha256": "f6e4e42810f7d4887e42ef4fa5f48c40ca3599c68ce59fe66682e31401612dcc",
+            "pcm_sha256": "43c815d6580ad17b2f8f91659062ad9f9f006f02d2138b418d9b041bc9ebcc37",
+            "frames": 2473700,
+            "sample_rate": 16000,
+            "channels": 1,
+            "duration_seconds": 154.60625,
+            "integrated_lufs": -28.261584515094786,
+            "sample_peak_dbfs": -1.4518808956932352,
+            "approx_true_peak_dbtp": -1.203193446115502,
+            "sample_width_bytes": 2,
+            "url": "media/jyb_compare/fitness/safe_club/matched.wav",
+            "gain_db": -1.3545864675596526,
+            "linear_gain": 0.8555998044142863,
+            "lufs_error_db": 2.03925260322535e-06
+          },
+          "metadata": {
+            "condition": "safe_club",
+            "voice_id": "FunAudioLLM/CosyVoice2-0.5B:alex",
+            "speech_count": 26,
+            "speech_seconds": 133.89625,
+            "inserted_silence_seconds": 20.71,
+            "synthetic": false,
+            "recorded_acceptance": {
+              "automatic_content_and_edge": 24,
+              "exact_orthography_review": 1,
+              "user_actual_listening": 1,
+              "note": "Machine failures remain in the original ledger; user listening receipts are not a MOS study"
+            }
+          },
+          "origin": {
+            "run": "jyb_audio_integrity_20261101_03",
+            "audio": "outputs/fitness/safe_club/audio.wav",
+            "metrics": "outputs/fitness/safe_club/metrics.json",
+            "timeline": "outputs/fitness/safe_club/timeline.json"
+          },
+          "source_metrics_sha256": "10ba1409a3d8ff98ba32526fa19defc91e1dad7c5b70d19159643bab8c76e6dc",
+          "source_timeline_sha256": "6d21b2b0b0071b8f27d4a1149440d6e45dee2f4c4adeed67dbfbeb72edba7532"
+        }
+      }
+    }
+  ],
+  "matching": {
+    "target_rule": "Per topic T=min(-20, min_i(L_i - 1.1 - approximate_true_peak_i)) dB; each whole version gets G_i=T-L_i",
+    "whole_file_constant_gain_only": true,
+    "rounding": "numpy.rint then int16, overflow refused; no clip, limiter or compressor",
+    "post_quantization_lufs_error_max_db": 0.12,
+    "post_quantization_approx_peak_max_dbtp": -1.0,
+    "loudness": "pyloudnorm BS.1770-4 implementation",
+    "peak": "scipy polyphase resample 4x approximation; not a certified true-peak meter",
+    "snippets": "Exact sample intervals from corresponding raw/matched full WAVs; no additional gain"
+  },
+  "counts": {
+    "topics": 3,
+    "versions_per_topic": 3,
+    "raw_full": 9,
+    "matched_full": 9,
+    "raw_snippets": 3,
+    "matched_snippets": 3,
+    "total_wav": 24
+  },
+  "claims": {
+    "new_api_calls": 0,
+    "human_mos_study": false,
+    "single_factor_experiment": false,
+    "native_word_perfect_audio_proven": false,
+    "sources_unchanged": true
+  },
+  "distribution": "repository"
+}

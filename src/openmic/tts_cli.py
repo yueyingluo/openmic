@@ -36,6 +36,11 @@ def build_parser() -> argparse.ArgumentParser:
     generate.add_argument("--duration", type=int, choices=[3, 4, 5], default=3)
     generate.add_argument("--audience", default="大学生")
     generate.add_argument("--backend", choices=["mock", "autogen"], default="mock")
+    generate.add_argument("--content-mode", choices=["baseline", "cfunset"], default="baseline")
+    generate.add_argument("--cfunset-index", type=Path, help="复用团队已准备的 CFunSet 索引")
+    generate.add_argument("--context", default="", help="保持团队生成模块的用户事实约束")
+    generate.add_argument("--source-mode", choices=["original", "adaptation"], default=None)
+    generate.add_argument("--adaptation-seed", type=int, default=None)
     generate.add_argument("--out", type=Path, required=True)
     return parser
 
@@ -46,8 +51,15 @@ def _generate(args: argparse.Namespace) -> None:
     from openmic.models import ProjectRequest
     from openmic.tts import extract_spoken_script
     from openmic.workflow import OpenMicWorkflow
-    request = ProjectRequest(args.topic, args.style, args.duration, args.audience)
-    workflow = JybWorkflow(AutoGenConfig.from_env()) if args.backend == "autogen" else OpenMicWorkflow()
+    content_mode = getattr(args, "content_mode", "baseline")
+    if args.backend == "mock" and content_mode == "cfunset":
+        raise ValueError("CFunSet 参考筛选需要真实 AutoGen；Mock 不冒充检索增强生成")
+    request = ProjectRequest(args.topic, args.style, args.duration, args.audience, getattr(args, "context", ""))
+    config = AutoGenConfig.from_env() if args.backend == "autogen" else None
+    workflow = JybWorkflow(config, content_mode=content_mode,
+                           cfunset_index=getattr(args, "cfunset_index", None),
+                           source_mode=getattr(args, "source_mode", None),
+                           adaptation_seed=getattr(args, "adaptation_seed", None)) if config else OpenMicWorkflow()
     started = time.perf_counter()
     result = workflow.run(request, on_message=lambda item: print(item.agent + " 已完成", flush=True))
     messages = result.messages
@@ -55,11 +67,20 @@ def _generate(args: argparse.Namespace) -> None:
     script = next((item.content for item in reversed(messages) if item.agent == wanted), "")
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text("<SCRIPT>\n" + extract_spoken_script(script) + "\n</SCRIPT>\n", encoding="utf-8")
-    trace = {"request": asdict(request), "approved": result.approved, "score": result.score,
+    trace = {**asdict(result), "request": asdict(request), "approved": result.approved, "score": result.score,
              "generation_seconds": time.perf_counter() - started, "backend": args.backend,
-             "revision_count": result.revision_count,
+             "revision_count": result.revision_count, "content_mode": content_mode,
+             "model": config.model if config else None,
              "messages": [asdict(item) for item in messages]}
     args.out.with_suffix(".trace.json").write_text(json.dumps(trace, ensure_ascii=False, indent=2), encoding="utf-8")
+    # New CFunSet drafts follow the team's natural-length/optional-callback
+    # policy. Keep all fidelity/QC checks, without expanding the spoken story.
+    from openmic.tts_review import review_script
+    limits = {"min_characters": 1, "min_punchlines": 0, "min_callbacks": 0} if content_mode == "cfunset" else {}
+    review = review_script(args.out.read_text(encoding="utf-8"), trace, **limits)
+    review["content_mode"] = content_mode
+    args.out.with_suffix(".review.json").write_text(json.dumps(review, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"独立协议/正文/质检核查：passed={review['passed']}")
     print(f"稿件已保存：{args.out}；需预览并检查标记与实际时长。approved={result.approved}")
     if not result.approved:
         print("质检未通过；请修订，勿作为合格样例交付。")
@@ -70,7 +91,14 @@ def _generate(args: argparse.Namespace) -> None:
 
 
 def main(argv=None) -> None:
-    args = build_parser().parse_args(argv)
+    arguments = list(sys.argv[1:] if argv is None else argv)
+    if arguments[:1] == ["integrity"]:
+        from openmic.tts_integrity_cli import main as integrity_main
+        return integrity_main(arguments[1:])
+    if arguments[:1] == ["stage"]:
+        from openmic.tts_stage_cli import main as stage_main
+        return stage_main(arguments[1:])
+    args = build_parser().parse_args(arguments)
     try:
         if args.command == "generate":
             _generate(args)

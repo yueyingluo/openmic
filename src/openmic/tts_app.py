@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import os
 from dataclasses import asdict
 from pathlib import Path
 
@@ -71,15 +72,21 @@ def main() -> None:
         with st.form("jyb_workflow_form"):
             agent_labels = {"Mock 短稿（无需 Key）": "mock", "真实 AutoGen": "autogen"}
             agent_backend = agent_labels[st.radio("脚本后端", list(agent_labels))]
+            content_labels = {"原 TTS 长稿协议": "baseline", "团队 CFunSet 检索增强": "cfunset"}
+            content_mode = content_labels[st.selectbox("文本生成方式", list(content_labels))]
+            cfunset_index = st.text_input("CFunSet 索引路径", os.getenv("OPENMIC_CFUNSET_INDEX", "artifacts/cfunset/index.jsonl"))
             topic = st.text_input("主题", "我的网购经历")
             styles = {"观察": "observational", "自嘲": "self_deprecating", "吐槽": "roast"}
             style = styles[st.selectbox("表演风格", list(styles))]
             duration = st.selectbox("目标时长（分钟）", [3, 4, 5])
             audience = st.text_input("目标受众", "大学生")
+            context = st.text_input("已知事实（可留空）", "")
             generate_script = st.form_submit_button("生成并载入脚本")
         if generate_script:
             try:
-                request = ProjectRequest(topic, style, duration, audience)
+                if agent_backend == "mock" and content_mode == "cfunset":
+                    raise ValueError("CFunSet 模式请选真实 AutoGen，并先准备索引")
+                request = ProjectRequest(topic, style, duration, audience, context)
                 feed = st.container()
 
                 def show_message(message):
@@ -89,9 +96,15 @@ def main() -> None:
                             st.write(message.content)
 
                 with st.spinner("五个 Agent 正在协作……"):
-                    workflow = JybWorkflow(AutoGenConfig.from_env()) if agent_backend == "autogen" else OpenMicWorkflow()
+                    workflow = JybWorkflow(AutoGenConfig.from_env(), content_mode=content_mode,
+                                           cfunset_index=Path(cfunset_index) if content_mode == "cfunset" else None) if agent_backend == "autogen" else OpenMicWorkflow()
                     result = workflow.run(request, on_message=show_message)
                 st.session_state["jyb_script"] = _workflow_script(result, agent_backend)
+                if content_mode == "cfunset":
+                    st.caption("已使用团队检索与筛选；保留自然篇幅，不为达到时长补写故事。")
+                    st.write("本轮参考 ID：", list(result.cfunset_example_ids))
+                    with st.expander("CFunSet 来源与筛选记录"):
+                        st.json({"source_policy": result.source_policy, "reference_selection": result.reference_selection})
                 if not result.approved:
                     st.warning("质检未通过。请先审阅并修改下面的稿件，再手动生成音频。")
                 if agent_backend == "mock":

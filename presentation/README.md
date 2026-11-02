@@ -107,7 +107,7 @@ Pro then receives the original draft and feedback, rewrites it, and reviews the 
 
 ## Evaluation section
 
-Slides 8–9 use the frozen results in [V3_REPORT.md](../evaluation/V3_REPORT.md).
+Slides 9–10 use the frozen results in [V3_REPORT.md](../evaluation/V3_REPORT.md).
 All evaluation results are presented as Spearman rank correlations with human
 ratings. On the same 407 CMHL confirmation examples, the continuous RoBERTa +
 CORN score reaches 0.366 (95% CI 0.265–0.443), versus 0.292 for the lightweight
@@ -130,3 +130,38 @@ reliable agreement with human relative humor judgments.
 The text-generation slides and shared navigation are unchanged. The two
 evaluation slides keep their English speaking notes in the HTML comments.
 No scripts, fonts or data are loaded over the network.
+
+## JYB delivery section and local demo
+
+Page 8 presents the delivery pipeline, four same-script conditions, a delivery
+control box, and two tagged excerpts from the deadline script. The former
+second JYB page has been removed following review. The original nine pages
+retain their substantive content; only footer page numbers change to account
+for the one inserted page. The CSW placeholder remains for that presenter's
+contribution.
+
+The two deadline excerpts retain their original Chinese words and prompt tags,
+as requested for this example; the surrounding slide text remains English.
+
+Speaking notes: [English](../docs/JYB_MIDTERM_SCRIPT_EN.md) and
+[Chinese](../docs/JYB_MIDTERM_SCRIPT_ZH.md).
+
+The player is separate from the slide: [three-version player](../docs/jyb_audio_compare.html).
+It compares the same frozen canteen, deadline or fitness script using the
+Nov 1 run's baseline and performance, then the integrity run's safe_club.
+Raw audio and whole-file gain-matched audio are separate selections.
+Only the canteen example has additional source-interval excerpts, in both raw
+and matched forms.
+
+Generated audio is excluded from Git under CONTRIBUTING.md. The local delivery
+bundle has a ready-to-open player and all 24 WAV files. To play them from this
+repository, copy the contents of its `local_demo/audio/` into
+`docs/media/jyb_compare/`, then click **加载已复制音频**. Alternatively,
+select that local audio folder in the player; matching file paths and SHA256
+are checked locally. No API or upload occurs. The external JSON manifest is
+an inspectable copy; the page embeds it, so file:// playback needs no fetch.
+
+The shopping script is withheld from the new complete-audio demo because one
+sentence still omits two particles. The historical 71-test result is not a
+fresh test count for this slide revision. No listener MOS or causal humor gain
+is claimed. See [results and limits](../docs/JYB_DELIVERY_RESULTS.md).
