@@ -12,7 +12,7 @@ and needs no server, build step or network connection.
 | 3 | lyy | Five-agent architecture, revision loop and TTS flow |
 | 4–6 | znjq | Content generation: whole-story view, prompted generation, evaluation and revision |
 | 7 | csw | TTS reliability and validation |
-| 8 | jyb | TODO: speech generation |
+| 8 | jyb | Executable delivery control and tagged deadline excerpts |
 | 9 | szq | Evaluation: rank correlations with human ratings |
 | 10 | szq | Limitations and proposed audience evaluation |
 
@@ -20,7 +20,7 @@ The lyy section describes the local implementation and project goals. The
 3–5 minute duration is a target, not a measured result. Slides 4–6 contain the
 2.5-minute text-generation section. CSW's page documents adapter reliability
 checks and mocked verification; it does not claim speech quality improvements.
-JYB's speech-generation page remains a separate placeholder. The evaluation
+JYB's page presents delivery controls and same-script comparisons. The evaluation
 section reports measured results and the missing audience validation.
 
 Slide 2 presents our working challenge analysis, not a universal theory of humor.
@@ -134,11 +134,10 @@ No scripts, fonts or data are loaded over the network.
 ## JYB delivery section and local demo
 
 Page 8 presents the delivery pipeline, four same-script conditions, a delivery
-control box, and two tagged excerpts from the deadline script. The former
-second JYB page has been removed following review. The original nine pages
-retain their substantive content; only footer page numbers change to account
-for the one inserted page. The CSW placeholder remains for that presenter's
-contribution.
+control box, and two tagged excerpts from the deadline script. CSW's adapter
+reliability page precedes it, and SZQ's evaluation pages follow it. All ten
+slides are direct children of the deck stage; no speech-generation TODO
+pages remain.
 
 The two deadline excerpts retain their original Chinese words and prompt tags,
 as requested for this example; the surrounding slide text remains English.
